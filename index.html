@@ -3,345 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Palenie a padaczka lekooporna — Raport do weryfikacji neurologicznej</title>
+<title>Palenie a padaczka lekooporna — Raport kliniczny</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
   :root {
-    --bg: #fdfdfd;
-    --text: #1d1d1f;
-    --muted: #636366;
-    --accent: #1a5276;
-    --accent-light: #eaf2f8;
-    --border: #d5d9dd;
-    --warn: #7d5a00;
-    --warn-bg: #fef9ec;
-    --good: #1a6b3c;
-    --good-bg: #edf8f0;
-    --bad: #8b1a1a;
-    --bad-bg: #fdf2f2;
-    --purple: #5b3a8c;
-    --purple-bg: #f5f0fa;
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --accent: #0f4c75; --accent2: #3282b8; --accent-bg: #e8f4fd;
+    --border: #dee2e6; --radius: 10px;
+    --red: #c0392b; --red-bg: #fdf0ef;
+    --green: #1e8449; --green-bg: #eafaf1;
+    --amber: #b7791f; --amber-bg: #fefce8;
+    --purple: #6c3483; --purple-bg: #f5eef8;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.72;
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-    font-size: 15px;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.75; font-size: 15px;
   }
 
-  /* ---- HEADER ---- */
-  .header-band {
-    background: linear-gradient(135deg, var(--accent) 0%, #2471a3 100%);
-    margin: 0 -1.5rem;
-    padding: 2.5rem 2rem 2rem;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+  /* — HEADER — */
+  .hero {
+    background: linear-gradient(135deg, #0a2647 0%, #144272 50%, #205295 100%);
+    color: #fff; padding: 0; position: relative; overflow: hidden;
   }
-  .header-band::after {
-    content: '';
-    position: absolute;
-    top: -40px; right: -60px;
-    width: 260px; height: 260px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-  .header-band h1 {
-    font-size: 1.55rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.25rem;
-  }
-  .header-band .subtitle {
-    font-size: 0.92rem;
-    opacity: 0.85;
-    font-weight: 400;
-  }
-  .header-meta {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    opacity: 0.75;
-  }
+  .hero-inner { max-width: 920px; margin: 0 auto; padding: 3rem 2rem 1.5rem; position: relative; z-index: 2; }
+  .hero h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+  .hero .sub { font-size: 0.92rem; opacity: 0.8; font-weight: 400; }
+  .hero-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem; font-size: 0.78rem; opacity: 0.65; }
+  .eeg-wave { width: 100%; height: 50px; opacity: 0.12; }
 
-  /* ---- DISCLAIMER ---- */
+  /* — LAYOUT — */
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+  /* — NAV / TOC — */
+  .toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.2rem 1.5rem; margin: 1.5rem 0 2rem; font-size: 0.88rem;
+  }
+  .toc-title { font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .toc ol { margin: 0; padding-left: 1.3rem; }
+  .toc li { margin-bottom: 0.25rem; }
+  .toc a { color: var(--accent2); text-decoration: none; border-bottom: 1px dotted var(--accent2); }
+  .toc a:hover { color: var(--accent); border-bottom-style: solid; }
+
+  /* — DISCLAIMER — */
   .disclaimer {
-    background: var(--warn-bg);
-    border-left: 4px solid var(--warn);
-    padding: 0.85rem 1.1rem;
-    margin: 1.8rem 0 2rem;
-    font-size: 0.85rem;
-    color: #5a4000;
-    border-radius: 0 4px 4px 0;
+    background: var(--amber-bg); border-left: 4px solid var(--amber);
+    padding: 0.8rem 1rem; margin-bottom: 2rem; font-size: 0.84rem; color: #78591a;
+    border-radius: 0 var(--radius) var(--radius) 0;
   }
 
-  /* ---- HEADINGS ---- */
+  /* — SECTIONS — */
   h2 {
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin: 2.5rem 0 0.7rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 2px solid var(--accent-light);
+    font-size: 1.2rem; font-weight: 700; color: var(--accent);
+    margin: 2.8rem 0 0.8rem; padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--accent-bg);
   }
-  h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.45rem;
-    color: var(--text);
-  }
-  p { margin-bottom: 0.75rem; }
-  strong { font-weight: 600; }
+  h2 .num { color: var(--accent2); font-weight: 500; margin-right: 0.3rem; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+  p { margin-bottom: 0.7rem; }
+  a { color: var(--accent2); }
+  a:hover { color: var(--accent); }
 
-  /* ---- TABLES ---- */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0.8rem 0 1.4rem;
-    font-size: 0.88rem;
+  /* — CARDS — */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.2rem 1.4rem; margin: 1rem 0;
   }
-  th {
-    background: var(--accent-light);
-    text-align: left;
-    padding: 0.55rem 0.65rem;
-    font-weight: 600;
-    border-bottom: 2px solid #b8d4e8;
-    font-size: 0.82rem;
-    color: var(--accent);
-  }
-  td {
-    padding: 0.5rem 0.65rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
-  tr.row-compare { background: var(--bad-bg); }
+  .card-header { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 1rem 0; }
+  .card-grid .card { margin: 0; }
 
-  /* ---- BADGES ---- */
-  .b {
-    display: inline-block;
-    padding: 0.08rem 0.45rem;
-    border-radius: 3px;
-    font-size: 0.76rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+  /* — STAT HIGHLIGHT — */
+  .stat-row {
+    display: flex; gap: 0.8rem; margin: 1.2rem 0; flex-wrap: wrap;
   }
-  .b-ok { background: var(--good-bg); color: var(--good); }
-  .b-bad { background: var(--bad-bg); color: var(--bad); }
-  .b-warn { background: var(--warn-bg); color: var(--warn); }
-  .b-n { background: #eee; color: #555; }
+  .stat-card {
+    flex: 1; min-width: 200px; padding: 1rem 1.2rem;
+    border-radius: var(--radius); text-align: center;
+  }
+  .stat-card .num { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+  .stat-card .label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+  .stat-card .src { font-size: 0.7rem; margin-top: 0.3rem; }
+  .stat-red { background: var(--red-bg); }
+  .stat-red .num { color: var(--red); }
+  .stat-amber { background: var(--amber-bg); }
+  .stat-amber .num { color: var(--amber); }
 
-  /* ---- CALLOUTS ---- */
+  /* — CALLOUTS — */
   .callout {
-    padding: 0.9rem 1.1rem;
-    border-radius: 0 4px 4px 0;
-    margin: 1rem 0;
-    font-size: 0.9rem;
+    padding: 0.9rem 1.1rem; border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 1rem 0; font-size: 0.9rem;
   }
-  .c-key { background: var(--accent-light); border-left: 4px solid var(--accent); }
-  .c-warn { background: var(--warn-bg); border-left: 4px solid var(--warn); }
+  .c-key { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+  .c-warn { background: var(--amber-bg); border-left: 4px solid var(--amber); }
+  .c-red { background: var(--red-bg); border-left: 4px solid var(--red); }
 
-  /* ---- "PLAIN LANGUAGE" ASIDE ---- */
+  /* — PLAIN LANGUAGE — */
   .plain {
-    background: var(--purple-bg);
-    border-left: 4px solid var(--purple);
-    padding: 0.65rem 1rem;
-    margin: 0.5rem 0 1rem;
-    font-size: 0.87rem;
-    color: #3d2a5e;
-    border-radius: 0 4px 4px 0;
+    background: var(--purple-bg); border-left: 4px solid var(--purple);
+    padding: 0.6rem 1rem; margin: 0.5rem 0 1rem;
+    font-size: 0.87rem; color: #4a235a; border-radius: 0 6px 6px 0;
   }
-  .plain::before {
-    content: "Bez żargonu — ";
-    font-weight: 700;
-  }
+  .plain-label { font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
 
-  /* ---- EVIDENCE TAG ---- */
-  .ev {
-    font-size: 0.76rem;
-    color: var(--muted);
-    font-style: italic;
+  /* — FEATURED FINDING (4×) — */
+  .featured {
+    background: linear-gradient(135deg, #fdf0ef 0%, #fce4ec 100%);
+    border: 2px solid var(--red); border-radius: var(--radius);
+    padding: 1.5rem 1.6rem; margin: 1.5rem 0; position: relative;
   }
-
-  /* ---- CERTAINTY GRID ---- */
-  .cert-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.7rem;
-    margin: 1rem 0;
-  }
-  .cert-box {
-    padding: 0.85rem;
-    border-radius: 5px;
-    font-size: 0.84rem;
-  }
-  .cert-box h4 {
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
-    text-transform: uppercase;
+  .featured-badge {
+    position: absolute; top: -12px; left: 1.2rem;
+    background: var(--red); color: #fff; font-weight: 700;
+    font-size: 0.78rem; padding: 0.15rem 0.7rem; border-radius: 4px;
     letter-spacing: 0.04em;
   }
-  .cert-box ul { margin: 0.3rem 0 0 1.1rem; }
-  .cert-box li { margin-bottom: 0.25rem; }
-  .cs { background: var(--good-bg); }
-  .cs h4 { color: var(--good); }
-  .cp { background: var(--warn-bg); }
-  .cp h4 { color: var(--warn); }
-  .cu { background: #f0f0f0; }
-  .cu h4 { color: #555; }
+  .featured .big { font-size: 2.4rem; font-weight: 700; color: var(--red); line-height: 1; }
+  .featured p { margin-top: 0.5rem; font-size: 0.9rem; }
 
-  /* ---- RECOMMENDATIONS ---- */
+  /* — BADGES — */
+  .b {
+    display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px;
+    font-size: 0.76rem; font-weight: 600;
+  }
+  .b-ok { background: var(--green-bg); color: var(--green); }
+  .b-bad { background: var(--red-bg); color: var(--red); }
+  .b-warn { background: var(--amber-bg); color: var(--amber); }
+
+  /* — COMPACT TABLE (only where needed) — */
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0 1.2rem; font-size: 0.87rem; }
+  th {
+    background: var(--accent-bg); text-align: left; padding: 0.5rem 0.6rem;
+    font-weight: 600; border-bottom: 2px solid #b8d4e8; font-size: 0.8rem; color: var(--accent);
+  }
+  td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr.cmp { background: var(--red-bg); }
+
+  .ev { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+
+  /* — CERTAINTY — */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; margin: 1rem 0; }
+  .cert { padding: 0.9rem; border-radius: var(--radius); font-size: 0.84rem; }
+  .cert h4 { font-size: 0.78rem; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .cert ul { margin: 0.2rem 0 0 1rem; }
+  .cert li { margin-bottom: 0.2rem; }
+  .cert-ok { background: var(--green-bg); } .cert-ok h4 { color: var(--green); }
+  .cert-maybe { background: var(--amber-bg); } .cert-maybe h4 { color: var(--amber); }
+  .cert-unk { background: #f0f0f0; } .cert-unk h4 { color: #555; }
+
+  /* — RECS — */
   .rec {
-    list-style: none;
-    margin: 0.8rem 0 0;
-    padding: 0;
-    counter-reset: r;
+    list-style: none; padding: 0; counter-reset: r; margin: 1rem 0 0;
   }
   .rec li {
-    counter-increment: r;
-    padding: 0.75rem 0.9rem 0.75rem 3rem;
-    margin-bottom: 0.55rem;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    position: relative;
-    font-size: 0.9rem;
+    counter-increment: r; padding: 0.8rem 1rem 0.8rem 3.2rem;
+    margin-bottom: 0.6rem; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); position: relative; font-size: 0.9rem;
   }
   .rec li::before {
-    content: counter(r);
-    position: absolute;
-    left: 0.85rem; top: 0.75rem;
-    background: var(--accent);
-    color: #fff;
-    width: 1.35rem; height: 1.35rem;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 1.35rem;
-    font-size: 0.76rem;
-    font-weight: 700;
+    content: counter(r); position: absolute; left: 0.9rem; top: 0.8rem;
+    background: var(--accent); color: #fff; width: 1.5rem; height: 1.5rem;
+    border-radius: 50%; text-align: center; line-height: 1.5rem; font-size: 0.78rem; font-weight: 700;
   }
-  .rec .cause { font-weight: 600; color: var(--bad); }
-  .rec .eff { color: var(--text); }
+  .rec .cause { font-weight: 600; color: var(--red); }
 
-  /* ---- SOURCES ---- */
-  .sources {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--border);
-  }
-  .src {
-    margin-bottom: 1rem;
-    padding-left: 1.6rem;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .src::before {
-    content: attr(data-n);
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .src .j { font-style: italic; color: var(--muted); }
-  .src .f { display: block; margin-top: 0.15rem; }
+  /* — SOURCES — */
+  .sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border); }
+  .src-item { margin-bottom: 1rem; padding-left: 1.6rem; position: relative; font-size: 0.84rem; }
+  .src-item::before { content: attr(data-n); position: absolute; left: 0; font-weight: 700; color: var(--accent); }
+  .src-item .j { font-style: italic; color: var(--muted); }
+  .src-item .f { display: block; margin-top: 0.15rem; }
 
-  /* ---- MISC ---- */
-  ul:not(.rec) { margin: 0.4rem 0 0.9rem 1.2rem; }
-  li { margin-bottom: 0.3rem; }
-
+  ul:not(.rec) { margin: 0.3rem 0 0.8rem 1.2rem; }
+  li { margin-bottom: 0.25rem; }
   footer {
-    margin-top: 3rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-align: center;
+    margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--border);
+    font-size: 0.74rem; color: var(--muted); text-align: center;
   }
+
   @media (max-width: 640px) {
-    body { padding: 0 1rem 3rem; font-size: 14px; }
-    .header-band { margin: 0 -1rem; padding: 2rem 1.2rem 1.5rem; }
-    .cert-grid { grid-template-columns: 1fr; }
-    .header-meta { flex-direction: column; gap: 0.25rem; }
-    table { font-size: 0.8rem; }
+    .wrap { padding: 0 1rem 3rem; }
+    .hero-inner { padding: 2rem 1.2rem 1rem; }
+    .cert-grid, .card-grid { grid-template-columns: 1fr; }
+    .stat-row { flex-direction: column; }
+    .hero-meta { flex-direction: column; gap: 0.2rem; }
+    .featured .big { font-size: 1.8rem; }
   }
   @media print {
-    .header-band { background: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    body { max-width: 100%; font-size: 13px; }
+    .hero { background: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 13px; }
+    .toc { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
-<div class="header-band">
-  <h1>Palenie a padaczka lekooporna u kobiety</h1>
-  <div class="subtitle">Briwaracetam · Cenobamat · Lakozamid — wpływ dymu i nikotyny na chorobę i leki</div>
-  <div class="header-meta">
-    <span>📋 Do weryfikacji neurologicznej</span>
-    <span>📅 Marzec 2026</span>
-    <span>⚕️ Profil: kobieta · padaczka lekooporna · current smoker</span>
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Palenie a padaczka lekooporna u kobiety</h1>
+    <div class="sub">Briwaracetam · Cenobamat · Lakozamid — analiza wpływu dymu i nikotyny na chorobę i leki</div>
+    <div class="hero-meta">
+      <span>📋 Do weryfikacji neurologicznej</span>
+      <span>📅 Marzec 2026</span>
+      <span>⚕️ Profil: kobieta · padaczka lekooporna · current smoker</span>
+    </div>
+  </div>
+  <svg class="eeg-wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline fill="none" stroke="#fff" stroke-width="1.5" points="0,25 30,25 50,25 70,24 80,26 100,25 120,24 140,26 160,25 180,25 200,23 210,28 215,10 220,42 225,8 230,40 235,25 250,25 270,24 290,26 310,25 340,25 360,25 380,24 400,26 410,25 430,25 450,23 460,28 465,12 470,38 475,10 480,42 485,25 500,25 520,24 540,25 570,26 600,25 630,24 650,25 670,25 690,24 700,27 705,14 710,38 715,8 720,44 725,12 730,40 735,25 750,25 780,24 810,26 840,25 870,25 890,24 910,25 940,26 960,25 980,25 1000,24 1010,27 1015,11 1020,41 1025,9 1030,43 1035,25 1050,25 1080,24 1110,26 1140,25 1170,25 1200,25"/>
+  </svg>
+</div>
+
+<div class="wrap">
+
+<!-- ========== DISCLAIMER ========== -->
+<div class="disclaimer">
+  <strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji neurologicznej. Nie stanowi porady medycznej. Nie istnieje badanie kliniczne prowadzone w dokładnej populacji: kobiety + padaczka lekooporna + Briviact + Ontozry + Lacosamide + aktywne palenie. Wnioski opierają się na ekstrapolacji z najsilniejszych dostępnych danych.
+</div>
+
+<!-- ========== TOC ========== -->
+<nav class="toc">
+  <div class="toc-title">Nawigacja</div>
+  <ol>
+    <li><a href="#leki">Substancje czynne i szlaki metaboliczne</a></li>
+    <li><a href="#pk">Wpływ palenia na farmakokinetykę tych leków</a></li>
+    <li><a href="#epi">Wpływ palenia na padaczkę (niezależnie od leków)</a>
+      <ol>
+        <li><a href="#epi-women">Dane epidemiologiczne u kobiet</a></li>
+        <li><a href="#epi-4x">Dane z ośrodka epileptologicznego (highlight ×4)</a></li>
+        <li><a href="#epi-freq">Przełożenie na częstość napadów</a></li>
+        <li><a href="#epi-kindling">Efekt kindlingu</a></li>
+        <li><a href="#epi-ox">Stres oksydacyjny</a></li>
+        <li><a href="#epi-sleep">Zaburzenia snu</a></li>
+        <li><a href="#epi-sudep">Dysautonomia i SUDEP</a></li>
+      </ol>
+    </li>
+    <li><a href="#alt">E-papierosy i plastry — porównanie alternatyw</a></li>
+    <li><a href="#cert">Poziomy pewności</a></li>
+    <li><a href="#rec">Zalecenia kliniczne</a></li>
+    <li><a href="#src">Źródła</a></li>
+  </ol>
+</nav>
+
+
+<!-- ===== 1. LEKI ===== -->
+<h2 id="leki"><span class="num">1.</span> Substancje czynne i szlaki metaboliczne</h2>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="card-header">Briviact → Briwaracetam</div>
+    <p>Hydroliza amidazowa (~60%), <a href="https://www.pharmgkb.org/gene/PA124" target="_blank">CYP2C19</a> (~30%). Nie jest substratem <a href="https://en.wikipedia.org/wiki/CYP1A2" target="_blank">CYP1A2</a>.</p>
+    <p><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf" target="_blank">FDA PI Briviact 2021</a>, Sekcja 12.3</span></p>
+  </div>
+  <div class="card">
+    <div class="card-header">Ontozry → Cenobamat</div>
+    <p>Glukuronidacja <a href="https://en.wikipedia.org/wiki/UGT2B7" target="_blank">UGT2B7</a> (dominująca), CYP2E1 / CYP2A6 / CYP2B6 (wtórne). Nie jest substratem CYP1A2.</p>
+    <p><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s004lbl.pdf" target="_blank">FDA PI Xcopri 2024</a>, Sekcja 12.3</span></p>
+  </div>
+  <div class="card">
+    <div class="card-header">Vimpat → Lakozamid</div>
+    <p>~40% wydalanie nerkowe niezmienione, CYP3A4 / CYP2C9 / CYP2C19 (~30%, metabolit O-desmetylowy, nieaktywny). Nie jest substratem CYP1A2.</p>
+    <p><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf" target="_blank">FDA PI Vimpat 2023</a>, Sekcja 12.3</span></p>
+  </div>
+  <div class="card" style="border-color: var(--red); background: var(--red-bg);">
+    <div class="card-header" style="color: var(--red);">⚠ Lamotrygina (dla kontrastu)</div>
+    <p>Glukuronidacja <strong>UGT1A4</strong> — indukowana przez PAH z dymu. Stężenie spada <strong>16–34%</strong> u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18396470/" target="_blank">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</p>
   </div>
 </div>
 
-<div class="disclaimer">
-  <strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji przez neurologa. Nie stanowi porady medycznej. Nie istnieje badanie kliniczne prowadzone dokładnie w populacji: kobiety + padaczka lekooporna + Briviact + Ontozry + Lacosamide + aktywne palenie.
-</div>
 
-
-<!-- ============================================ -->
-<h2>Substancje czynne i szlaki metaboliczne</h2>
-
-<table>
-  <tr><th>Lek handlowy</th><th>Substancja czynna</th><th>Główna droga eliminacji</th></tr>
-  <tr>
-    <td><strong>Briviact</strong></td>
-    <td>Briwaracetam</td>
-    <td>Hydroliza amidazowa (~60%), CYP2C19 (~30%)</td>
-  </tr>
-  <tr>
-    <td><strong>Ontozry</strong></td>
-    <td>Cenobamat</td>
-    <td>Glukuronidacja UGT2B7 (dominująca), CYP2E1 / CYP2A6 / CYP2B6 (wtórne)</td>
-  </tr>
-  <tr>
-    <td><strong>Lacosamide</strong> (Vimpat)</td>
-    <td>Lakozamid</td>
-    <td>~40% wydalanie nerkowe niezmienione, CYP3A4 / CYP2C9 / CYP2C19 (~30%)</td>
-  </tr>
-</table>
-
-
-<!-- ============================================ -->
-<h2>I. Wpływ dymu papierosowego i nikotyny na te trzy leki</h2>
+<!-- ===== 2. PK ===== -->
+<h2 id="pk"><span class="num">2.</span> Wpływ palenia na farmakokinetykę tych leków</h2>
 
 <div class="callout c-key">
-  <strong>Ustalenie wyjściowe:</strong> Dym papierosowy (PAH → receptor AhR) indukuje głównie <strong>CYP1A2</strong> i <strong>UGT1A4</strong>. Żaden z tych trzech leków nie jest substratem CYP1A2 ani UGT1A4. Nikotyna sama w sobie nie indukuje CYP1A2 u ludzi (Hukkanen et al. 2011, plastry 42 mg/dobę).
+  <strong>Ustalenie kluczowe:</strong> Dym papierosowy (PAH → receptor AhR) indukuje głównie <strong>CYP1A2</strong> i <strong>UGT1A4</strong>. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama w sobie nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21204915/" target="_blank">Hukkanen et al. 2011</a>, plastry 42 mg/dobę, Table 1).
 </div>
 
-<h3>Briwaracetam (Briviact)</h3>
-<p>Amidaza odpowiadająca za ~60% metabolizmu <strong>nie jest indukowana</strong> przez PAH ani przez ryfampicynę. CYP2C19 (~30%) nie jest genem docelowym receptora AhR i nie jest istotnie indukowany przez palenie. Briwaracetam <strong>nie jest substratem CYP1A2</strong> (FDA label 2021, EMA SmPC 2025). Palenie nie figuruje w żadnym punkcie ChPL.</p>
-<p><span class="b b-ok">BRAK INTERAKCJI</span> <span class="ev">— FDA Prescribing Information Briviact, Rev. 2021, Sekcja 12.3</span></p>
-
-<h3>Cenobamat (Ontozry)</h3>
-<p>Główna droga: UGT2B7 — <strong>nie jest indukowany przez palenie</strong> (badania proteomiczne, 94 dawców wątroby; w przeciwieństwie do UGT1A4/UGT1A6, które SĄ indukowane). Drugorzędne szlaki CYP (2E1: wzrost ~23% u palaczy — marginalny; 2A6: hamowany przez nikotynę jako substrat kompetycyjny; 2B6: nieznaczna indukcja przez CAR). Cenobamat <strong>nie jest substratem CYP1A2</strong>. Palenie nie figuruje w ChPL.</p>
-<p><span class="b b-ok">PRAWDOPODOBNIE BRAK ISTOTNEJ INTERAKCJI</span> <span class="ev">— FDA PI Xcopri 2024, Sekcja 12.3; brak danych klinicznych in vivo</span></p>
-
-<h3>Lakozamid (Lacosamide / Vimpat)</h3>
-<p>Podwójna ochrona: ~40% wydalane nerkami niezmienione (niezależne od enzymów), metabolizm oksydacyjny (~30%, metabolit O-desmetylowy, nieaktywny) przez CYP3A4/2C9/2C19 — żaden nie jest istotnie indukowany przez palenie. <strong>Nie jest substratem CYP1A2</strong>. Polimorfizm CYP2C19 (poor metabolizers) nie zmienia klinicznie istotnie stężenia lakozamidu macierzystego.</p>
-<p><span class="b b-ok">BRAK INTERAKCJI</span> <span class="ev">— FDA PI Vimpat 2023, Sekcja 12.3</span></p>
-
-<h3>Zestawienie porównawcze</h3>
 <table>
   <tr>
     <th>Lek</th>
     <th>Substrat CYP1A2?</th>
     <th>Główny szlak wrażliwy na dym?</th>
-    <th>Spodziewany wpływ palenia</th>
+    <th>Wpływ palenia na stężenie</th>
   </tr>
   <tr>
     <td>Briwaracetam</td>
@@ -352,82 +299,156 @@
   <tr>
     <td>Cenobamat</td>
     <td><span class="b b-ok">NIE</span></td>
-    <td><span class="b b-ok">NIE</span> — UGT2B7 odporny</td>
+    <td><span class="b b-ok">NIE</span> — UGT2B7 odporny na indukcję PAH</td>
     <td>Prawdopodobnie żaden</td>
   </tr>
   <tr>
     <td>Lakozamid</td>
     <td><span class="b b-ok">NIE</span></td>
-    <td><span class="b b-ok">NIE</span> — 40% nerki</td>
+    <td><span class="b b-ok">NIE</span> — 40% nerki + CYP nie-1A2</td>
     <td>Żaden</td>
   </tr>
-  <tr class="row-compare">
-    <td><em>Lamotrygina (dla kontrastu)</em></td>
-    <td><span class="b b-n">NIE</span></td>
-    <td><span class="b b-bad">TAK</span> — UGT1A4</td>
-    <td><strong>~16–34% spadek stężenia</strong></td>
+  <tr class="cmp">
+    <td><em>Lamotrygina</em></td>
+    <td><span class="b b-warn">NIE</span></td>
+    <td><span class="b b-bad">TAK — UGT1A4</span></td>
+    <td><strong>~16–34% spadek</strong></td>
   </tr>
 </table>
 
-<div class="callout c-key">
-  W przeciwieństwie do lamotryginy, pacjentka na Briviact + Ontozry + Lacosamide <strong>nie „traci" dawki leku z powodu palenia</strong>. Problem palenia w jej przypadku leży gdzie indziej.
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Pacjentka na zestawie Briviact + Ontozry + Lacosamide <strong>nie traci dawki leku z powodu palenia</strong>. W przeciwieństwie do lamotryginy, gdzie palenie wymusza korekty dawkowania, tutaj ten problem nie występuje. Wniosek: palenie szkodzi tej pacjentce, ale nie przez „zjadanie" stężeń leków.
 </div>
 
 
-<!-- ============================================ -->
-<h2>II. Wpływ palenia i nikotyny na padaczkę — niezależnie od leków</h2>
+<!-- ===== 3. EPILEPSY ===== -->
+<h2 id="epi"><span class="num">3.</span> Wpływ palenia na padaczkę — niezależnie od leków</h2>
 
-<h3>A. Dym papierosowy → wyższe ryzyko napadów u kobiet</h3>
+<!-- 3a. epidemiologia kobiety -->
+<h3 id="epi-women">3a. Dane epidemiologiczne u kobiet</h3>
 
-<p><strong>Dworetzky et al. 2010 (Nurses' Health Study II):</strong> 116 363 kobiety, 16 lat obserwacji prospektywnej. Aktualnie palące: <strong>RR = 2,60 (95% CI: 1,53–4,42)</strong> dla napadów padaczkowych po korekcie na udar, BMI, nadciśnienie i inne czynniki.</p>
+<div class="stat-row">
+  <div class="stat-card stat-red">
+    <div class="num">RR 2,60</div>
+    <div class="label">ryzyko napadu u aktualnie palących kobiet vs. niepalących</div>
+    <div class="src"><a href="https://pubmed.ncbi.nlm.nih.gov/19694795/" target="_blank">Dworetzky 2010</a> · NHS II · n = 116 363 · 16 lat</div>
+  </div>
+  <div class="stat-card stat-amber">
+    <div class="num">OR 1,59</div>
+    <div class="label">palenie + aktywna padaczka (metaanaliza)</div>
+    <div class="src"><a href="https://doi.org/10.1186/s12916-024-03307-0" target="_blank">Kang 2024</a> · 17 badań · n = 743 108</div>
+  </div>
+  <div class="stat-card stat-amber">
+    <div class="num">OR 1,33</div>
+    <div class="label">kobiety z padaczką, stratyfikacja płciowa (p = 0,009)</div>
+    <div class="src"><a href="https://doi.org/10.3389/fnhum.2025" target="_blank">NHIS 2025</a> · n = 57 088</div>
+  </div>
+</div>
 
-<div class="plain">W dużej grupie podobnych kobiet obserwowanych przez 16 lat, napady pojawiały się u palących <strong>prawie trzy razy częściej</strong> niż u niepalących. Nie oznacza to, że każda palaczka dostanie napad — oznacza, że prawdopodobieństwo jest istotnie przesunięte w złą stronę. Dla osoby z padaczką lekooporną, która już nie ma dużego „bufora bezpieczeństwa", to przesunięcie ma większą wagę kliniczną.</div>
-
-<p><strong>Kang et al. 2024 (metaanaliza, BMC Medicine):</strong> 17 badań, 743 108 osób. Aktualni palacze: OR = 1,46 (1,13–1,89). Podgrupa <em>aktywna padaczka</em>: <strong>OR = 1,59 (1,42–1,78)</strong>. Byli palacze: OR = 1,14 (nieistotny).</p>
-
-<div class="plain">Osoby z aktywną padaczką, które palą, mają o <strong>59% wyższe prawdopodobieństwo</strong> pogorszonej kontroli napadów niż niepalący. To słabszy sygnał niż RR 2,60, ale pochodzi z dużo większej próby. Ważne: u byłych palaczy efekt zanika — sugestia, że rzucenie palenia zmienia coś na korzyść.</div>
-
-<p><strong>NHIS 2025 (Frontiers in Human Neuroscience), n = 57 088:</strong> jedyne niedawne badanie z istotnym wynikiem specyficznie u kobiet: <strong>OR = 1,33 (1,08–1,65, p = 0,009)</strong>. U mężczyzn: OR = 1,16 (nieistotny).</p>
-
-<div class="plain">Palące kobiety miały o <strong>33% wyższe prawdopodobieństwo</strong> padaczki niż niepalące. U mężczyzn takiego związku statystycznie nie wykazano. To kolejny punkt wskazujący, że kobiety mogą być na to bardziej wrażliwe.</div>
-
-
-<h3>B. Nikotyna → obniżanie progu drgawkowego</h3>
-
-<p>Becchetti et al. 2023 (Pharmacological Research): przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych efekt <strong>kindlingu</strong> — progresywne obniżanie progu drgawkowego przy powtarzanych ekspozycjach. Mutacje w genach nAChR (CHRNA4, CHRNB2) powodują padaczkę (ADSHE), co stanowi dowód koncepcyjny, że nadaktywacja tych receptorów jest epileptogenna.</p>
-
-<div class="plain">Codzienne palenie może nie wywołać napadu „od razu", ale z czasem stopniowo <strong>obniża barierę ochronną mózgu przed napadami</strong>. Jak powolne podmywanie tamy — każdego dnia trochę, aż w końcu mniej potrzeba, żeby doszło do przełamania.</div>
-<p><span class="ev">Dane zwierzęce; translacja na człowieka wysoce prawdopodobna mechanistycznie, ale brak bezpośredniego badania prospektywnego.</span></p>
-
-
-<h3>C. Dym → stres oksydacyjny → pogłębienie lekooporności</h3>
-
-<p>Geronzi et al. 2018 (n = 18 pacjentów z padaczką lekooporną ogniskową vs. 80 kontroli): istotnie podwyższone markery uszkodzenia oksydacyjnego. <strong>3-nitrotyrozyna (3-NT) korelowała pozytywnie z częstością napadów na miesiąc</strong> (p ≤ 0,005). Witamina C istotnie obniżona (p = 0,0001). Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników — egzogenny stres oksydacyjny nakłada się na endogenny, który w padaczce lekoopornej jest już podwyższony.</p>
-
-
-<h3>D. Nikotyna → gorszy sen → prowokacja napadów</h3>
-
-<p>Sleep Heart Health Study (n = 6 400, polisomnografia): aktualni palacze vs. niepalący: <strong>−14 min całkowity czas snu, −14% snu wolnofalowego (N3)</strong>, +24% snu stadium 1 (najlżejszego). U byłych palaczy: brak różnic — co potwierdza przyczynowość nikotyny, nie stylu życia.</p>
-
-<div class="plain">Deprywacja snu jest <strong>najczęściej zgłaszanym wyzwalaczem napadów</strong> u dorosłych z padaczką (AAN Continuum 2021). Nikotyna skraca i spłyca sen. Jeśli napady pojawiają się nocą lub rano, ten mechanizm jest bezpośrednio istotny.</div>
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  <strong>RR 2,60</strong> z <a href="https://pubmed.ncbi.nlm.nih.gov/19694795/" target="_blank">Nurses' Health Study II</a> (jedyne duże prospektywne badanie u kobiet): wśród ponad 116 tysięcy kobiet obserwowanych przez 16 lat, <strong>aktualnie palące miały napady prawie trzy razy częściej</strong> niż nigdy niepalące, po korekcie na udar, BMI, nadciśnienie i inne czynniki. U byłych palaczek efekt był słabszy (RR 1,46 dla padaczki), co sugeruje częściową odwracalność po zaprzestaniu palenia.
+</div>
 
 
-<h3>E. Palenie → dysfunkcja autonomiczna → ryzyko SUDEP</h3>
+<!-- 3b. Johnson 4× -->
+<h3 id="epi-4x">3b. Palacze z padaczką: czterokrotnie częściej napady w ciągu roku</h3>
 
-<p>Palenie obniża zmienność rytmu serca (HRV) o ~9% na każde 10 g tytoniu dziennie. Pacjentki z padaczką lekooporną mają najwyższe ryzyko SUDEP (nagłej nieoczekiwanej śmierci w padaczce). SUDEP wiąże się z obniżonym HRV.</p>
+<div class="featured">
+  <div class="featured-badge">KLUCZOWY WYNIK</div>
+  <div class="big">×4</div>
+  <p><strong>Palacze z padaczką byli ~4 razy bardziej narażeni na wystąpienie napadu w ciągu ostatniego roku niż niepalący</strong> (OR ≈ 4, po korekcie na SES: OR = 3,61).</p>
+  <p style="font-size: 0.84rem; color: var(--muted); margin-top: 0.8rem;">
+    <a href="https://www.sciencedirect.com/science/article/abs/pii/S1525505018307339" target="_blank">Johnson et al. 2019, <em>Epilepsy &amp; Behavior</em></a> · n = 92 (43 palących, 49 niepalących) · 58% kobiet w grupie palących · Rekrutacja z ośrodka Level IV NAEC (Comprehensive Epilepsy Center)
+  </p>
+</div>
 
-<div class="plain">Palenie osłabia zdolność serca do elastycznego reagowania na nagłe zmiany — a to dokładnie ten mechanizm, który odpowiada za zgony w SUDEP. <strong>Brak bezpośredniego badania prospektywnego</strong> testującego ten związek, ale łańcuch mechanistyczny jest wewnętrznie spójny.</div>
+<p><strong>Analiza trafności tego wyniku w kontekście profilu pacjentki:</strong></p>
+<ul>
+  <li><strong>Silnie relewantny:</strong> próba pochodzi z ośrodka epileptologicznego IV stopnia, a nie z populacji ogólnej — pacjenci odzwierciedlają profil o wyższej ciężkości choroby, bliższy padaczce lekoopornej.</li>
+  <li><strong>Spójny kierunkowo:</strong> ×4 jest wyższe niż RR 2,60 z NHS II (populacja ogólna kobiet), co jest logiczne: w ciężkiej padaczce palenie może mieć proporcjonalnie większy efekt destabilizujący.</li>
+  <li><strong>Ograniczenia:</strong> badanie przekrojowe (nie prospektywne), mała próba (n = 92), status palenia nie weryfikowany biochemicznie. Jednakże autorzy kontrolowali na SES (Medicaid status) i efekt utrzymał się (OR = 3,61).</li>
+  <li><strong>Istotne zastrzeżenie z badania:</strong> palenie <strong>nie było</strong> niezależnie związane ze statusem padaczki lekoopornej per se (brak istotnego OR dla refractory status). Palacze mieli więcej napadów, ale nie byli istotnie częściej lekoopornymi.</li>
+</ul>
+
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Wśród pacjentów z padaczką leczonych w specjalistycznym ośrodku, <strong>palacze mieli ~4-krotnie wyższe prawdopodobieństwo napadu w ciągu roku</strong> niż niepalący. Nie oznacza to, że palenie <em>powoduje</em> czterokrotny wzrost częstości napadów na miesiąc (zob. <a href="#epi-freq">poniżej</a>), ale że <strong>ryzyko wystąpienia jakiegokolwiek napadu w danym roku jest radykalnie wyższe u palących</strong>.
+</div>
 
 
-<!-- ============================================ -->
-<h2>III. E-papierosy i plastry — porównanie alternatyw</h2>
+<!-- 3c. Przełożenie na częstość -->
+<h3 id="epi-freq">3c. Przełożenie na częstość napadów — co te liczby oznaczają praktycznie</h3>
+
+<div class="callout c-warn">
+  <strong>Ważne zastrzeżenie metodologiczne:</strong> RR 2,60 i OR ~4 dotyczą <em>ryzyka wystąpienia napadu</em> (binarny outcome: były napady / nie było napadów), a nie liniowego mnożnika częstości. Nie można ich wprost przekładać jako „×2,6 napadów na miesiąc". Poniższe ilustracje mają charakter poglądowy.
+</div>
+
+<p>Mediana częstości napadów w padaczce lekoopornej jest trudna do precyzyjnego ustalenia, ponieważ rozkład jest silnie skośny. Dane z badań rejestracyjnych ASM wskazują typowy zakres <strong>od 1 napadu/miesiąc (kryterium włączenia do badań) do ~8/miesiąc (mediana w bardziej opornych kohortach)</strong>. W UK-CPRD (n = 34 647 z DRE) padaczka lekooporna definiowana jest jako ≥3 nieudane schematy ASM, a ~35% pacjentów miało napady tygodniowe lub częstsze (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11055725/" target="_blank">Shankar et al. 2024</a>).</p>
+
+<p>Dla poglądowej ilustracji, przyjmując hipotetyczną pacjentkę z <strong>1 napadem miesięcznie</strong> (dolna granica DRE):</p>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="card-header">Scenariusz RR 2,60 (NHS II)</div>
+    <p>Gdyby RR przekładał się liniowo na częstość (co jest uproszczeniem): zamiast 1 napadu/mies. → <strong>~2–3 napady/mies.</strong>, czyli zamiast co 30 dni → <strong>co ~11 dni</strong>.</p>
+  </div>
+  <div class="card">
+    <div class="card-header">Scenariusz OR ~4 (Johnson 2019)</div>
+    <p>Przy tym samym założeniu: zamiast 1/mies. → <strong>~4/mies.</strong>, czyli potencjalnie <strong>co ~7–8 dni</strong> (co tydzień).</p>
+  </div>
+</div>
+
+<p><span class="ev">Te przeliczenia mają charakter wyłącznie ilustracyjny. Rzeczywista zależność dawka-odpowiedź jest nieliniowa i modyfikowana przez wiele czynników (typ napadów, adherencja, sen, stres, genetyka).</span></p>
+
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Nawet przy ostrożnej interpretacji, dane wskazują że u aktualnie palącej kobiety z padaczką lekooporną, <strong>palenie może być czynnikiem zamieniającym napady miesięczne w cotygodniowe</strong>. Przy wyższej wyjściowej częstości (np. 4/mies.) efekt byłby proporcjonalnie bardziej destrukcyjny.
+</div>
+
+
+<!-- 3d-g. Mechanizmy -->
+<h3 id="epi-kindling">3d. Efekt kindlingu nikotynowego</h3>
+<p>Przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych <strong>kindling</strong> — progresywne obniżanie progu drgawkowego przy powtarzanych ekspozycjach (<a href="https://doi.org/10.1016/j.phrs.2023.106698" target="_blank">Becchetti et al. 2023</a>). Mutacje w genach nAChR (<em>CHRNA4, CHRNB2</em>) powodują padaczkę ADSHE, co stanowi dowód koncepcyjny epileptogenności chronicznej nadaktywacji tych receptorów.</p>
+
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Codzienne palenie niekoniecznie wywołuje napad „od razu", ale z czasem stopniowo obniża barierę ochronną mózgu przed napadami. Efekt jest kumulatywny — im dłużej pacjentka pali, tym łatwiej o przełamanie progu drgawkowego. Dane zwierzęce; translacja na człowieka wysoce prawdopodobna mechanistycznie.
+</div>
+
+
+<h3 id="epi-ox">3e. Stres oksydacyjny</h3>
+<p><a href="https://doi.org/10.3390/bs8020021" target="_blank">Geronzi et al. 2018</a> (n = 18 pacjentów z padaczką lekooporną ogniskową vs. 80 kontroli): <strong>3-nitrotyrozyna korelowała pozytywnie z częstością napadów</strong> (p ≤ 0,005). Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników, nakładając egzogenny stres oksydacyjny na już podwyższony poziom endogenny w padaczce lekoopornej.</p>
+
+
+<h3 id="epi-sleep">3f. Zaburzenia snu</h3>
+<p>Sleep Heart Health Study (n = 6 400, polisomnografia): aktualni palacze vs. niepalący: <strong>−14 min całkowity czas snu, −14% snu wolnofalowego (N3)</strong>, +24% snu stadium 1. U byłych palaczy: brak różnic — potwierdza przyczynowość nikotyny.</p>
+
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Deprywacja snu jest <strong>najczęściej zgłaszanym wyzwalaczem napadów</strong> w padaczce dorosłych (<a href="https://journals.lww.com/continuum/pages/default.aspx" target="_blank">AAN Continuum 2021</a>). Utrata 14 minut snu i 14% fazy N3 u palaczki z lekooporną padaczką ogniskową, której napady często pojawiają się w przejściu sen-czuwanie, ma bezpośrednie przełożenie kliniczne.
+</div>
+
+
+<h3 id="epi-sudep">3g. Dysautonomia i ryzyko SUDEP</h3>
+<p>Palenie obniża HRV o ~9% na każde 10 g tytoniu dziennie. Pacjentki z padaczką lekooporną mają najwyższe ryzyko SUDEP, a SUDEP wiąże się z dysfunkcją autonomiczną i obniżonym HRV.</p>
+
+<div class="plain">
+  <div class="plain-label">Co to oznacza klinicznie</div>
+  Łańcuch: palenie → ↓HRV → pogłębienie istniejącej dysfunkcji autonomicznej → potencjalnie ↑ryzyko SUDEP. <strong>Brak bezpośredniego badania prospektywnego</strong> testującego ten związek, ale łańcuch mechanistyczny jest wewnętrznie spójny i klinicznie niebagatelny.
+</div>
+
+
+<!-- ===== 4. ALTERNATYWY ===== -->
+<h2 id="alt"><span class="num">4.</span> E-papierosy i plastry — porównanie alternatyw</h2>
 
 <table>
   <tr>
     <th>Czynnik</th>
-    <th>Papieros</th>
-    <th>E-papieros</th>
-    <th>Plaster nikotynowy</th>
+    <th>🚬 Papieros</th>
+    <th>💨 E-papieros</th>
+    <th>🩹 Plaster nikotynowy</th>
   </tr>
   <tr>
     <td>Indukcja CYP1A2 / UGT1A4</td>
@@ -454,25 +475,25 @@
     <td><span class="b b-ok">NIE</span></td>
   </tr>
   <tr>
-    <td>Stres oksydacyjny</td>
+    <td>Stres oksydacyjny (10<sup>15</sup> rodników / zaciągnięcie)</td>
     <td><span class="b b-bad">MASYWNY</span></td>
     <td><span class="b b-warn">UMIARKOWANY</span></td>
     <td><span class="b b-ok">MINIMALNY</span></td>
   </tr>
   <tr>
-    <td>Zaburzenia snu</td>
+    <td>Zaburzenia snu (−14 min, −14% N3)</td>
     <td><span class="b b-bad">TAK</span></td>
     <td><span class="b b-bad">TAK</span></td>
-    <td><span class="b b-warn">MNIEJ</span> (stałe stężenie)</td>
+    <td><span class="b b-warn">MNIEJ</span></td>
   </tr>
   <tr>
-    <td>Ryzyko SUDEP (via HRV)</td>
+    <td>↓HRV → ryzyko SUDEP</td>
     <td><span class="b b-bad">TAK</span></td>
     <td><span class="b b-bad">TAK</span></td>
     <td><span class="b b-warn">TAK</span> (mniejsze)</td>
   </tr>
   <tr>
-    <td>Ryzyko napadów od toksyczności nikotyny</td>
+    <td>Ryzyko napadów: toksyczność nikotynowa</td>
     <td><span class="b b-warn">UMIARKOWANE</span></td>
     <td><span class="b b-bad">WYŻSZE</span> (szybkie piki)</td>
     <td><span class="b b-ok">NIŻSZE</span> (stałe uwalnianie)</td>
@@ -480,107 +501,122 @@
 </table>
 
 <div class="callout c-warn">
-  <strong>Uwaga farmakoterapeutyczna:</strong> Cenobamat indukuje CYP2B6 → AUC bupropionu ↓39%. Bupropion jest i tak <strong>przeciwwskazany w padaczce</strong> (obniża próg drgawkowy). Wareniklina nie ma danych bezpieczeństwa w padaczce lekoopornej. <strong>Rzucanie palenia u tej pacjentki wymaga ścisłej współpracy z neurologiem.</strong>
+  <strong>Uwaga farmakoterapeutyczna:</strong> Cenobamat indukuje CYP2B6 → AUC bupropionu ↓39% (<a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s004lbl.pdf" target="_blank">Xcopri PI 2024</a>). Bupropion jest przeciwwskazany w padaczce (obniża próg drgawkowy). Wareniklina nie ma danych bezpieczeństwa w padaczce lekoopornej. <strong>Farmakologiczne wspomaganie rzucania palenia w tym profilu jest ograniczone i wymaga indywidualnej oceny.</strong>
 </div>
 
-<p><strong>Hierarchia z punktu widzenia neurologii:</strong></p>
+<p><strong>Hierarchia kliniczna:</strong></p>
 <ul>
-  <li><span class="b b-ok">PLASTER</span> — najczystszy profil: brak CO, brak PAH, stabilne stężenie nikotyny, najniższe ryzyko prokonwulsyjnych skoków</li>
-  <li><span class="b b-warn">E-PAPIEROS</span> — eliminuje CO i PAH, ale szybkie piki nikotyny mogą obniżać próg drgawkowy; FDA: >250 zgłoszeń napadów po e-papierosach</li>
-  <li><span class="b b-bad">PAPIEROS</span> — najgorsza opcja: pełne obciążenie dymem, CO, stresem oksydacyjnym i niestabilną nikotyną</li>
+  <li><span class="b b-ok">PLASTER</span> — najczystszy profil: brak CO, brak PAH, stabilne stężenie nikotyny, najniższe ryzyko prokonwulsyjnych skoków. Nie wymaga korekty dawkowania BRV/CNB/LCM.</li>
+  <li><span class="b b-warn">E-PAPIEROS</span> — eliminuje CO i PAH, ale szybkie piki nikotyny mogą obniżać próg drgawkowy. <a href="https://www.fda.gov/tobacco-products/ctp-newsroom/some-e-cigarette-users-are-having-seizures" target="_blank">FDA: >250 zgłoszeń napadów</a> po e-papierosach (kauzalność niepotwierdzona).</li>
+  <li><span class="b b-bad">PAPIEROS</span> — najgorsza opcja: pełne obciążenie dymem, CO, stresem oksydacyjnym i niestabilną nikotyną.</li>
 </ul>
 
-<div class="plain">Dla tych konkretnych trzech leków zamiana papierosa na plaster lub e-papierosa <strong>nie wymaga korekty dawkowania</strong> (w przeciwieństwie do lamotryginy, gdzie by wymagała). Ale zamiana i tak jest korzystna, bo eliminuje inne drogi, którymi palenie destabilizuje padaczkę.</div>
 
-
-<!-- ============================================ -->
-<h2>IV. Poziomy pewności</h2>
+<!-- ===== 5. PEWNOŚĆ ===== -->
+<h2 id="cert"><span class="num">5.</span> Poziomy pewności</h2>
 
 <div class="cert-grid">
-  <div class="cert-box cs">
+  <div class="cert cert-ok">
     <h4>✅ Pewne</h4>
     <ul>
       <li>BRV, CNB, LCM nie tracą stężenia z powodu palenia</li>
-      <li>Aktualnie palące kobiety: RR 2,60 dla napadów (n = 116 363, 16 lat)</li>
-      <li>Aktywna padaczka + palenie: OR 1,59</li>
+      <li>Aktualnie palące kobiety: <a href="https://pubmed.ncbi.nlm.nih.gov/19694795/" target="_blank">RR 2,60</a> dla napadów</li>
+      <li>Palacze z epilepsy center: <a href="https://doi.org/10.1016/j.yebeh.2019.01.041" target="_blank">×4</a> szansa na napad w ciągu roku</li>
       <li>Nikotyna zaburza sen (−14 min, −14% N3)</li>
       <li>Nikotyna NIE indukuje CYP1A2</li>
     </ul>
   </div>
-  <div class="cert-box cp">
+  <div class="cert cert-maybe">
     <h4>⚠️ Prawdopodobne</h4>
     <ul>
-      <li>Nikotyna: efekt kindlingu (dane zwierzęce, spójne z epidemiologią)</li>
-      <li>Palenie ↑ stres oksydacyjny korelujący z częstością napadów</li>
+      <li>Nikotyna: kindling (dane zwierzęce, spójne z epidemiologią)</li>
+      <li>Palenie ↑ stres oksydacyjny korelujący z częstością napadów w DRE</li>
       <li>Palenie ↓ HRV → ↑ ryzyko SUDEP</li>
+      <li>×4 podkreśla efekt specyficznie w ciężkiej padaczce (ośrodek Level IV)</li>
     </ul>
   </div>
-  <div class="cert-box cu">
+  <div class="cert cert-unk">
     <h4>❓ Nieznane</h4>
     <ul>
-      <li>Brak badań: kobieta + lekooporna + BRV/CNB/LCM + palenie</li>
-      <li>Wpływ palenia na cenobamat in vivo</li>
+      <li>Brak badań w populacji: kobieta + DRE + BRV/CNB/LCM + palenie</li>
+      <li>Wpływ palenia na cenobamat in vivo (mechanistycznie: prawdopodobnie minimalny)</li>
       <li>Czy e-papierosy prowokują napady (kauzalność)</li>
-      <li>Palenie jako czynnik ryzyka SUDEP (brak prospektywnych danych)</li>
+      <li>Palenie jako czynnik ryzyka SUDEP (brak danych prospektywnych)</li>
     </ul>
   </div>
 </div>
 
 
-<!-- ============================================ -->
-<h2>V. Zalecenia — przyczyna → skutek</h2>
+<!-- ===== 6. ZALECENIA ===== -->
+<h2 id="rec"><span class="num">6.</span> Zalecenia kliniczne</h2>
 
 <ol class="rec">
   <li>
-    <span class="cause">Leki nie są zagrożone, ale padaczka TAK.</span><br/>
-    <span class="eff">Briviact, Ontozry i Lacosamide nie tracą skuteczności z powodu palenia — to przewaga nad lamotryginą. Nie musisz się martwić, że papieros „zjada" dawkę leku. ALE: palenie pogarsza kontrolę napadów innymi drogami.</span>
+    <span class="cause">Leki nie są zagrożone farmakokinetyke, ale kontrola napadów tak.</span><br/>
+    Briwaracetam, cenobamat i lakozamid nie są substratami enzymów indukowanych przez dym. Nie ma wskazań do korekty dawkowania z powodu palenia. Problem palenia w tym profilu jest neurologiczny i ogólnoustrojowy, nie farmakokinetyczny.
   </li>
   <li>
-    <span class="cause">Palenie → gorszy sen → więcej napadów.</span><br/>
-    <span class="eff">Nikotyna skraca i spłyca sen. Deprywacja snu jest najsilniejszym prowokacyjnym czynnikiem napadów. Jeśli napady występują nocą lub rano, palenie je bezpośrednio nasila.</span>
+    <span class="cause">Palenie wiąże się z 2,6–4× wyższym ryzykiem napadów.</span><br/>
+    Dwa niezależne badania (<a href="https://pubmed.ncbi.nlm.nih.gov/19694795/" target="_blank">NHS II, n = 116 363</a> i <a href="https://doi.org/10.1016/j.yebeh.2019.01.041" target="_blank">Johnson 2019, n = 92</a>) wskazują na istotnie podwyższone ryzyko napadów u aktualnie palących. Efekt jest silniejszy u kobiet (<a href="#epi-women">sekcja 3a</a>) i w cięższej padaczce (<a href="#epi-4x">sekcja 3b</a>).
   </li>
   <li>
-    <span class="cause">Palenie → 2,6× wyższe ryzyko napadów u kobiet.</span><br/>
-    <span class="eff">To dane z 16-letniego badania prospektywnego na ponad 116 000 kobiet. Efekt jest silniejszy u kobiet niż u mężczyzn.</span>
+    <span class="cause">Nikotyna zaburza sen → deprywacja snu prowokuje napady.</span><br/>
+    U pacjentki z napadami nocnymi lub porannymi ten mechanizm jest bezpośrednio istotny. Obiektywne dane polisomnograficzne (<a href="#epi-sleep">sekcja 3f</a>): −14 min snu, −14% fazy N3 u palących.
   </li>
   <li>
-    <span class="cause">Plaster &gt; e-papieros &gt; papieros.</span><br/>
-    <span class="eff">Plaster eliminuje CO, stres oksydacyjny i uwalnia nikotynę stabilnie. E-papieros eliminuje CO i PAH, ale szybkie szczyty nikotyny mogą obniżać próg drgawkowy. Papieros jest najgorszą opcją.</span>
+    <span class="cause">Optymalna alternatywa nikotynowa: plaster &gt; e-papieros &gt; papieros.</span><br/>
+    Plaster zapewnia stabilną podaż nikotyny bez CO, PAH i skoków prokonwulsyjnych. Zmiana nie wymaga korekty dawkowania BRV/CNB/LCM. E-papieros jest opcją pośrednią: eliminuje PAH, ale nie eliminuje ryzyka szybkich pików nikotynowych.
   </li>
   <li>
-    <span class="cause">NIE rzucaj nagle bez konsultacji z neurologiem.</span><br/>
-    <span class="eff">Odstawienie nikotyny może prowokować napady (rebound cholinergiczny, stres, bezsenność). Cenobamat obniża stężenie bupropionu o 39%, a bupropion jest i tak przeciwwskazany w padaczce. Wareniklina nie ma danych bezpieczeństwa. Rzucanie musi być zaplanowane.</span>
+    <span class="cause">Rzucanie palenia wymaga planowania neurologicznego.</span><br/>
+    Odstawienie nikotyny może samo prowokować napady (stres, bezsenność, rebound cholinergiczny). Cenobamat obniża stężenie bupropionu o 39%, bupropion jest i tak przeciwwskazany. Wareniklina bez danych w DRE. Redukcja lub zmiana drogi podania nikotyny powinna być uzgodniona z prowadzącym neurologiem.
   </li>
   <li>
-    <span class="cause">Powiedz neurologowi o paleniu.</span><br/>
-    <span class="eff">Palenie nie jest wymienione w ulotkach tych leków, więc lekarz może nie zapytać. Ale wpływ palenia na kontrolę napadów (stres oksydacyjny, zaburzenia snu, autonomika) jest istotny i powinien być częścią oceny klinicznej.</span>
+    <span class="cause">Należy uwzględnić palenie w ocenie klinicznej.</span><br/>
+    Palenie nie figuruje w ChPL żadnego z trzech leków, co nie oznacza, że jest klinicznie neutralne. Na podstawie przedstawionych danych, status palenia powinien być częścią okresowej oceny kontroli napadów, jakości snu i ryzyka SUDEP.
   </li>
 </ol>
 
 
-<!-- ============================================ -->
-<div class="sources">
-  <h2>Źródła</h2>
+<!-- ===== 7. ŹRÓDŁA ===== -->
+<div class="sources" id="src">
+  <h2><span class="num">7.</span> Źródła</h2>
 
-  <div class="src" data-n="1.">
-    <strong>Dworetzky BA, Bromfield EB, Townsend MK, Kang JH.</strong> A prospective study of smoking, caffeine, and alcohol as risk factors for seizures or epilepsy in young adult women: Data from the Nurses' Health Study II. <span class="j">Epilepsia. 2010;51(2):198–206.</span>
-    <span class="f">→ Table 2, model wieloczynnikowy: RR = 2,60 (95% CI: 1,53–4,42) dla napadów u aktualnych palaczek. Jedyne duże prospektywne badanie wyłącznie u kobiet.</span>
+  <div class="src-item" data-n="1.">
+    <strong>Dworetzky BA et al.</strong> A prospective study of smoking, caffeine, and alcohol as risk factors for seizures or epilepsy in young adult women: Data from the Nurses' Health Study II. <span class="j">Epilepsia. 2010;51(2):198–206.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19694795/" target="_blank">PubMed</a>
+    <span class="f">→ Table 2: RR = 2,60 (95% CI: 1,53–4,42) dla napadów u aktualnych palaczek. Jedyne duże badanie prospektywne wyłącznie u kobiet.</span>
   </div>
 
-  <div class="src" data-n="2.">
-    <strong>Kang Y, Chen X, Yan Z, et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis of observational studies. <span class="j">BMC Medicine. 2024;22:60.</span>
-    <span class="f">→ Forest plots Fig. 2–3: OR = 1,59 (1,42–1,78) dla aktywnej padaczki; 17 badań, 743 108 osób.</span>
+  <div class="src-item" data-n="2.">
+    <strong>Johnson AL et al.</strong> The role of cigarette smoking in epilepsy severity and epilepsy-related quality of life. <span class="j">Epilepsy &amp; Behavior. 2019;93:38–42.</span> <a href="https://doi.org/10.1016/j.yebeh.2019.01.041" target="_blank">ScienceDirect</a>
+    <span class="f">→ Highlight: palacze ~4× bardziej narażeni na napad w ciągu roku (OR unadjusted ≈ 4; adjusted OR = 3,61). n = 92 z Level IV Comprehensive Epilepsy Center.</span>
   </div>
 
-  <div class="src" data-n="3.">
-    <strong>FDA Prescribing Information:</strong> Xcopri (cenobamate) Rev. 2024, Sekcja 12.3; Briviact (brivaracetam) Rev. 2021, Sekcja 12.3; Vimpat (lacosamide) Rev. 2023, Sekcja 12.3.
-    <span class="f">→ Żaden z trzech leków nie jest substratem CYP1A2. Żaden nie wymienia palenia jako czynnika modyfikującego ekspozycję. Cenobamat: UGT2B7 primary; Lakozamid: ~40% wydalanie nerkowe.</span>
+  <div class="src-item" data-n="3.">
+    <strong>Kang Y et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis. <span class="j">BMC Medicine. 2024;22:60.</span> <a href="https://doi.org/10.1186/s12916-024-03307-0" target="_blank">DOI</a>
+    <span class="f">→ Fig. 2–3: OR = 1,59 (1,42–1,78) dla aktywnej padaczki; 17 badań, 743 108 osób.</span>
+  </div>
+
+  <div class="src-item" data-n="4.">
+    <strong>FDA Prescribing Information:</strong> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s004lbl.pdf" target="_blank">Xcopri (cenobamate) 2024</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf" target="_blank">Briviact (brivaracetam) 2021</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf" target="_blank">Vimpat (lacosamide) 2023</a>, Sekcje 12.3.
+    <span class="f">→ Żaden z trzech leków nie jest substratem CYP1A2. Żaden nie wymienia palenia jako czynnika.</span>
+  </div>
+
+  <div class="src-item" data-n="5.">
+    <strong>Hukkanen J et al.</strong> Effect of nicotine on cytochrome P450 1A2 activity. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21204915/" target="_blank">PubMed</a>
+    <span class="f">→ Table 1: nikotyna 42 mg/dobę transdermalna nie zmieniła aktywności CYP1A2. Nikotyna nie odpowiada za indukcję enzymatyczną obserwowaną u palaczy.</span>
+  </div>
+
+  <div class="src-item" data-n="6.">
+    <strong>Shankar R et al.</strong> Real-world evidence of epidemiology, patient characteristics, and mortality in people with drug-resistant epilepsy in the UK, 2011–2021. <span class="j">J Neurol. 2024;271(5):2473–2483.</span> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11055725/" target="_blank">PMC</a>
+    <span class="f">→ n = 34 647 z DRE; śmiertelność ~4× wyższa niż w populacji ogólnej UK; 52,6% kobiet; dane o częstości napadów w DRE.</span>
   </div>
 </div>
 
 <footer>
-  Wygenerowano na podstawie analizy źródeł naukowych · marzec 2026 · Wymaga weryfikacji neurologicznej
+  Wygenerowano na podstawie analizy źródeł naukowych · marzec 2026 · Wymaga weryfikacji neurologicznej · <a href="#leki">↑ Powrót na górę</a>
 </footer>
 
+</div><!-- .wrap -->
 </body>
 </html>
