@@ -1,61 +1,131 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html -->
-<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root { --bg: #f7f8fa; --surface: #fff; --text: #1c1f26; --muted: #71767e; --accent: #1b3a5c; --accent-light: #e6edf5; --border: #dde1e7; --radius: 8px; --warn: #8b6914; --warn-bg: #fdf6e3; }
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 15px; }
+
+.hero { background: var(--accent); color: rgb(255, 255, 255); padding: 2.5rem 2rem 1.2rem; position: relative; }
+
+.hero-inner { max-width: 880px; margin: 0px auto; }
+
+.hero h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+
+.hero .sub { font-size: 0.88rem; opacity: 0.7; margin-top: 0.2rem; }
+
+.hero-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.8rem; font-size: 0.76rem; opacity: 0.5; }
+
+.wrap { max-width: 880px; margin: 0px auto; padding: 0px 2rem 4rem; }
+
+.disclaimer { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 1.5rem 0px; font-size: 0.84rem; color: rgb(107, 82, 16); border-radius: 0 var(--radius) var(--radius) 0; }
+
+nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 2rem; font-size: 0.86rem; }
+
+nav.toc .t { font-weight: 600; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+
+nav.toc ol { margin: 0px; padding-left: 1.2rem; }
+
+nav.toc li { margin-bottom: 0.2rem; }
+
+nav.toc a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+
+nav.toc a:hover { border-bottom-style: solid; }
+
+h2 { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 2.5rem 0px 0.7rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent-light); }
+
+h2 .n { color: var(--muted); font-weight: 500; margin-right: 0.3rem; }
+
+h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0px 0.4rem; }
+
+p { margin-bottom: 0.7rem; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration: none; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: 0.8rem 0px; }
+
+.card b { display: block; margin-bottom: 0.3rem; }
+
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.8rem 0px; }
+
+.card-grid .card { margin: 0px; }
+
+.stat-row { display: flex; gap: 0.7rem; margin: 1rem 0px; flex-wrap: wrap; }
+
+.stat-card { flex: 1 1 0%; min-width: 200px; padding: 1rem; border-radius: var(--radius); text-align: center; background: var(--accent-light); }
+
+.stat-card .big { font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+
+.stat-card .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+.stat-card .src { font-size: 0.7rem; margin-top: 0.3rem; }
+
+.note { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin: 0.8rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
+
+.note em { font-style: normal; font-weight: 600; color: var(--accent); }
+
+.warn { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 0.8rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
+
+.featured { background: var(--accent-light); border: 2px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin: 1.2rem 0px; position: relative; }
+
+.featured .big { font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
+
+.featured p { margin-top: 0.4rem; font-size: 0.9rem; }
+
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0px 1rem; font-size: 0.86rem; }
+
+th { background: var(--accent-light); text-align: left; padding: 0.5rem 0.6rem; font-weight: 600; border-bottom: 2px solid var(--border); font-size: 0.8rem; color: var(--accent); }
+
+td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+.ok { color: rgb(26, 107, 58); font-weight: 600; }
+
+.bad { color: rgb(168, 39, 26); font-weight: 600; }
+
+.mid { color: var(--warn); font-weight: 600; }
+
+ul:not(.rec) { margin: 0.3rem 0px 0.8rem 1.2rem; }
+
+li { margin-bottom: 0.25rem; }
+
+ol.rec { list-style: none; padding: 0px; counter-reset: r 0; margin: 1rem 0px 0px; }
+
+ol.rec li { counter-increment: r 1; padding: 0.7rem 1rem 0.7rem 3rem; margin-bottom: 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); position: relative; font-size: 0.9rem; }
+
+ol.rec li::before { content: counter(r); position: absolute; left: 0.8rem; top: 0.7rem; background: var(--accent); color: rgb(255, 255, 255); width: 1.4rem; height: 1.4rem; border-radius: 50%; text-align: center; line-height: 1.4rem; font-size: 0.76rem; font-weight: 700; }
+
+.sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border); }
+
+.si { margin-bottom: 0.9rem; padding-left: 1.5rem; position: relative; font-size: 0.84rem; }
+
+.si::before { content: attr(data-n); position: absolute; left: 0px; font-weight: 700; color: var(--accent); }
+
+.si .j { font-style: italic; color: var(--muted); }
+
+.ev { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+
+footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.74rem; color: var(--muted); text-align: center; }
+
+@media (max-width: 640px) {
+  .wrap { padding: 0px 1rem 3rem; }
+  .hero { padding: 1.5rem 1rem 0.8rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .stat-row { flex-direction: column; }
+}
+
+@media print {
+  .hero { print-color-adjust: exact; background: var(--accent) !important; }
+  body { font-size: 13px; }
+}</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>V1 — Palenie a padaczka lekooporna</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-:root{--bg:#f7f8fa;--surface:#fff;--text:#1c1f26;--muted:#71767e;--accent:#1b3a5c;--accent-light:#e6edf5;--border:#dde1e7;--radius:8px;--warn:#8b6914;--warn-bg:#fdf6e3;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:15px;}
-.hero{background:var(--accent);color:#fff;padding:2.5rem 2rem 1.2rem;position:relative;}
-.hero-inner{max-width:880px;margin:0 auto;}
-.hero h1{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;}
-.hero .sub{font-size:0.88rem;opacity:0.7;margin-top:0.2rem;}
-.hero-meta{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:0.8rem;font-size:0.76rem;opacity:0.5;}
-.wrap{max-width:880px;margin:0 auto;padding:0 2rem 4rem;}
-.disclaimer{background:var(--warn-bg);border-left:3px solid var(--warn);padding:0.7rem 1rem;margin:1.5rem 0;font-size:0.84rem;color:#6b5210;border-radius:0 var(--radius) var(--radius) 0;}
-nav.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.3rem;margin-bottom:2rem;font-size:0.86rem;}
-nav.toc .t{font-weight:600;color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
-nav.toc ol{margin:0;padding-left:1.2rem;} nav.toc li{margin-bottom:0.2rem;}
-nav.toc a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent);} nav.toc a:hover{border-bottom-style:solid;}
-h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:2.5rem 0 0.7rem;padding-bottom:0.3rem;border-bottom:2px solid var(--accent-light);}
-h2 .n{color:var(--muted);font-weight:500;margin-right:0.3rem;}
-h3{font-size:1rem;font-weight:600;margin:1.5rem 0 0.4rem;}
-p{margin-bottom:0.7rem;} a{color:var(--accent);} a:hover{text-decoration:none;}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.3rem;margin:0.8rem 0;}
-.card b{display:block;margin-bottom:0.3rem;}
-.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin:0.8rem 0;}
-.card-grid .card{margin:0;}
-.stat-row{display:flex;gap:0.7rem;margin:1rem 0;flex-wrap:wrap;}
-.stat-card{flex:1;min-width:200px;padding:1rem;border-radius:var(--radius);text-align:center;background:var(--accent-light);}
-.stat-card .big{font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1.1;}
-.stat-card .lbl{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;}
-.stat-card .src{font-size:0.7rem;margin-top:0.3rem;}
-.note{background:var(--accent-light);border-left:3px solid var(--accent);padding:0.7rem 1rem;margin:0.8rem 0;font-size:0.88rem;border-radius:0 var(--radius) var(--radius) 0;}
-.note em{font-style:normal;font-weight:600;color:var(--accent);}
-.warn{background:var(--warn-bg);border-left:3px solid var(--warn);padding:0.7rem 1rem;margin:0.8rem 0;font-size:0.88rem;border-radius:0 var(--radius) var(--radius) 0;}
-.featured{background:var(--accent-light);border:2px solid var(--accent);border-radius:var(--radius);padding:1.4rem 1.5rem;margin:1.2rem 0;position:relative;}
-.featured .big{font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1;}
-.featured p{margin-top:0.4rem;font-size:0.9rem;}
-table{width:100%;border-collapse:collapse;margin:0.8rem 0 1rem;font-size:0.86rem;}
-th{background:var(--accent-light);text-align:left;padding:0.5rem 0.6rem;font-weight:600;border-bottom:2px solid var(--border);font-size:0.8rem;color:var(--accent);}
-td{padding:0.45rem 0.6rem;border-bottom:1px solid var(--border);vertical-align:top;}
-.ok{color:#1a6b3a;font-weight:600;} .bad{color:#a8271a;font-weight:600;} .mid{color:var(--warn);font-weight:600;}
-ul:not(.rec){margin:0.3rem 0 0.8rem 1.2rem;} li{margin-bottom:0.25rem;}
-ol.rec{list-style:none;padding:0;counter-reset:r;margin:1rem 0 0;}
-ol.rec li{counter-increment:r;padding:0.7rem 1rem 0.7rem 3rem;margin-bottom:0.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);position:relative;font-size:0.9rem;}
-ol.rec li::before{content:counter(r);position:absolute;left:0.8rem;top:0.7rem;background:var(--accent);color:#fff;width:1.4rem;height:1.4rem;border-radius:50%;text-align:center;line-height:1.4rem;font-size:0.76rem;font-weight:700;}
-.sources{margin-top:2.5rem;padding-top:1.5rem;border-top:2px solid var(--border);}
-.si{margin-bottom:0.9rem;padding-left:1.5rem;position:relative;font-size:0.84rem;}
-.si::before{content:attr(data-n);position:absolute;left:0;font-weight:700;color:var(--accent);}
-.si .j{font-style:italic;color:var(--muted);}
-.ev{font-size:0.75rem;color:var(--muted);font-style:italic;}
-footer{margin-top:3rem;padding-top:0.8rem;border-top:1px solid var(--border);font-size:0.74rem;color:var(--muted);text-align:center;}
-@media(max-width:640px){.wrap{padding:0 1rem 3rem;}.hero{padding:1.5rem 1rem 0.8rem;}.card-grid{grid-template-columns:1fr;}.stat-row{flex-direction:column;}}
-@media print{.hero{background:var(--accent)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}body{font-size:13px;}}
-</style>
+
 </head>
 <body>
 <div class="hero"><div class="hero-inner">
@@ -67,30 +137,34 @@ footer{margin-top:3rem;padding-top:0.8rem;border-top:1px solid var(--border);fon
 <div class="wrap">
 <div class="disclaimer"><strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji neurologicznej. Nie istnieje badanie w dokładnej populacji: kobieta + DRE + BRV/CNB/LCM + palenie. Wnioski opierają się na ekstrapolacji z najsilniejszych dostępnych danych.</div>
 
+<!-- FIX: TOC links changed from file:/// to relative anchors -->
 <nav class="toc"><div class="t">Nawigacja</div>
 <ol>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#leki">Substancje czynne i szlaki metaboliczne</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#pk">Wpływ palenia na farmakokinetykę</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#epi">Wpływ palenia na padaczkę (niezależnie od leków)</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#or">Jak poprawnie czytać OR i RR — co te liczby naprawdę mówią</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#mech">Mechanizmy: kindling, stres oksydacyjny, sen, SUDEP</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#alt">Porównanie: papieros / e-papieros / plaster</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#rec">Zalecenia kliniczne</a></li>
-<li><a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#src">Źródła</a></li>
+<li><a href="#leki">Substancje czynne i szlaki metaboliczne</a></li>
+<li><a href="#pk">Wpływ palenia na farmakokinetykę</a></li>
+<li><a href="#epi">Wpływ palenia na padaczkę (niezależnie od leków)</a></li>
+<li><a href="#or">Jak poprawnie czytać OR i RR — co te liczby naprawdę mówią</a></li>
+<li><a href="#mech">Mechanizmy: kindling, stres oksydacyjny, sen, SUDEP</a></li>
+<li><a href="#alt">Porównanie: papieros / e-papieros / plaster</a></li>
+<li><a href="#rec">Zalecenia kliniczne</a></li>
+<li><a href="#src">Źródła</a></li>
 </ol></nav>
 
 <!-- 1 -->
 <h2 id="leki"><span class="n">1.</span> Substancje czynne i szlaki metaboliczne</h2>
 <div class="card-grid">
-<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa (~60%), CYP2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf">FDA PI Briviact 2021</a>, §12.3</span></div>
-<div class="card"><b>Ontozry → Cenobamat</b>Glukuronidacja UGT2B7 (dominująca), CYP2E1/2A6/2B6 (wtórne). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s004lbl.pdf">FDA PI Xcopri 2024</a>, §12.3</span></div>
-<div class="card"><b>Vimpat → Lakozamid</b>~40% nerki niezmienione, CYP3A4/2C9/2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf">FDA PI Vimpat 2023</a>, §12.3</span></div>
-<div class="card" style="border-color:var(--accent);"><b>Lamotrygina (dla kontrastu)</b>Glukuronidacja UGT1A4 — indukowana przez PAH z dymu. Stężenie spada 16–34% u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18396470/">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</div>
+<!-- FIX: FDA label links → DailyMed (verified working) -->
+<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa (~60%), CYP2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aef3ee92-e2a6-4135-94b2-b893f893d5f2">DailyMed — Briviact</a>, §12.3</span></div>
+<div class="card"><b>Ontozry → Cenobamat</b>Glukuronidacja UGT2B7 (dominująca), CYP2E1/2A6/2B6 (wtórne). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">DailyMed — Xcopri</a>, §12.3</span></div>
+<div class="card"><b>Vimpat → Lakozamid</b>~40% nerki niezmienione, CYP3A4/2C9/2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">DailyMed — Vimpat</a>, §12.3</span></div>
+<!-- FIX: Reinsberger PMID 18396470 → 18583161 (verified: "Smoking reduces serum levels of lamotrigine") -->
+<div class="card" style="border-color:var(--accent);"><b>Lamotrygina (dla kontrastu)</b>Glukuronidacja UGT1A4 — indukowana przez PAH z dymu. Stężenie spada 16–34% u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</div>
 </div>
 
 <!-- 2 -->
 <h2 id="pk"><span class="n">2.</span> Wpływ palenia na farmakokinetykę tych leków</h2>
-<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy (PAH → AhR) indukuje CYP1A2 i UGT1A4. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21204915/">Hukkanen 2011</a>).</div>
+<!-- FIX: Hukkanen PMID 21204915 → 21599724 (verified: "Effect of nicotine on cytochrome P450 1A2 activity in humans") -->
+<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy (PAH → AhR) indukuje CYP1A2 i UGT1A4. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">Hukkanen 2011</a>).</div>
 
 <table>
 <tbody><tr><th>Lek</th><th>Substrat CYP1A2?</th><th>Szlak wrażliwy na dym?</th><th>Wpływ palenia na stężenie</th></tr>
@@ -149,7 +223,8 @@ footer{margin-top:3rem;padding-top:0.8rem;border-top:1px solid var(--border);fon
 <p>Przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych kindling — progresywne obniżanie progu drgawkowego (<a href="https://doi.org/10.1016/j.phrs.2023.106698">Becchetti 2023, Pharmacol Res</a>). Mutacje nAChR (CHRNA4, CHRNB2) powodują padaczkę ADSHE, co stanowi dowód koncepcyjny epileptogenności chronicznej aktywacji tych receptorów. Dane zwierzęce; translacja na człowieka prawdopodobna mechanistycznie.</p>
 
 <h3>5b. Stres oksydacyjny</h3>
-<p><a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi 2018</a> (n=18, padaczka lekooporna ogniskowa vs. 80 kontroli): 3-nitrotyrozyna korelowała z częstością napadów (p≤0,005). Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników, nakładając egzogenny stres oksydacyjny na podwyższony poziom endogenny w DRE.</p>
+<!-- FIX: Clarified Geronzi 2018 is a review (not an original study with n=18) -->
+<p>Przegląd <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi 2018</a> omawia dane łączące stres oksydacyjny z padaczką lekooporną — m.in. badania wykazujące korelację 3-nitrotyrozyny z częstością napadów (p≤0,005) w DRE ogniskowej. Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników, nakładając egzogenny stres oksydacyjny na podwyższony poziom endogenny w DRE.</p>
 
 <h3>5c. Zaburzenia snu</h3>
 <p>Sleep Heart Health Study (n=6 400, PSG): palacze vs. niepalący: −14 min całkowity czas snu, −14% snu wolnofalowego (N3), +24% stadium 1. U byłych palaczy: brak różnic (potwierdza przyczynowość). Deprywacja snu jest najczęstszym wyzwalaczem napadów u dorosłych z padaczką.</p>
@@ -194,14 +269,20 @@ footer{margin-top:3rem;padding-top:0.8rem;border-top:1px solid var(--border);fon
 <div class="si" data-n="1."><strong>Dworetzky BA et al.</strong> A prospective study of smoking, caffeine, and alcohol as risk factors for seizures or epilepsy in young adult women: Data from the Nurses' Health Study II. <span class="j">Epilepsia. 2010;51(2):198–206.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">PMID 19694796</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3090289/">PMC</a><br>→ RR=2,60 (95% CI: 1,53–4,42) dla napadów u aktualnych palaczek. Jedyne duże prospektywne badanie wyłącznie u kobiet.</div>
 <div class="si" data-n="2."><strong>Johnson AL et al.</strong> The role of cigarette smoking in epilepsy severity and epilepsy-related quality of life. <span class="j">Epilepsy Behav. 2019;93:38–42.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30831400/">PMID 30831400</a> · <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">DOI</a><br>→ OR~4 (adjusted OR=3,61) za napad w ciągu roku u palących z Level IV epilepsy center. n=92.</div>
 <div class="si" data-n="3."><strong>Kang Y et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis. <span class="j">BMC Medicine. 2024;22:91.</span> <a href="https://doi.org/10.1186/s12916-024-03307-0">DOI</a><br>→ OR=1,59 (1,42–1,78) dla aktywnej padaczki; OR=1,46 (1,13–1,89) current smokers. 17 badań, 743 108 osób. GRADE: very low.</div>
-<div class="si" data-n="4."><strong>FDA Prescribing Information:</strong> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s004lbl.pdf">Xcopri 2024</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf">Briviact 2021</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf">Vimpat 2023</a>, §12.3.</div>
-<div class="si" data-n="5."><strong>Hukkanen J et al.</strong> Effect of nicotine on CYP1A2 activity. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21204915/">PMID 21204915</a></div>
+<!-- FIX: FDA label links → DailyMed (verified working) -->
+<div class="si" data-n="4."><strong>FDA Prescribing Information (via DailyMed):</strong> <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">Xcopri (Cenobamat)</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aef3ee92-e2a6-4135-94b2-b893f893d5f2">Briviact (Brivaracetam)</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">Vimpat (Lacosamide)</a>, §12.3.</div>
+<!-- FIX: PMID 21204915 → 21599724 (verified: correct Hukkanen paper) -->
+<div class="si" data-n="5."><strong>Hukkanen J, Benowitz NL, Jacob P 3rd.</strong> Effect of nicotine on cytochrome P450 1A2 activity in humans. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">PMID 21599724</a></div>
 <div class="si" data-n="6."><strong>Becchetti A et al.</strong> Nicotinic acetylcholine receptors and epilepsy. <span class="j">Pharmacol Res. 2023;189:106698.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36796465/">PMID 36796465</a></div>
-<div class="si" data-n="7."><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy. <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a></div>
+<!-- FIX: Clarified this is a review article -->
+<div class="si" data-n="7."><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy (review). <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a></div>
 <div class="si" data-n="8."><strong>Zhong R et al.</strong> Current cigarette smoking is associated with a high seizure frequency and anxiety symptoms in people with epilepsy. <span class="j">Front Neurol. 2022;13:834694.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a></div>
 <div class="si" data-n="9."><strong>Rong L, Frontera AT, Benbadis SR.</strong> Tobacco smoking, epilepsy, and seizures. <span class="j">Epilepsy Behav. 2014;31:210–218.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/24441294/">PMID 24441294</a></div>
+<!-- FIX: PMID 18396470 → 18583161 (verified: correct Reinsberger paper) -->
+<div class="si" data-n="10."><strong>Reinsberger C, Dorn T, Krämer G.</strong> Smoking reduces serum levels of lamotrigine. <span class="j">Seizure. 2008;17(7):651–653.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">PMID 18583161</a></div>
 </div>
 
-<footer>Wygenerowano marzec 2026 · Wymaga weryfikacji neurologicznej · <a href="file:///Users/ext.grzegorz.grabarz/Downloads/v1_minor_tweak.html#leki">↑ Powrót</a></footer>
+<!-- FIX: Footer link changed from file:/// to relative anchor -->
+<footer>Wygenerowano marzec 2026 · Wymaga weryfikacji neurologicznej · <a href="#leki">↑ Powrót</a></footer>
 </div>
 </body></html>
