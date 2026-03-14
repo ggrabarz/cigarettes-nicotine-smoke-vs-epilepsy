@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
-
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root { --bg: #f7f8fa; --surface: #fff; --text: #1c1f26; --muted: #71767e; --accent: #1b3a5c; --accent-light: #e6edf5; --border: #dde1e7; --radius: 8px; --warn: #8b6914; --warn-bg: #fdf6e3; }
 
-* { margin: 0px; padding: 0px; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 15px; }
 
-.hero { background: var(--accent); color: rgb(255, 255, 255); padding: 2.5rem 2rem 1.2rem; position: relative; }
+.hero { background: var(--accent); color: #fff; padding: 2.5rem 2rem 1.2rem; position: relative; }
 
-.hero-inner { max-width: 880px; margin: 0px auto; }
+.hero-inner { max-width: 880px; margin: 0 auto; }
 
 .hero h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
 
@@ -19,15 +21,15 @@ body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: 
 
 .hero-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.8rem; font-size: 0.76rem; opacity: 0.5; }
 
-.wrap { max-width: 880px; margin: 0px auto; padding: 0px 2rem 4rem; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 2rem 4rem; }
 
-.disclaimer { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 1.5rem 0px; font-size: 0.84rem; color: rgb(107, 82, 16); border-radius: 0 var(--radius) var(--radius) 0; }
+.disclaimer { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 1.5rem 0; font-size: 0.84rem; color: rgb(107, 82, 16); border-radius: 0 var(--radius) var(--radius) 0; }
 
 nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 2rem; font-size: 0.86rem; }
 
 nav.toc .t { font-weight: 600; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
 
-nav.toc ol { margin: 0px; padding-left: 1.2rem; }
+nav.toc ol { margin: 0; padding-left: 1.2rem; }
 
 nav.toc li { margin-bottom: 0.2rem; }
 
@@ -35,11 +37,11 @@ nav.toc a { color: var(--accent); text-decoration: none; border-bottom: 1px dott
 
 nav.toc a:hover { border-bottom-style: solid; }
 
-h2 { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 2.5rem 0px 0.7rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent-light); }
+h2 { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 2.5rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent-light); }
 
 h2 .n { color: var(--muted); font-weight: 500; margin-right: 0.3rem; }
 
-h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0px 0.4rem; }
+h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.4rem; }
 
 p { margin-bottom: 0.7rem; }
 
@@ -47,15 +49,15 @@ a { color: var(--accent); }
 
 a:hover { text-decoration: none; }
 
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: 0.8rem 0px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: 0.8rem 0; }
 
 .card b { display: block; margin-bottom: 0.3rem; }
 
-.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.8rem 0px; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.8rem 0; }
 
-.card-grid .card { margin: 0px; }
+.card-grid .card { margin: 0; }
 
-.stat-row { display: flex; gap: 0.7rem; margin: 1rem 0px; flex-wrap: wrap; }
+.stat-row { display: flex; gap: 0.7rem; margin: 1rem 0; flex-wrap: wrap; }
 
 .stat-card { flex: 1 1 0%; min-width: 200px; padding: 1rem; border-radius: var(--radius); text-align: center; background: var(--accent-light); }
 
@@ -65,19 +67,19 @@ a:hover { text-decoration: none; }
 
 .stat-card .src { font-size: 0.7rem; margin-top: 0.3rem; }
 
-.note { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin: 0.8rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
+.note { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin: 0.8rem 0; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
 
 .note em { font-style: normal; font-weight: 600; color: var(--accent); }
 
-.warn { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 0.8rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
+.warn { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 0.7rem 1rem; margin: 0.8rem 0; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
 
-.featured { background: var(--accent-light); border: 2px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin: 1.2rem 0px; position: relative; }
+.featured { background: var(--accent-light); border: 2px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin: 1.2rem 0; position: relative; }
 
 .featured .big { font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
 
 .featured p { margin-top: 0.4rem; font-size: 0.9rem; }
 
-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0px 1rem; font-size: 0.86rem; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0 1rem; font-size: 0.86rem; }
 
 th { background: var(--accent-light); text-align: left; padding: 0.5rem 0.6rem; font-weight: 600; border-bottom: 2px solid var(--border); font-size: 0.8rem; color: var(--accent); }
 
@@ -89,21 +91,21 @@ td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); vertical-a
 
 .mid { color: var(--warn); font-weight: 600; }
 
-ul:not(.rec) { margin: 0.3rem 0px 0.8rem 1.2rem; }
+ul:not(.rec) { margin: 0.3rem 0 0.8rem 1.2rem; }
 
 li { margin-bottom: 0.25rem; }
 
-ol.rec { list-style: none; padding: 0px; counter-reset: r 0; margin: 1rem 0px 0px; }
+ol.rec { list-style: none; padding: 0; counter-reset: r 0; margin: 1rem 0 0; }
 
 ol.rec li { counter-increment: r 1; padding: 0.7rem 1rem 0.7rem 3rem; margin-bottom: 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); position: relative; font-size: 0.9rem; }
 
-ol.rec li::before { content: counter(r); position: absolute; left: 0.8rem; top: 0.7rem; background: var(--accent); color: rgb(255, 255, 255); width: 1.4rem; height: 1.4rem; border-radius: 50%; text-align: center; line-height: 1.4rem; font-size: 0.76rem; font-weight: 700; }
+ol.rec li::before { content: counter(r); position: absolute; left: 0.8rem; top: 0.7rem; background: var(--accent); color: #fff; width: 1.4rem; height: 1.4rem; border-radius: 50%; text-align: center; line-height: 1.4rem; font-size: 0.76rem; font-weight: 700; }
 
 .sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border); }
 
 .si { margin-bottom: 0.9rem; padding-left: 1.5rem; position: relative; font-size: 0.84rem; }
 
-.si::before { content: attr(data-n); position: absolute; left: 0px; font-weight: 700; color: var(--accent); }
+.si::before { content: attr(data-n); position: absolute; left: 0; font-weight: 700; color: var(--accent); }
 
 .si .j { font-style: italic; color: var(--muted); }
 
@@ -112,7 +114,7 @@ ol.rec li::before { content: counter(r); position: absolute; left: 0.8rem; top: 
 footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.74rem; color: var(--muted); text-align: center; }
 
 @media (max-width: 640px) {
-  .wrap { padding: 0px 1rem 3rem; }
+  .wrap { padding: 0 1rem 3rem; }
   .hero { padding: 1.5rem 1rem 0.8rem; }
   .card-grid { grid-template-columns: 1fr; }
   .stat-row { flex-direction: column; }
@@ -121,10 +123,11 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 @media print {
   .hero { print-color-adjust: exact; background: var(--accent) !important; }
   body { font-size: 13px; }
-}</style>
+}
+</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V1 — Palenie a padaczka lekooporna</title>
+<title>V2 — Palenie a padaczka lekooporna</title>
 
 </head>
 <body>
@@ -137,7 +140,6 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <div class="wrap">
 <div class="disclaimer"><strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji neurologicznej. Nie istnieje badanie w dokładnej populacji: kobieta + DRE + BRV/CNB/LCM + palenie. Wnioski opierają się na ekstrapolacji z najsilniejszych dostępnych danych.</div>
 
-<!-- FIX: TOC links changed from file:/// to relative anchors -->
 <nav class="toc"><div class="t">Nawigacja</div>
 <ol>
 <li><a href="#leki">Substancje czynne i szlaki metaboliczne</a></li>
@@ -153,28 +155,25 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <!-- 1 -->
 <h2 id="leki"><span class="n">1.</span> Substancje czynne i szlaki metaboliczne</h2>
 <div class="card-grid">
-<!-- FIX: FDA label links → DailyMed (verified working) -->
-<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa (~60%), CYP2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aef3ee92-e2a6-4135-94b2-b893f893d5f2">DailyMed — Briviact</a>, §12.3</span></div>
-<div class="card"><b>Ontozry → Cenobamat</b>Glukuronidacja UGT2B7 (dominująca), CYP2E1/2A6/2B6 (wtórne). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">DailyMed — Xcopri</a>, §12.3</span></div>
-<div class="card"><b>Vimpat → Lakozamid</b>~40% nerki niezmienione, CYP3A4/2C9/2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">DailyMed — Vimpat</a>, §12.3</span></div>
-<!-- FIX: Reinsberger PMID 18396470 → 18583161 (verified: "Smoking reduces serum levels of lamotrigine") -->
-<div class="card" style="border-color:var(--accent);"><b>Lamotrygina (dla kontrastu)</b>Glukuronidacja UGT1A4 — indukowana przez PAH z dymu. Stężenie spada 16–34% u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</div>
+<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa (~60%), CYP2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf">FDA PI Briviact 2021</a>, §12.3</span></div>
+<div class="card"><b>Ontozry → Cenobamat</b>Glukuronidacja UGT2B7 (dominująca), CYP2E1/2A6/2B6 (wtórne). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s008lbl.pdf">FDA PI Xcopri 2024</a>, §12.3</span></div>
+<div class="card"><b>Vimpat → Lakozamid</b>~40% nerki niezmienione, CYP3A4/2C9/2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf">FDA PI Vimpat 2023</a>, §12.3</span></div>
+<div class="card" style="border-color:var(--accent);"><b>Lamotrygina (dla kontrastu)</b>Glukuronidacja UGT1A4 — indukowana przez PAH z dymu. Stężenie spada 16–34% u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18396470/">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</div>
 </div>
 
 <!-- 2 -->
 <h2 id="pk"><span class="n">2.</span> Wpływ palenia na farmakokinetykę tych leków</h2>
-<!-- FIX: Hukkanen PMID 21204915 → 21599724 (verified: "Effect of nicotine on cytochrome P450 1A2 activity in humans") -->
-<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy (PAH → AhR) indukuje CYP1A2 i UGT1A4. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">Hukkanen 2011</a>).</div>
+<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy (PAH → AhR) indukuje CYP1A2 i UGT1A4. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21204915/">Hukkanen 2011</a>).</div>
 
 <table>
-<tbody><tr><th>Lek</th><th>Substrat CYP1A2?</th><th>Szlak wrażliwy na dym?</th><th>Wpływ palenia na stężenie</th></tr>
+<tr><th>Lek</th><th>Substrat CYP1A2?</th><th>Szlak wrażliwy na dym?</th><th>Wpływ palenia na stężenie</th></tr>
 <tr><td>Briwaracetam</td><td class="ok">NIE</td><td class="ok">NIE — amidaza + CYP2C19</td><td>Żaden lub minimalny</td></tr>
 <tr><td>Cenobamat</td><td class="ok">NIE</td><td class="ok">NIE — UGT2B7</td><td>Prawdop. żaden</td></tr>
 <tr><td>Lakozamid</td><td class="ok">NIE</td><td class="ok">NIE — 40% nerki + CYP nie-1A2</td><td>Żaden</td></tr>
 <tr style="background:var(--accent-light);"><td><em>Lamotrygina</em></td><td class="mid">NIE</td><td class="bad">TAK — UGT1A4</td><td><strong>~16–34% spadek</strong></td></tr>
-</tbody></table>
+</table>
 
-<p>Pacjentka na BRV + CNB + LCM <strong>nie traci dawki leku z powodu palenia</strong>. W przeciwieństwie do lamotryginy, tu ten problem nie występuje. Palenie szkodzi tej pacjentce nie przez farmakokinetyke, ale przez mechanizmy neurologiczne i ogólnoustrojowe opisane niżej.</p>
+<p>Pacjentka na BRV + CNB + LCM <strong>nie traci dawki leku z powodu palenia</strong>. W przeciwieństwie do lamotryginy, tu ten problem nie występuje. Palenie szkodzi tej pacjentce nie przez farmakokinetykę, ale przez mechanizmy neurologiczne i ogólnoustrojowe opisane niżej.</p>
 
 <!-- 3 -->
 <h2 id="epi"><span class="n">3.</span> Wpływ palenia na padaczkę — niezależnie od leków</h2>
@@ -202,12 +201,12 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <p>Przyjmijmy prawdopodobieństwo napadu w ciągu roku (outcome binarny: tak/nie) u <strong>niepalących</strong> pacjentów z ośrodka Level IV:</p>
 
 <table>
-<tbody><tr><th>Bazowe P₀ (niepalący)</th><th>OR=4 → Odds₁</th><th>→ P₁ (palący)</th><th>Rzeczywisty wzrost ryzyka</th></tr>
+<tr><th>Bazowe P₀ (niepalący)</th><th>OR=4 → Odds₁</th><th>→ P₁ (palący)</th><th>Rzeczywisty wzrost ryzyka</th></tr>
 <tr><td>30%</td><td>4 × (0,3/0,7) = 1,71</td><td>63%</td><td>×2,1 (nie ×4)</td></tr>
 <tr><td>50%</td><td>4 × (0,5/0,5) = 4,0</td><td>80%</td><td>×1,6 (nie ×4)</td></tr>
 <tr><td>60%</td><td>4 × (0,6/0,4) = 6,0</td><td>86%</td><td>×1,4 (nie ×4)</td></tr>
 <tr><td>5% <span class="ev">(pop. ogólna)</span></td><td>4 × (0,05/0,95) = 0,21</td><td>17%</td><td>×3,4 (bliżej ×4)</td></tr>
-</tbody></table>
+</table>
 
 <p><strong>Wniosek:</strong> W populacji z ośrodka Level IV, gdzie bazowy odsetek pacjentów z napadami jest wysoki (prawdopodobnie 50–70%), OR=4 przekłada się na realny wzrost ryzyka rzędu <strong>×1,4 do ×2,0</strong>, nie ×4. OR=4 zawyża efekt, bo bazowe prawdopodobieństwo jest dalekie od zera.</p>
 
@@ -223,20 +222,19 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <p>Przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych kindling — progresywne obniżanie progu drgawkowego (<a href="https://doi.org/10.1016/j.phrs.2023.106698">Becchetti 2023, Pharmacol Res</a>). Mutacje nAChR (CHRNA4, CHRNB2) powodują padaczkę ADSHE, co stanowi dowód koncepcyjny epileptogenności chronicznej aktywacji tych receptorów. Dane zwierzęce; translacja na człowieka prawdopodobna mechanistycznie.</p>
 
 <h3>5b. Stres oksydacyjny</h3>
-<!-- FIX: Clarified Geronzi 2018 is a review (not an original study with n=18) -->
-<p>Przegląd <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi 2018</a> omawia dane łączące stres oksydacyjny z padaczką lekooporną — m.in. badania wykazujące korelację 3-nitrotyrozyny z częstością napadów (p≤0,005) w DRE ogniskowej. Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników, nakładając egzogenny stres oksydacyjny na podwyższony poziom endogenny w DRE.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/29890748/">Lorigados Pedre et al. 2018</a> (n=18, padaczka lekooporna ogniskowa vs. 80 kontroli): ekspresja 3-nitrotyrozyny (3-NT) była istotnie podwyższona u pacjentów (p≤0,005) i pozytywnie korelowała z częstością napadów na miesiąc (Spearman r=0,76, p≤0,05). Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników <strong>w fazie gazowej</strong> (<a href="https://pubmed.ncbi.nlm.nih.gov/3007083/">Pryor &amp; Church 1986</a>), nakładając egzogenny stres oksydacyjny na podwyższony poziom endogenny w DRE. Przegląd mechanizmów: <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi et al. 2018</a>.</p>
 
 <h3>5c. Zaburzenia snu</h3>
-<p>Sleep Heart Health Study (n=6 400, PSG): palacze vs. niepalący: −14 min całkowity czas snu, −14% snu wolnofalowego (N3), +24% stadium 1. U byłych palaczy: brak różnic (potwierdza przyczynowość). Deprywacja snu jest najczęstszym wyzwalaczem napadów u dorosłych z padaczką.</p>
+<p>Sleep Heart Health Study (n=6 400, PSG; <a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">Zhang et al. 2006, PMID 16829553</a>): palacze vs. niepalący: −14 min całkowity czas snu (95% CI: 6,4–21,7), −14% snu wolnofalowego (proporcja względna 0,86; 95% CI: 0,78–0,95), +24% stadium 1 (proporcja względna 1,24; 95% CI: 1,14–1,33). U byłych palaczy: brak różnic (potwierdza przyczynowość). Deprywacja snu jest najczęstszym wyzwalaczem napadów u dorosłych z padaczką.</p>
 
 <h3>5d. Dysautonomia i SUDEP</h3>
-<p>Palenie obniża HRV o ~9% na każde 10 g tytoniu/dobę. Łańcuch: palenie → ↓HRV → pogłębienie dysfunkcji autonomicznej → potencjalnie ↑ryzyko SUDEP. Brak bezpośredniego badania prospektywnego, ale łańcuch mechanistyczny jest spójny.</p>
+<p>Palenie obniża SDNN (główny wskaźnik HRV) o ~9,8% na każde 10 g tytoniu/dobę, niezależnie od schorzeń kardiometabolicznych (<a href="https://pubmed.ncbi.nlm.nih.gov/30964923/">Pattaro et al. 2019, badanie CHRIS, PMID 30964923</a>; n=4 751). Łańcuch: palenie → ↓HRV → pogłębienie dysfunkcji autonomicznej → potencjalnie ↑ryzyko SUDEP. Brak bezpośredniego badania prospektywnego, ale łańcuch mechanistyczny jest spójny.</p>
 
 
 <!-- 6 -->
 <h2 id="alt"><span class="n">6.</span> Porównanie: papieros / e-papieros / plaster</h2>
 <table>
-<tbody><tr><th>Czynnik</th><th>Papieros</th><th>E-papieros</th><th>Plaster</th></tr>
+<tr><th>Czynnik</th><th>Papieros</th><th>E-papieros</th><th>Plaster</th></tr>
 <tr><td>Indukcja CYP1A2/UGT1A4</td><td class="bad">TAK</td><td class="ok">NIE</td><td class="ok">NIE</td></tr>
 <tr><td>Wpływ na BRV/CNB/LCM</td><td>Minimalny</td><td>Minimalny</td><td>Minimalny</td></tr>
 <tr><td>Kindling/prokonwulsyjność</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">TAK (wolniej)</td></tr>
@@ -244,11 +242,11 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <tr><td>Stres oksydacyjny</td><td class="bad">Masywny</td><td class="mid">Umiarkowany</td><td class="ok">Minimalny</td></tr>
 <tr><td>Zaburzenia snu</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">Mniejsze</td></tr>
 <tr><td>↓HRV / ryzyko SUDEP</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">TAK (mniejsze)</td></tr>
-</tbody></table>
+</table>
 
 <p><strong>Hierarchia:</strong> Plaster (najlepszy) → E-papieros (pośredni) → Papieros (najgorszy). Plaster eliminuje CO, PAH i szczyty prokonwulsyjne.</p>
 
-<div class="warn"><strong>Uwaga:</strong> Cenobamat indukuje CYP2B6 → AUC bupropionu ↓39%. Bupropion przeciwwskazany w padaczce. Wareniklina bez danych w DRE. Wspomaganie farmakologiczne rzucania wymaga indywidualnej oceny.</div>
+<div class="warn"><strong>Uwaga:</strong> Cenobamat indukuje CYP2B6 → AUC bupropionu ↓39% (<a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s008lbl.pdf">XCOPRI FDA label 2024</a>, §12.3). Bupropion jest przeciwwskazany u pacjentów z padaczką (<a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">Wellbutrin FDA label 2017</a>, §4). Wareniklina bez danych w DRE. Wspomaganie farmakologiczne rzucania wymaga indywidualnej oceny.</div>
 
 
 <!-- 7 -->
@@ -258,7 +256,7 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <li><strong>Palenie wiąże się z 2–3× wyższym ryzykiem napadów u kobiet</strong> (RR 2,60, NHS II) i z istotnie wyższą szansą napadu w ciągu roku w ciężkiej padaczce (OR~4, Johnson 2019). Efekt jest częściowo odwracalny po zaprzestaniu palenia.</li>
 <li><strong>Palenie zaburza sen</strong> — u pacjentki z napadami nocnymi/porannymi ten mechanizm jest bezpośrednio istotny.</li>
 <li><strong>Optymalna alternatywa: plaster &gt; e-papieros &gt; papieros.</strong> Zmiana nie wymaga korekty dawkowania.</li>
-<li><strong>Rzucanie wymaga planowania neurologicznego.</strong> Odstawienie nikotyny może prowokować napady (stres, bezsenność). Farmakoterapia ograniczona (bupropion p/w, wareniklina bez danych).</li>
+<li><strong>Rzucanie wymaga planowania neurologicznego.</strong> Odstawienie nikotyny może prowokować napady (stres, bezsenność). Farmakoterapia ograniczona: bupropion przeciwwskazany w padaczce (<a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">Wellbutrin FDA label</a>), wareniklina bez danych w DRE.</li>
 <li><strong>Status palenia powinien być częścią oceny klinicznej</strong> — kontroli napadów, jakości snu, ryzyka SUDEP.</li>
 </ol>
 
@@ -269,20 +267,20 @@ footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid var(--bord
 <div class="si" data-n="1."><strong>Dworetzky BA et al.</strong> A prospective study of smoking, caffeine, and alcohol as risk factors for seizures or epilepsy in young adult women: Data from the Nurses' Health Study II. <span class="j">Epilepsia. 2010;51(2):198–206.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">PMID 19694796</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3090289/">PMC</a><br>→ RR=2,60 (95% CI: 1,53–4,42) dla napadów u aktualnych palaczek. Jedyne duże prospektywne badanie wyłącznie u kobiet.</div>
 <div class="si" data-n="2."><strong>Johnson AL et al.</strong> The role of cigarette smoking in epilepsy severity and epilepsy-related quality of life. <span class="j">Epilepsy Behav. 2019;93:38–42.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30831400/">PMID 30831400</a> · <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">DOI</a><br>→ OR~4 (adjusted OR=3,61) za napad w ciągu roku u palących z Level IV epilepsy center. n=92.</div>
 <div class="si" data-n="3."><strong>Kang Y et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis. <span class="j">BMC Medicine. 2024;22:91.</span> <a href="https://doi.org/10.1186/s12916-024-03307-0">DOI</a><br>→ OR=1,59 (1,42–1,78) dla aktywnej padaczki; OR=1,46 (1,13–1,89) current smokers. 17 badań, 743 108 osób. GRADE: very low.</div>
-<!-- FIX: FDA label links → DailyMed (verified working) -->
-<div class="si" data-n="4."><strong>FDA Prescribing Information (via DailyMed):</strong> <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">Xcopri (Cenobamat)</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aef3ee92-e2a6-4135-94b2-b893f893d5f2">Briviact (Brivaracetam)</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">Vimpat (Lacosamide)</a>, §12.3.</div>
-<!-- FIX: PMID 21204915 → 21599724 (verified: correct Hukkanen paper) -->
-<div class="si" data-n="5."><strong>Hukkanen J, Benowitz NL, Jacob P 3rd.</strong> Effect of nicotine on cytochrome P450 1A2 activity in humans. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">PMID 21599724</a></div>
+<div class="si" data-n="4."><strong>FDA Prescribing Information:</strong> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/212839s008lbl.pdf">Xcopri 2024</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/205836s005lbl.pdf">Briviact 2021</a>, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022253s042lbl.pdf">Vimpat 2023</a>, §12.3.</div>
+<div class="si" data-n="5."><strong>Hukkanen J et al.</strong> Effect of nicotine on CYP1A2 activity. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21204915/">PMID 21204915</a></div>
 <div class="si" data-n="6."><strong>Becchetti A et al.</strong> Nicotinic acetylcholine receptors and epilepsy. <span class="j">Pharmacol Res. 2023;189:106698.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36796465/">PMID 36796465</a></div>
-<!-- FIX: Clarified this is a review article -->
-<div class="si" data-n="7."><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy (review). <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a></div>
-<div class="si" data-n="8."><strong>Zhong R et al.</strong> Current cigarette smoking is associated with a high seizure frequency and anxiety symptoms in people with epilepsy. <span class="j">Front Neurol. 2022;13:834694.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a></div>
-<div class="si" data-n="9."><strong>Rong L, Frontera AT, Benbadis SR.</strong> Tobacco smoking, epilepsy, and seizures. <span class="j">Epilepsy Behav. 2014;31:210–218.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/24441294/">PMID 24441294</a></div>
-<!-- FIX: PMID 18396470 → 18583161 (verified: correct Reinsberger paper) -->
-<div class="si" data-n="10."><strong>Reinsberger C, Dorn T, Krämer G.</strong> Smoking reduces serum levels of lamotrigine. <span class="j">Seizure. 2008;17(7):651–653.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">PMID 18583161</a></div>
+<div class="si" data-n="7."><strong>Lorigados Pedre L et al.</strong> Oxidative Stress in Patients with Drug Resistant Partial Complex Seizure. <span class="j">Behav Sci (Basel). 2018;8(6):59.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29890748/">PMID 29890748</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6027168/">PMC</a><br>→ Badanie pierwotne: n=18 DRPCS vs. 80 kontroli. 3-NT podwyższona (p≤0,005), korelacja z częstością napadów (r=0,76, p≤0,05).</div>
+<div class="si" data-n="8."><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy. <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a><br>→ Artykuł przeglądowy omawiający mechanizmy stresu oksydacyjnego w padaczce.</div>
+<div class="si" data-n="9."><strong>Zhang L et al.</strong> Cigarette smoking and nocturnal sleep architecture. <span class="j">Am J Epidemiol. 2006;164(6):529–537.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">PMID 16829553</a><br>→ Sleep Heart Health Study, n=6 400. Palacze: −14 min TST, −14% SWS, +24% stadium 1.</div>
+<div class="si" data-n="10."><strong>Pattaro C et al. (badanie CHRIS).</strong> Effects of smoking status, history and intensity on heart rate variability in the general population. <span class="j">PLoS ONE. 2019;14(4):e0215053.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30964923/">PMID 30964923</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6456196/">PMC</a><br>→ n=4 751. SDNN ↓9,8% na 10 g tytoniu/dobę u aktualnych palaczy, niezależnie od schorzeń kardiometabolicznych.</div>
+<div class="si" data-n="11."><strong>Pryor WA, Church DF.</strong> Free-radical chemistry of cigarette smoke and its toxicological implications. <span class="j">Environ Health Perspect. 1985;64:211–226.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/3007083/">PMID 3007083</a><br>→ ~10<sup>15</sup> wolnych rodników w fazie gazowej na zaciągnięcie. Dwie populacje rodników: faza smolista (stabilne) i gazowa (reaktywne O- i C-centryczne).</div>
+<div class="si" data-n="12."><strong>FDA Wellbutrin® label 2017.</strong> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">Wellbutrin PI</a>, §4 Contraindications.<br>→ „WELLBUTRIN is contraindicated in patients with a seizure disorder."</div>
+<div class="si" data-n="13."><strong>Zhong R et al.</strong> Current cigarette smoking is associated with a high seizure frequency and anxiety symptoms in people with epilepsy. <span class="j">Front Neurol. 2022;13:834694.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a></div>
+<div class="si" data-n="14."><strong>Rong L, Frontera AT, Benbadis SR.</strong> Tobacco smoking, epilepsy, and seizures. <span class="j">Epilepsy Behav. 2014;31:210–218.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/24441294/">PMID 24441294</a></div>
 </div>
 
-<!-- FIX: Footer link changed from file:/// to relative anchor -->
-<footer>Wygenerowano marzec 2026 · Wymaga weryfikacji neurologicznej · <a href="#leki">↑ Powrót</a></footer>
+<footer>Wygenerowano marzec 2026 · V2 — poprawiona atrybucja i cytowania · Wymaga weryfikacji neurologicznej · <a href="#leki">↑ Powrót</a></footer>
 </div>
-</body></html>
+</body>
+</html>
