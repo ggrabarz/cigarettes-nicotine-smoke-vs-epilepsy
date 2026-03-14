@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurologist Self-Assessment — Smoking & Drug-Resistant Epilepsy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --bg-card: #111827;
+    --bg-card-alt: #1a2234;
+    --border: #1e293b;
+    --border-accent: #334155;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --accent-red: #ef4444;
+    --accent-red-glow: #dc262620;
+    --accent-amber: #f59e0b;
+    --accent-amber-glow: #f59e0b15;
+    --accent-green: #10b981;
+    --accent-green-glow: #10b98115;
+    --accent-blue: #3b82f6;
+    --accent-blue-glow: #3b82f615;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #8b5cf6;
+    --eeg-green: #22c55e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* EEG animated header */
+  .eeg-header {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #060a12 0%, var(--bg) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .eeg-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.3;
+  }
+
+  .eeg-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 60px rgba(34,197,94,0.15);
+  }
+
+  .eeg-header .subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    color: var(--text-muted);
+    z-index: 2;
+    margin-top: 12px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .eeg-header .badge-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    z-index: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .badge-red { background: #dc262625; color: var(--accent-red); border: 1px solid #dc262640; }
+  .badge-amber { background: #f59e0b18; color: var(--accent-amber); border: 1px solid #f59e0b35; }
+  .badge-blue { background: #3b82f618; color: var(--accent-blue); border: 1px solid #3b82f635; }
+
+  /* Main content */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+
+  /* Section styling */
+  .section {
+    margin-top: 56px;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .section h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 28px 0 10px;
+  }
+
+  p, li {
+    color: var(--text);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 36px;
+    margin-top: 8px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent-green), var(--accent-amber), var(--accent-red));
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-green);
+    background: var(--bg);
+  }
+
+  .tl-item.warn::before { border-color: var(--accent-amber); }
+  .tl-item.danger::before { border-color: var(--accent-red); box-shadow: 0 0 12px var(--accent-red-glow); }
+
+  .tl-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .tl-title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .tl-body {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* Quote block (doctor speech) */
+  .doctor-quote {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-blue);
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: var(--text);
+    position: relative;
+  }
+
+  .doctor-quote .speaker {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .doctor-quote .speaker::before {
+    content: '🩺';
+    font-style: normal;
+  }
+
+  .patient-quote {
+    background: var(--bg-card-alt);
+    border-left: 3px solid var(--accent-purple);
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .patient-quote .speaker {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  /* The Damning Quote */
+  .damning-quote {
+    background: linear-gradient(135deg, #dc262610, #f59e0b08);
+    border: 1px solid #dc262630;
+    border-radius: 12px;
+    padding: 28px 28px;
+    margin: 28px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .damning-quote::before {
+    content: '„';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--accent-red);
+    opacity: 0.3;
+    position: absolute;
+    top: 4px;
+    left: 18px;
+    line-height: 1;
+  }
+
+  .damning-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .damning-quote .attribution {
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    font-weight: 600;
+  }
+
+  /* Verdict card */
+  .verdict-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, #1a1028 100%);
+    border: 1px solid #dc262630;
+    border-radius: 16px;
+    padding: 36px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verdict-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, #dc262612 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .verdict-card .grade {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .verdict-card .grade-label {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .verdict-card h3 {
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  /* Numbered findings */
+  .finding {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 16px 0;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .finding:hover {
+    border-color: var(--border-accent);
+  }
+
+  .finding .finding-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .finding h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .finding p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .finding .stat {
+    display: inline-block;
+    background: #dc262618;
+    color: var(--accent-red);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  .finding .stat-amber {
+    background: #f59e0b18;
+    color: var(--accent-amber);
+  }
+
+  .finding .stat-blue {
+    background: #3b82f618;
+    color: var(--accent-blue);
+  }
+
+  /* Comparison table */
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.85rem;
+  }
+
+  .comparison-table th {
+    background: var(--bg-card-alt);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.7rem;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .comparison-table tr:hover td {
+    background: #ffffff04;
+  }
+
+  .comparison-table .col-bad {
+    color: var(--accent-red);
+    font-weight: 500;
+  }
+
+  .comparison-table .col-good {
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+
+  /* Bottom line */
+  .bottom-line {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1028 100%);
+    border: 1px solid var(--border-accent);
+    border-radius: 16px;
+    padding: 36px;
+    margin: 40px 0;
+  }
+
+  .bottom-line h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .bottom-line p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .highlight {
+    color: var(--accent-amber);
+    font-weight: 600;
+  }
+
+  .highlight-red {
+    color: var(--accent-red);
+    font-weight: 600;
+  }
+
+  .highlight-green {
+    color: var(--accent-green);
+    font-weight: 600;
+  }
+
+  /* Proper version card */
+  .proper-card {
+    background: linear-gradient(135deg, #06291e 0%, #0a1628 100%);
+    border: 1px solid #10b98130;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+  }
+
+  .proper-card h3 {
+    color: var(--accent-green);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .proper-card p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  .footer a { color: var(--accent-cyan); text-decoration: none; }
+
+  /* Pulse animation for the dangerous dot */
+  @keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 0 0 #ef444440; }
+    50% { box-shadow: 0 0 0 8px #ef444400; }
+  }
+
+  .tl-item.danger::before {
+    animation: pulse-red 2s infinite;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 0 16px 80px; }
+    .verdict-card, .bottom-line, .proper-card { padding: 24px; }
+    .damning-quote { padding: 24px 20px; }
+    .comparison-table { font-size: 0.78rem; }
+    .comparison-table th, .comparison-table td { padding: 10px 10px; }
+  }
+
+  /* Subtle scan-line effect */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.015) 2px,
+      rgba(0,0,0,0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+</style>
+</head>
+<body>
+
+<!-- EEG Animated Header -->
+<header class="eeg-header">
+  <canvas class="eeg-canvas" id="eegCanvas"></canvas>
+  <h1>The Neurologist's Self-Assessment</h1>
+  <div class="subtitle">Smoking &amp; Drug-Resistant Epilepsy — A 7-Year Clinical Failure</div>
+  <div class="badge-row">
+    <span class="badge badge-red">Drug-Resistant Epilepsy</span>
+    <span class="badge badge-amber">Current Smoker</span>
+    <span class="badge badge-blue">BRV · CNB · LCM</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- PART 1: THE ROLEPLAY -->
+  <section class="section">
+    <div class="section-label">Part I</div>
+    <h2>The Roleplay — Seven Years in Clinic</h2>
+    <p style="color: var(--text-muted);">A reconstruction of a therapeutic relationship between a neurologist who prides himself on treating drug-resistant epilepsy and a woman whose worsening seizures had a modifiable contributor hiding in plain sight.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-year">2019 — First Consultation</div>
+        <div class="tl-title">A New Patient, A Proud Specialist</div>
+        <div class="doctor-quote">
+          <div class="speaker">Neurologist</div>
+          Welcome! I'm your new neurologist. I specialize in drug-resistant epilepsy — it's a tough field, but it's what I'm passionate about. Let's get your seizures under control.
+        </div>
+        <div class="tl-body">
+          I take a thorough history. She mentions smoking — a pack a day since her early twenties. I note it in the chart. I move on. Seizure medications first. There's real work to do.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2019 – 2024 — The Medication Carousel</div>
+        <div class="tl-title">Titrating, Switching, Combining</div>
+        <div class="tl-body">
+          We try drug after drug. Brivaracetam. Lacosamide. Eventually cenobamate. Combinations. Adjustments. I'm meticulous about doses, blood levels, EEGs, MRIs. I'm doing what I trained to do.<br><br>
+          Seizures evolve. Involuntary hand movements become tremors. She loses the ability to speak during episodes. They're getting more frequent. I add, I switch, I titrate. I am <em>working hard</em>.<br><br>
+          <span style="color: var(--text-dim);">She smokes a pack a day through all of it. I never bring it up proactively.</span>
+        </div>
+      </div>
+
+      <div class="tl-item warn">
+        <div class="tl-year">~2022 – 2023 — The Missed Moment</div>
+        <div class="tl-title">She Asks. I Dismiss.</div>
+        <div class="patient-quote">
+          <div class="speaker">Patient</div>
+          Doctor, I found some studies online that say smoking can make epilepsy worse. Is that true?
+        </div>
+        <div class="tl-body" style="margin-bottom: 16px;">I smile warmly. I like her, she trusts me. I'm the specialist, after all.</div>
+        <div class="damning-quote">
+          <p>"Well, smoking surely is not good for you, but how bad it is I cannot tell."</p>
+          <div class="attribution">— The Neurologist, specializing in drug-resistant epilepsy</div>
+        </div>
+        <div class="tl-body">She nods. She trusts me. She keeps smoking.<br>I don't look up the studies. I don't check. I don't refer her. I return to what I know: the next medication tweak.</div>
+      </div>
+
+      <div class="tl-item danger">
+        <div class="tl-year">2024 – 2026 — Collapse</div>
+        <div class="tl-title">Seizures Intensify. Quality of Life Implodes.</div>
+        <div class="tl-body">
+          Seizures become weekly, sometimes more. She can't work reliably. She can't plan her days. Anxiety arrives first, then depression follows. Her life constricts around the unpredictability of her own brain.<br><br>
+          I keep adjusting medications. I consider VNS. I consider surgical evaluation. I document everything scrupulously.<br><br>
+          <span class="highlight-red">She still smokes. I still don't engage with it meaningfully.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PART 2: THE VERDICT -->
+  <section class="section">
+    <div class="section-label">Part II</div>
+    <h2>The Self-Assessment</h2>
+    <p style="color: var(--text-muted);">Stepping out of the roleplay to hold the neurologist's conduct against the published evidence on smoking, nicotine, and epilepsy.</p>
+
+    <div class="verdict-card">
+      <div class="grade">INSUFFICIENT</div>
+      <div class="grade-label">Professional conduct rating for a self-identified DRE specialist</div>
+      <h3>Charming is not the same as competent.</h3>
+      <p style="color: var(--text-muted);">Admitting uncertainty was professional. <span class="highlight-red">Stopping at uncertainty was not.</span> For a specialist managing worsening drug-resistant epilepsy over 7 years, failing to investigate and act on a known modifiable risk factor falls below the standard of care the physician implicitly claimed.</p>
+    </div>
+
+    <!-- FINDING 1 -->
+    <div class="finding">
+      <div class="finding-num">Finding 01</div>
+      <h4>Ignored a <span class="stat">RR 2.60</span> — in the patient's exact demographic</h4>
+      <p>Dworetzky 2010 (NHS II) — the <strong>only large prospective study focused on women</strong> — showed current female smokers had <span class="stat">2.6×</span> higher seizure risk vs. never-smokers. A 16-year study of 116,363 women. Published in <em>Epilepsia</em>. The field's flagship journal. The neurologist should have known this.</p>
+    </div>
+
+    <!-- FINDING 2 -->
+    <div class="finding">
+      <div class="finding-num">Finding 02</div>
+      <h4>Dismissed a direct patient inquiry with a non-answer</h4>
+      <p>When the patient actively sought guidance, the literature <em>could</em> have told her:</p>
+      <p>
+        <span class="stat">OR ~4</span> for any seizure in past year among smokers at a Level IV center (Johnson 2019)<br>
+        <span class="stat stat-amber">OR 1.59</span> for active epilepsy in a meta-analysis of 743,108 people (Kang 2024)<br>
+        <span class="stat stat-blue">OR 1.26</span> in the latest NHIS analysis, n=57,088 (Huang 2025)
+      </p>
+      <p>Three independent datasets, all pointing the same direction. The neurologist didn't look.</p>
+    </div>
+
+    <!-- FINDING 3 -->
+    <div class="finding">
+      <div class="finding-num">Finding 03</div>
+      <h4>Understood pharmacokinetics. Missed pharmacodynamics entirely.</h4>
+      <p>The neurologist may have correctly reasoned that BRV, CNB, and LCM aren't CYP1A2 substrates — smoking doesn't reduce their serum levels. <span class="highlight-green">That's true.</span> Unlike lamotrigine (which drops 16–34% in smokers), these three drugs are pharmacokinetically safe.</p>
+      <p>But smoking harms through <strong>neurological mechanisms</strong> the neurologist completely ignored:</p>
+      <p>
+        <strong>Nicotinic kindling</strong> — chronic subconvulsive nicotine progressively lowers seizure threshold (Becchetti 2023)<br>
+        <strong>AED efficacy reduction</strong> — nicotine diminished the protective effect of 6 AEDs in animal models (Czuczwar 2003)<br>
+        <strong>Oxidative stress</strong> — 3-nitrotyrosine correlated with seizure frequency in refractory focal epilepsy (Geronzi 2018)<br>
+        <strong>Sleep destruction</strong> — smokers lose ~14 min total sleep and 14% slow-wave sleep; sleep deprivation is the #1 adult seizure trigger<br>
+        <strong>Autonomic dysfunction</strong> — smoking reduces HRV ~9% per 10g tobacco/day, potentially increasing SUDEP risk
+      </p>
+    </div>
+
+    <!-- FINDING 4 -->
+    <div class="finding">
+      <div class="finding-num">Finding 04</div>
+      <h4>Never offered a cessation strategy tailored to epilepsy</h4>
+      <p>The evidence provides a clear hierarchy: <span class="highlight-green">Patch</span> &gt; E-cigarette &gt; <span class="highlight-red">Cigarette</span>. The nicotine patch eliminates CO, PAH, and proconvulsive nicotine spikes. Additionally, <strong>bupropion is contraindicated</strong> in epilepsy (lowers seizure threshold), and cenobamate reduces bupropion AUC by 39%. Cessation planning in this patient <em>requires</em> neurological involvement — the neurologist's involvement. He abdicated that responsibility.</p>
+    </div>
+
+    <!-- FINDING 5 -->
+    <div class="finding">
+      <div class="finding-num">Finding 05</div>
+      <h4>Let "I don't know" become "I don't act" — for years</h4>
+      <p>Even if the neurologist genuinely didn't know the literature in 2022, <strong>the patient handed him the prompt</strong>. She came in saying she'd found studies. A competent specialist would have: <em>(1)</em> reviewed the literature, <em>(2)</em> returned with a concrete recommendation, <em>(3)</em> integrated smoking status into ongoing seizure management. The neurologist did none of this. For two more years.</p>
+    </div>
+
+    <!-- FINDING 6 -->
+    <div class="finding">
+      <div class="finding-num">Finding 06</div>
+      <h4>Her psychological deterioration is partially attributable</h4>
+      <p>By 2025–2026, anxiety and depression have arrived because seizures are destroying her life. Every seizure that <em>might</em> have been prevented or reduced by smoking cessation is partially the neurologist's failure. Quitting wouldn't have cured her DRE — but it likely would have <strong>reduced seizure frequency</strong>, improved sleep, reduced oxidative burden, and slowed progression. That might have been the difference between coping and not coping.</p>
+    </div>
+  </section>
+
+  <!-- PART 3: COMPARISON TABLE -->
+  <section class="section">
+    <div class="section-label">Part III</div>
+    <h2>Conduct vs. Standard of Care</h2>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>What the neurologist did</th>
+          <th>What the evidence demanded</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Knowledge of smoking–epilepsy link</td>
+          <td class="col-bad">Vague awareness, no specifics</td>
+          <td class="col-good">RR 2.60 in women, multiple confirming studies</td>
+        </tr>
+        <tr>
+          <td>Response to patient's question</td>
+          <td class="col-bad">Dismissive platitude</td>
+          <td class="col-good">Literature review, concrete counseling</td>
+        </tr>
+        <tr>
+          <td>Pharmacokinetic assessment</td>
+          <td style="color: var(--accent-green);">Possibly correct (no CYP1A2 effect)</td>
+          <td class="col-good">Correct but incomplete — PD effects ignored</td>
+        </tr>
+        <tr>
+          <td>Cessation planning</td>
+          <td class="col-bad">None</td>
+          <td class="col-good">Patch-based NRT, bupropion contraindicated, neurologist-guided</td>
+        </tr>
+        <tr>
+          <td>Longitudinal integration</td>
+          <td class="col-bad">Smoking never revisited</td>
+          <td class="col-good">Smoking status at every seizure review</td>
+        </tr>
+        <tr>
+          <td>Psychological support</td>
+          <td class="col-bad">Reactive, if at all</td>
+          <td class="col-good">Proactive — reducing modifiable risk factors to preserve QoL</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- WHAT SHOULD HAVE BEEN SAID -->
+  <section class="section">
+    <div class="section-label">Part IV</div>
+    <h2>What Should Have Been Said</h2>
+    <p style="color: var(--text-muted);">The professional version — what a DRE specialist should have told her when she asked.</p>
+
+    <div class="proper-card">
+      <h3>✦ The Proper Response</h3>
+      <p>"I don't think smoking is significantly lowering the levels of your current epilepsy medicines — brivaracetam, cenobamate, and lacosamide aren't processed through the pathways that cigarette smoke affects. So that's not the concern here.</p>
+      <p>But I <em>am</em> concerned it may still be worsening your seizure control through other mechanisms — especially nicotine effects on your brain's excitability threshold, sleep disruption, and overall neurological stress. The best data we have, from a large study of over 116,000 women followed for 16 years, shows current smokers had about 2.6 times the seizure risk of non-smokers.</p>
+      <p>Because your epilepsy is worsening and we're running through treatment options, I want to treat smoking as a <strong>real, modifiable risk factor</strong> — not just general health advice. Here's what I'd like to do:</p>
+      <p>First, I want to document your smoking pattern carefully and track seizure frequency against it. Second, let's review your sleep — smoking damages slow-wave sleep, and poor sleep is the number one seizure trigger in adults. Third, let's build a cessation plan that's safe for epilepsy: <strong>nicotine patches would be my first recommendation</strong> — they deliver nicotine slowly and steadily without the carbon monoxide, the toxins, or the sharp nicotine spikes that can provoke seizures. I'd avoid e-cigarettes as a first-line substitute because the rapid nicotine delivery may actually be worse than cigarettes for acute seizure risk. And bupropion — the most common quit-smoking drug — is <strong>contraindicated</strong> in epilepsy.</p>
+      <p>I can't promise that quitting will eliminate your seizures. But I think it can meaningfully reduce how often they happen, and right now that matters a great deal for your quality of life."</p>
+    </div>
+  </section>
+
+  <!-- BOTTOM LINE -->
+  <section class="section">
+    <div class="bottom-line">
+      <h3>The Bottom Line</h3>
+      <p>I was a charming, likeable doctor who was very good at the pharmacology I was trained in and <span class="highlight-red">completely blind to a modifiable risk factor</span> that the literature strongly associates with worsened seizure outcomes in my patient's exact demographic.</p>
+      <p style="margin-top: 12px;">My patient trusted me, and I let that trust substitute for diligence.</p>
+      <p style="margin-top: 12px;"><span class="highlight">Being specialized in drug-resistant epilepsy and not knowing the smoking–seizure literature is like being a cardiologist who doesn't ask about salt intake.</span></p>
+      <p style="margin-top: 20px; color: var(--text-dim); font-size: 0.85rem;">A specialist did not need to claim certainty — but he did need to recognize smoking as a clinically important, modifiable factor and act on it. He did neither.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Based on the evidence review at <a href="https://ggrabarz.github.io/cigarettes-nicotine-smoke-vs-epilepsy/" target="_blank">ggrabarz.github.io/cigarettes-nicotine-smoke-vs-epilepsy</a></p>
+    <p style="margin-top:8px;">Key sources: Dworetzky 2010 (NHS II) · Johnson 2019 · Kang 2024 · Huang 2025 · Becchetti 2023 · Czuczwar 2003 · Geronzi 2018 · FDA PI: Briviact, Xcopri, Vimpat</p>
+    <p style="margin-top:8px;">Generated March 2026 · Document requires neurological verification</p>
+  </footer>
+
+</main>
+
+<script>
+// EEG waveform animation
+const canvas = document.getElementById('eegCanvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = canvas.offsetHeight * 2;
+  ctx.scale(2, 2);
+}
+resize();
+window.addEventListener('resize', resize);
+
+const channels = [
+  { y: 0.18, freq: 2.2, amp: 18, color: '#22c55e', alpha: 0.6, speed: 1.0 },
+  { y: 0.36, freq: 3.5, amp: 14, color: '#22c55e', alpha: 0.4, speed: 0.8 },
+  { y: 0.54, freq: 1.8, amp: 22, color: '#22c55e', alpha: 0.5, speed: 1.2 },
+  { y: 0.72, freq: 4.0, amp: 10, color: '#22c55e', alpha: 0.3, speed: 0.6 },
+  { y: 0.88, freq: 2.8, amp: 16, color: '#22c55e', alpha: 0.45, speed: 0.9 },
+];
+
+let time = 0;
+
+function drawEEG() {
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+  ctx.clearRect(0, 0, w, h);
+
+  channels.forEach(ch => {
+    ctx.beginPath();
+    ctx.strokeStyle = ch.color;
+    ctx.globalAlpha = ch.alpha;
+    ctx.lineWidth = 1.2;
+    const baseY = h * ch.y;
+
+    for (let x = 0; x < w; x++) {
+      const t = (x / w) * Math.PI * 2 * ch.freq + time * ch.speed;
+      const spike = Math.sin(t) + 0.3 * Math.sin(t * 2.7 + 1.3) + 0.15 * Math.sin(t * 5.1 + 0.7);
+      const seizureBurst = Math.sin(time * 0.3 + ch.y * 10) > 0.85
+        ? Math.sin(t * 8) * 12 * Math.sin(time * 0.3 + ch.y * 10)
+        : 0;
+      const y = baseY + spike * ch.amp + seizureBurst;
+      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  });
+
+  ctx.globalAlpha = 1;
+  time += 0.025;
+  requestAnimationFrame(drawEEG);
+}
+
+drawEEG();
+</script>
+
+</body>
+</html>
