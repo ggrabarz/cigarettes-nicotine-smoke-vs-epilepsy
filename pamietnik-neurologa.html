@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samoocena neurologa</title>
+<title>Z pamiętnika pewnego neurologa</title>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fafaf8;
-    --bg-warm: #f4f2ed;
+    --bg-warm: #efece6;
     --text: #1a1a1a;
-    --text-body: #2e2e2e;
-    --text-secondary: #5c5c5c;
-    --text-dim: #8a8a8a;
-    --border: #ddd9d3;
+    --text-body: #272727;
+    --text-secondary: #454545;
+    --text-dim: #636363;
+    --border: #d4d0c8;
     --accent: #8b2500;
-    --accent-muted: #8b250015;
-    --green: #1a6b4a;
-    --green-muted: #1a6b4a10;
-    --tl-line: #c8c3ba;
-    --tl-dot: #8b2500;
-    --tl-dot-ok: #1a6b4a;
-    --tl-dot-warn: #b45309;
-    --tl-dot-danger: #991b1b;
+    --accent-muted: #8b250020;
+    --green: #15603f;
+    --green-muted: #15603f18;
+    --tl-line: #bdb8ae;
+    --tl-dot-ok: #15603f;
+    --tl-dot-warn: #9a4a07;
+    --tl-dot-danger: #8b1a1a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,7 +30,7 @@
     background: var(--bg);
     color: var(--text-body);
     font-family: 'Newsreader', Georgia, serif;
-    font-size: 17px;
+    font-size: 18.5px;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
   }
@@ -40,11 +39,11 @@
   header {
     max-width: 740px;
     margin: 0 auto;
-    padding: 72px 24px 44px;
+    padding: 76px 24px 44px;
   }
 
   header h1 {
-    font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
     font-weight: 600;
     color: var(--text);
     line-height: 1.2;
@@ -53,7 +52,7 @@
   }
 
   header .dek {
-    font-size: 1.05rem;
+    font-size: 1.00rem;
     color: var(--text-secondary);
     font-weight: 300;
     line-height: 1.65;
@@ -63,7 +62,7 @@
   header .meta {
     margin-top: 20px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.74rem;
     color: var(--text-dim);
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -91,16 +90,16 @@
 
   .part-label {
     font-family: 'Inter', sans-serif;
-    font-size: 0.66rem;
+    font-size: 0.74rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-dim);
     margin-bottom: 6px;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 24px;
@@ -135,7 +134,7 @@
     content: '';
     position: absolute;
     left: -44px;
-    top: 10px;
+    top: 11px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -145,11 +144,11 @@
   }
 
   .tl-node.warn::before { border-color: var(--tl-dot-warn); }
-  .tl-node.danger::before { border-color: var(--tl-dot-danger); background: #991b1b18; }
+  .tl-node.danger::before { border-color: var(--tl-dot-danger); background: #8b1a1a14; }
 
   .tl-node .year-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-dim);
     margin-bottom: 2px;
@@ -159,13 +158,13 @@
   .tl-node .node-title {
     font-weight: 500;
     color: var(--text);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     margin-bottom: 12px;
     line-height: 1.35;
   }
 
   .tl-node p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   /* ── Dialogue ── */
@@ -177,7 +176,7 @@
 
   .dialogue .who {
     font-family: 'Inter', sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.74rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -193,19 +192,19 @@
   /* ── Inner thought ── */
   .inner {
     margin: 14px 0 18px;
-    padding: 14px 18px;
+    padding: 16px 20px;
     background: var(--bg-warm);
     border-radius: 3px;
     font-style: italic;
     color: var(--text-secondary);
-    font-size: 0.92rem;
+    font-size: 0.97rem;
     line-height: 1.75;
   }
 
   .inner .label {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -223,7 +222,7 @@
   }
 
   .the-quote p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--text);
     line-height: 1.5;
@@ -232,7 +231,7 @@
 
   .the-quote .attr {
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.76rem;
     color: var(--accent);
     font-weight: 500;
   }
@@ -240,11 +239,11 @@
   /* ── Stats ── */
   .stat {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.86em;
+    font-size: 0.88em;
     font-weight: 500;
     color: var(--accent);
     background: var(--accent-muted);
-    padding: 1px 6px;
+    padding: 1px 7px;
     border-radius: 3px;
   }
 
@@ -261,7 +260,7 @@
     margin-top: 0;
     margin-bottom: 10px;
     color: var(--accent);
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
   }
 
@@ -270,12 +269,12 @@
 
   /* ── Points ── */
   .point {
-    margin: 26px 0;
+    margin: 28px 0;
   }
 
   .point .point-num {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.76rem;
     color: var(--accent);
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -283,7 +282,7 @@
   }
 
   .point h4 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 8px;
@@ -291,7 +290,7 @@
   }
 
   .point p {
-    font-size: 0.93rem;
+    font-size: 1rem;
     color: var(--text-secondary);
   }
 
@@ -300,14 +299,14 @@
     width: 100%;
     border-collapse: collapse;
     margin: 24px 0;
-    font-size: 0.86rem;
+    font-size: 0.92rem;
     line-height: 1.6;
   }
 
   .simple-table th {
     font-family: 'Inter', sans-serif;
     text-align: left;
-    font-size: 0.66rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -336,7 +335,7 @@
 
   .proper .label {
     font-family: 'Inter', sans-serif;
-    font-size: 0.66rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -345,7 +344,7 @@
   }
 
   .proper p {
-    font-size: 0.93rem;
+    font-size: 1rem;
     color: var(--text-body);
   }
 
@@ -357,7 +356,7 @@
   }
 
   .closing p {
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     color: var(--text);
     line-height: 1.7;
   }
@@ -365,13 +364,19 @@
   .em-red { color: var(--accent); font-weight: 500; }
   .em-green { color: var(--green); font-weight: 500; }
 
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
   /* ── Footer ── */
   footer {
     max-width: 740px;
     margin: 0 auto;
     padding: 36px 24px 80px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.76rem;
     color: var(--text-dim);
     line-height: 1.8;
   }
@@ -381,12 +386,6 @@
     text-decoration: underline;
     text-decoration-color: var(--border);
     text-underline-offset: 2px;
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 48px 0;
   }
 
   @media (max-width: 640px) {
@@ -399,6 +398,11 @@
 </style>
 </head>
 <body>
+
+<header>
+  <h1>Z pamiętnika pewnego neurologa</h1>
+  <p class="dek">Specjalista od epilepsji lekoopornej przygląda się latom własnego postępowania klinicznego.</p>
+</header>
 
 <div class="divider"><hr></div>
 
@@ -422,7 +426,7 @@
 
         <div class="inner">
           <div class="label">Myśl wewnętrzna</div>
-          Palenie oczywiście nie jest zdrowe, ale to nie jest konsultacja pulmonologiczna. Ta pacjentka ma padaczkę lekooporną — muszę dobrać jej odpowiedni lek. Po to tu jestem. W tym jestem dobry.
+          Palenie oczywiście nie jest zdrowe, ale to nie jest konsultacja pulmonologiczna. Ta pacjentka może mieć epilepsję lekooporną — muszę dobrać jej odpowiedni lek. Po to tu jestem. W tym jestem dobry.
         </div>
 
         <p>Wdrażam leczenie lekiem pierwszego rzutu. Umawiamy się na kontrolę.</p>
@@ -648,7 +652,7 @@
     <p>Byłem sympatycznym, lubianym lekarzem, który świetnie znał farmakologię, której go nauczono, i <span class="em-red">był kompletnie ślepy na modyfikowalny czynnik ryzyka</span>, który literatura wiąże z pogorszonymi wynikami kontroli napadów dokładnie w demografii mojej pacjentki.</p>
     <p>Moja pacjentka mi ufała, a ja pozwoliłem, żeby to zaufanie zastąpiło rzetelność.</p>
     <p><span class="em-red">Specjalizować się w padaczce lekoopornej i nie znać literatury o paleniu a napadach to mniej więcej jak być kardiologiem, który nie pyta o sól.</span></p>
-    <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:24px;">Specjalista nie musiał mieć pewności. Ale musiał rozpoznać palenie jako klinicznie istotny, modyfikowalny czynnik — i na tej podstawie działać. Nie zrobił ani jednego, ani drugiego.</p>
+    <p style="color:var(--text-secondary); font-size:0.95rem; margin-top:24px;">Specjalista nie musiał mieć pewności. Ale musiał rozpoznać palenie jako klinicznie istotny, modyfikowalny czynnik — i na tej podstawie działać. Nie zrobił ani jednego, ani drugiego.</p>
   </div>
 
 </div>
