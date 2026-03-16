@@ -2,336 +2,115 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-:root {
-  --bg: #f7f8fa;
-  --surface: #fff;
-  --text: #1c1f26;
-  --muted: #71767e;
-  --accent: #1b3a5c;
-  --accent-light: #e6edf5;
-  --border: #dde1e7;
-  --radius: 10px;
-  --warn: #8b6914;
-  --warn-bg: #fdf6e3;
-  --purple: #7c5cbf;
-  --purple-bg: #faf8ff;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(27, 58, 92, 0.08);
-}
+:root { --bg: #f7f8fa; --surface: #fff; --text: #1c1f26; --muted: #71767e; --accent: #1b3a5c; --accent-light: #e6edf5; --border: #dde1e7; --radius: 10px; --warn: #8b6914; --warn-bg: #fdf6e3; --purple: #7c5cbf; --purple-bg: #faf8ff; --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04); --shadow-md: 0 8px 24px rgba(27, 58, 92, 0.08); }
 
 * { margin: 0px; padding: 0px; box-sizing: border-box; }
 
-body {
-  font-family: Inter, system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.72;
-  font-size: 15px;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.72; font-size: 15px; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; }
 
-.hero {
-  background: linear-gradient(180deg, #1b3a5c 0%, #23486f 100%);
-  color: rgb(255, 255, 255);
-  padding: 2.7rem 2rem 1.35rem;
-  position: relative;
-}
+.hero { background: linear-gradient(rgb(27, 58, 92) 0%, rgb(35, 72, 111) 100%); color: rgb(255, 255, 255); padding: 2.7rem 2rem 1.35rem; position: relative; }
 
 .hero-inner { max-width: 920px; margin: 0px auto; }
 
-.hero h1 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.18;
-}
+.hero h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.18; }
 
-.hero .sub {
-  font-size: 0.96rem;
-  opacity: 0.84;
-  margin-top: 0.35rem;
-  max-width: 760px;
-}
+.hero .sub { font-size: 0.96rem; opacity: 0.84; margin-top: 0.35rem; max-width: 760px; }
 
-.hero-meta {
-  display: flex;
-  gap: 0.9rem;
-  flex-wrap: wrap;
-  margin-top: 0.95rem;
-  font-size: 0.78rem;
-  opacity: 0.72;
-}
+.hero-meta { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.95rem; font-size: 0.78rem; opacity: 0.72; }
 
 .wrap { max-width: 920px; margin: 0px auto; padding: 0px 2rem 4rem; }
 
-.disclaimer {
-  background: var(--warn-bg);
-  border-left: 4px solid var(--warn);
-  padding: 0.8rem 1rem;
-  margin: 1.2rem 0px 1rem;
-  font-size: 0.85rem;
-  color: rgb(107, 82, 16);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  box-shadow: var(--shadow-sm);
-}
+.disclaimer { background: var(--warn-bg); border-left: 4px solid var(--warn); padding: 0.8rem 1rem; margin: 1.2rem 0px 1rem; font-size: 0.85rem; color: rgb(107, 82, 16); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm); }
 
-nav.toc {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.3rem;
-  margin-bottom: 2rem;
-  font-size: 0.86rem;
-  box-shadow: var(--shadow-sm);
-}
+nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 2rem; font-size: 0.86rem; box-shadow: var(--shadow-sm); }
 
-nav.toc .t {
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-}
+nav.toc .t { font-weight: 600; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
 
 nav.toc ol { margin: 0px; padding-left: 1.2rem; }
+
 nav.toc li { margin-bottom: 0.2rem; }
 
-nav.toc a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(27, 58, 92, 0.55);
-}
+nav.toc a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(27, 58, 92, 0.55); }
 
 nav.toc a:hover { border-bottom-style: solid; }
 
-h2 {
-  font-size: 1.18rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin: 3rem 0px 0.9rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 2px solid var(--accent-light);
-}
+h2 { font-size: 1.18rem; font-weight: 700; color: var(--accent); margin: 3rem 0px 0.9rem; padding-bottom: 0.35rem; border-bottom: 2px solid var(--accent-light); }
 
 h2 .n { color: var(--muted); font-weight: 500; margin-right: 0.3rem; }
 
-h3 {
-  font-size: 1.02rem;
-  font-weight: 600;
-  margin: 1.7rem 0px 0.45rem;
-  color: #243446;
-}
+h3 { font-size: 1.02rem; font-weight: 600; margin: 1.7rem 0px 0.45rem; color: rgb(36, 52, 70); }
 
 p { margin-bottom: 0.85rem; }
 
-a {
-  color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 a:hover { text-decoration: none; }
 
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.15rem 1.3rem;
-  margin: 0.8rem 0px;
-  box-shadow: var(--shadow-sm);
-}
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.15rem 1.3rem; margin: 0.8rem 0px; box-shadow: var(--shadow-sm); }
 
 .card b { display: block; margin-bottom: 0.35rem; }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-  margin: 1rem 0px 1.15rem;
-}
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1rem 0px 1.15rem; }
 
 .card-grid .card { margin: 0px; }
 
-.stat-row {
-  display: flex;
-  gap: 0.85rem;
-  margin: 1.1rem 0px 1.2rem;
-  flex-wrap: wrap;
-}
+.stat-row { display: flex; gap: 0.85rem; margin: 1.1rem 0px 1.2rem; flex-wrap: wrap; }
 
-.stat-card {
-  flex: 1 1 0%;
-  min-width: 200px;
-  padding: 1rem 1rem 0.9rem;
-  border-radius: var(--radius);
-  text-align: center;
-  background: linear-gradient(180deg, #f9fbfd 0%, var(--accent-light) 100%);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
+.stat-card { flex: 1 1 0%; min-width: 200px; padding: 1rem 1rem 0.9rem; border-radius: var(--radius); text-align: center; background: linear-gradient(180deg, #f9fbfd 0%, var(--accent-light) 100%); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
 
-.stat-card .big {
-  font-size: 1.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.05;
-}
+.stat-card .big { font-size: 1.95rem; font-weight: 700; color: var(--accent); line-height: 1.05; }
 
-.stat-card .lbl {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.3rem;
-}
+.stat-card .lbl { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
 
-.stat-card .src {
-  font-size: 0.72rem;
-  margin-top: 0.4rem;
-  color: var(--muted);
-}
+.stat-card .src { font-size: 0.72rem; margin-top: 0.4rem; color: var(--muted); }
 
-.note,
-.warn {
-  padding: 0.8rem 1rem;
-  margin: 0.95rem 0px;
-  font-size: 0.88rem;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  box-shadow: var(--shadow-sm);
-}
+.note, .warn { padding: 0.8rem 1rem; margin: 0.95rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm); }
 
-.note {
-  background: #f2f7fb;
-  border-left: 4px solid var(--accent);
-}
+.note { background: rgb(242, 247, 251); border-left: 4px solid var(--accent); }
 
 .note em { font-style: normal; font-weight: 600; color: var(--accent); }
 
-.warn {
-  background: var(--warn-bg);
-  border-left: 4px solid var(--warn);
-}
+.warn { background: var(--warn-bg); border-left: 4px solid var(--warn); }
 
-.featured {
-  background: #fff;
-  border: 1px solid #c9d8ea;
-  border-left: 6px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.35rem 1.15rem;
-  margin: 1.15rem 0px 2rem;
-  box-shadow: var(--shadow-md);
-}
+.featured { background: rgb(255, 255, 255); border-top: 1px solid rgb(201, 216, 234); border-right: 1px solid rgb(201, 216, 234); border-bottom: 1px solid rgb(201, 216, 234); border-image: initial; border-left: 6px solid var(--accent); border-radius: var(--radius); padding: 1.25rem 1.35rem 1.15rem; margin: 1.15rem 0px 2rem; box-shadow: var(--shadow-md); }
 
-.featured .big {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
+.featured .big { font-size: 0.95rem; font-weight: 700; color: var(--accent); line-height: 1.2; letter-spacing: 0.03em; text-transform: uppercase; }
 
-.featured p {
-  margin-top: 0.6rem;
-  margin-bottom: 0px;
-  font-size: 0.98rem;
-  line-height: 1.78;
-}
+.featured p { margin-top: 0.6rem; margin-bottom: 0px; font-size: 0.98rem; line-height: 1.78; }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0.9rem 0px 1.15rem;
-  font-size: 0.86rem;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-}
+table { width: 100%; border-collapse: collapse; margin: 0.9rem 0px 1.15rem; font-size: 0.86rem; background: var(--surface); box-shadow: var(--shadow-sm); }
 
-th {
-  background: var(--accent-light);
-  text-align: left;
-  padding: 0.55rem 0.65rem;
-  font-weight: 600;
-  border-bottom: 2px solid var(--border);
-  font-size: 0.79rem;
-  color: var(--accent);
-}
+th { background: var(--accent-light); text-align: left; padding: 0.55rem 0.65rem; font-weight: 600; border-bottom: 2px solid var(--border); font-size: 0.79rem; color: var(--accent); }
 
-td {
-  padding: 0.52rem 0.65rem;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
+td { padding: 0.52rem 0.65rem; border-bottom: 1px solid var(--border); vertical-align: top; }
 
 .ok { color: rgb(26, 107, 58); font-weight: 600; }
+
 .bad { color: rgb(168, 39, 26); font-weight: 600; }
+
 .mid { color: var(--warn); font-weight: 600; }
 
 ul:not(.rec) { margin: 0.35rem 0px 0.9rem 1.2rem; }
+
 li { margin-bottom: 0.28rem; }
 
 ol.rec { list-style: none; padding: 0px; counter-reset: r 0; margin: 1.1rem 0px 0px; }
 
-ol.rec li {
-  counter-increment: r 1;
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  margin-bottom: 0.55rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  position: relative;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow-sm);
-}
+ol.rec li { counter-increment: r 1; padding: 0.75rem 1rem 0.75rem 3rem; margin-bottom: 0.55rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); position: relative; font-size: 0.9rem; box-shadow: var(--shadow-sm); }
 
-ol.rec li::before {
-  content: counter(r);
-  position: absolute;
-  left: 0.8rem;
-  top: 0.72rem;
-  background: var(--accent);
-  color: rgb(255, 255, 255);
-  width: 1.45rem;
-  height: 1.45rem;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 1.45rem;
-  font-size: 0.76rem;
-  font-weight: 700;
-}
+ol.rec li::before { content: counter(r); position: absolute; left: 0.8rem; top: 0.72rem; background: var(--accent); color: rgb(255, 255, 255); width: 1.45rem; height: 1.45rem; border-radius: 50%; text-align: center; line-height: 1.45rem; font-size: 0.76rem; font-weight: 700; }
 
-.sources {
-  margin-top: 3rem;
-  padding-top: 1.6rem;
-  border-top: 2px solid var(--border);
-}
+.sources { margin-top: 3rem; padding-top: 1.6rem; border-top: 2px solid var(--border); }
 
-.si {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-  font-size: 0.84rem;
-}
+.si { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; font-size: 0.84rem; }
 
-.si::before {
-  content: attr(data-n);
-  position: absolute;
-  left: 0px;
-  font-weight: 700;
-  color: var(--accent);
-}
+.si::before { content: attr(data-n); position: absolute; left: 0px; font-weight: 700; color: var(--accent); }
 
 .si .j { font-style: italic; color: var(--muted); }
+
 .ev { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
-footer {
-  margin-top: 3.2rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.74rem;
-  color: var(--muted);
-  text-align: center;
-}
+footer { margin-top: 3.2rem; padding-top: 0.9rem; border-top: 1px solid var(--border); font-size: 0.74rem; color: var(--muted); text-align: center; }
 
 @media (max-width: 640px) {
   .wrap { padding: 0px 1rem 3rem; }
@@ -349,296 +128,249 @@ footer {
   body { font-size: 13px; }
 }
 
-.ported-box {
-  background: var(--purple-bg);
-  border-left: 2px solid rgba(124, 92, 191, 0.6);
-  padding: 0.72rem 0.95rem;
-  margin: 0.9rem 0px;
-  font-size: 0.88rem;
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
+.ported-box { background: var(--purple-bg); border-left: 2px solid rgba(124, 92, 191, 0.6); padding: 0.72rem 0.95rem; margin: 0.9rem 0px; font-size: 0.88rem; border-radius: 0 var(--radius) var(--radius) 0; }
 
-.ported-box .pb-label {
-  font-weight: 700;
-  color: rgba(124, 92, 191, 0.92);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: block;
-  margin-bottom: 0.28rem;
-}
+.ported-box .pb-label { font-weight: 700; color: rgba(124, 92, 191, 0.92); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 0.28rem; }
 
 .ported-box em { font-style: normal; font-weight: 600; color: var(--purple); }
-.ported-row { background: #faf8ff; }
 
-.conf-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.8rem;
-  margin: 1rem 0px;
-}
+.ported-row { background: rgb(250, 248, 255); }
 
-.conf-card {
-  border-radius: var(--radius);
-  padding: 1rem 1.05rem;
-  font-size: 0.86rem;
-  box-shadow: var(--shadow-sm);
-}
+.conf-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1rem 0px; }
+
+.conf-card { border-radius: var(--radius); padding: 1rem 1.05rem; font-size: 0.86rem; box-shadow: var(--shadow-sm); }
 
 .conf-card h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.5rem; }
+
 .conf-card ul { margin: 0px 0px 0px 1.1rem; }
+
 .conf-certain { background: rgb(240, 253, 244); border: 1px solid rgb(187, 247, 208); }
+
 .conf-certain h4 { color: rgb(22, 163, 74); }
+
 .conf-probable { background: rgb(253, 246, 227); border: 1px solid rgb(253, 230, 138); }
+
 .conf-probable h4 { color: var(--warn); }
+
 .conf-unknown { background: rgb(241, 245, 249); border: 1px solid rgb(203, 213, 225); }
+
 .conf-unknown h4 { color: var(--muted); }</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Palenie a padaczka lekooporna</title>
 
-
-
 </head><body><div class="hero"><div class="hero-inner">
 <h1>Palenie a padaczka lekooporna u kobiety</h1>
 <div class="sub">Briwaracetam · Cenobamat · Lakozamid, wpływ dymu i nikotyny na chorobę i leki</div>
-<div class="hero-meta"><span>Do weryfikacji neurologicznej</span><span>Marzec 2026 · v4</span><span>Profil: kobieta · DRE · aktualnie paląca</span></div>
+<div class="hero-meta"><span>Do weryfikacji neurologicznej</span><span>Marzec 2026 · v5</span><span>Profil: kobieta · DRE · aktualnie paląca</span></div>
 </div></div>
 
 <div class="wrap">
-<div class="disclaimer"><strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji neurologicznej. Nie istnieje badanie w dokładnej populacji: kobieta + DRE + BRV/CNB/LCM + palenie. Wnioski opierają się na ekstrapolacji z najsilniejszych dostępnych danych.</div>
+<div class="disclaimer"><strong>Zastrzeżenie:</strong> Dokument wymaga weryfikacji neurologicznej. Nie istnieje badanie w dokładnej populacji: kobieta + DRE + BRV/CNB/LCM + palenie. Wnioski opierają się na połączeniu danych farmakokinetycznych, badań obserwacyjnych, danych mechanistycznych i ostrożnej ekstrapolacji. To materiał do rozmowy z neurologiem, nie samodzielna podstawa decyzji klinicznej.</div>
 
-<div class="featured"><div class="big">Kluczowa hipoteza do weryfikacji eksperckiej</div><p>Palenie papierosów to może być jeden z najważniejszych modyfikowalnych czynników ryzyka w całym przebiegu tej choroby. Dostępne dane wskazują, że palenie u kobiet wiąże się z około 2,6-krotnie wyższym ryzykiem napadu, a w ciężkiej padaczce z około 3,6 do 4 razy wyższą szansą wystąpienia napadu w ciągu roku. W praktyce oznacza to, że u tej pacjentki palenie nie powinno być traktowane jako uboczny problem stylu życia, lecz jako potencjalnie krytyczny czynnik pogarszający kontrolę napadów. Najważniejsze jest to, że szkoda może nie wynikać z obniżania stężeń BRV, CNB i LCM, ale z samego wpływu palenia na mózg, sen i obciążenie autonomiczne. Jeżeli istnieje jakikolwiek element, który można próbować odwrócić i który może realnie przełożyć się na bezpieczeństwo pacjentki, to palenie należy traktować jako jeden z pierwszych.</p></div>
+<div class="featured"><div class="big">Kluczowa hipoteza do weryfikacji eksperckiej</div><p>Palenie papierosów może być istotnym, modyfikowalnym czynnikiem pogarszającym kontrolę napadów. Dostępne dane wskazują, że u kobiet palenie wiąże się z około 2,6-krotnie wyższym ryzykiem napadu, a w cięższej padaczce z około 3,6-krotnie wyższą szansą wystąpienia napadu w ciągu roku. Dane te nie pozwalają dokładnie wyliczyć skali efektu w każdym profilu klinicznym, ale są wystarczające, aby nie traktować palenia jako ubocznego problemu stylu życia. Najbardziej prawdopodobne jest, że szkoda nie wynika głównie z obniżania stężeń BRV, CNB i LCM, lecz z wpływu palenia na samą podatność mózgu na napady, sen i obciążenie autonomiczne. Jeżeli szuka się odwracalnych elementów, które mogą realnie pogarszać bezpieczeństwo i kontrolę napadów, palenie zasługuje na poważne uwzględnienie.</p></div>
 
 <h2 id="leki"><span class="n">1.</span> Substancje czynne i szlaki metaboliczne</h2>
 <div class="card-grid">
-<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa (~60%), CYP2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c">FDA PI Briviact 2021</a>, §12.3</span></div>
-<div class="card"><b>Ontozry → Cenobamat</b>Glukuronidacja UGT2B7 (dominująca), CYP2E1/2A6/2B6 (wtórne). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">FDA PI Xcopri 2024</a>, §12.3</span></div>
-<div class="card"><b>Vimpat → Lakozamid</b>~40% nerki niezmienione (metabolit O-desmetylowy, nieaktywny), CYP3A4/2C9/2C19 (~30%). Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">FDA PI Vimpat 2023</a>, §12.3</span></div>
-<div class="card"><b>Lamotrygina (dla kontrastu)</b>Glukuronidacja UGT1A4, indukowana przez PAH z dymu. Stężenie spada ~16% u palaczek (<a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">Reinsberger 2008</a>). Pacjentka nie jest na lamotryginie.</div>
+<div class="card"><b>Briviact → Briwaracetam</b>Hydroliza amidazowa jest szlakiem głównym, a CYP2C19 wtórnym. Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c">DailyMed / Briviact</a>, §12.3</span></div>
+<div class="card"><b>Ontozry / Xcopri → Cenobamat</b>Glukuronidacja przez UGT2B7 jest dominująca, z mniejszym udziałem UGT2B4; utlenianie zachodzi głównie przez CYP2E1, CYP2A6 i CYP2B6, w mniejszym stopniu CYP2C19 i CYP3A4/5. Nie jest substratem CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">DailyMed / Xcopri</a>, §12.3</span></div>
+<div class="card"><b>Vimpat → Lakozamid</b>Około 40% dawki jest wydalane przez nerki w postaci niezmienionej; metabolit O-desmetylowy jest nieaktywny. W metabolizmie uczestniczą CYP3A4, CYP2C9 i CYP2C19, nie CYP1A2.<br><span class="ev"><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">DailyMed / Vimpat</a>, §12.3</span></div>
+<div class="card"><b>Lamotrygina, dla kontrastu</b>W cytowanym badaniu palacze mieli niższy stosunek stężenia do dawki, około 16% niższy niż niepalący. Sam efekt kliniczny jest realny, ale mechanizm nie został tam rozstrzygnięty tak jednoznacznie, jak często się to upraszcza.<br><span class="ev"><a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">Reinsberger 2008</a></span></div>
 </div>
-
 
 <div class="ported-box">
 <span class="pb-label">Co to oznacza klinicznie</span>
-Żaden z trzech leków pacjentki (BRV, CNB, LCM) nie jest metabolizowany przez enzymy indukowane dymem tytoniowym. W przeciwieństwie do lamotryginy, <strong>palenie nie obniża ich stężeń w surowicy</strong>. Nie oznacza to jednak, że palenie jest obojętne; szkodzi przez mechanizmy neurologiczne i ogólnoustrojowe opisane w sekcjach 3–5.
-</div>
-
+BRV, CNB i LCM nie są lekami o oczywistym, dużym uzależnieniu od szlaku CYP1A2 indukowanego dymem tytoniowym. To nie jest to samo co bezpośredni dowód, że u palaczy stężenia nigdy się nie zmienią, ale oznacza, że <strong>nie oczekuje się znanego, dużego spadku stężeń z tego powodu</strong>. Kontrast z lamotryginą pokazuje, że nie każdy lek przeciwpadaczkowy reaguje na palenie tak samo.</div>
 
 <h2 id="pk"><span class="n">2.</span> Wpływ palenia na farmakokinetykę tych leków</h2>
-<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy (PAH → AhR) indukuje CYP1A2 i UGT1A4. Żaden z trzech leków pacjentki nie jest substratem tych enzymów. Nikotyna sama nie indukuje CYP1A2 u ludzi (<a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">Hukkanen 2011</a>, plastry 42 mg/dobę, tabela 1).</div>
+<div class="note"><em>Kluczowe ustalenie:</em> Dym papierosowy, a dokładniej policykliczne węglowodory aromatyczne, indukuje głównie CYP1A2. Nikotyna sama nie indukuje CYP1A2 u ludzi, co pokazano w badaniu z plastrami 42 mg/dobę, <a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">Hukkanen 2011</a>. To pozwala oddzielić efekt spalania od efektu samej nikotyny.</div>
+
+<p>Na podstawie znanych szlaków metabolicznych nie oczekuje się dużego, klasycznego spadku stężeń BRV, CNB i LCM z powodu dymu tytoniowego. Nie jest to jednak tożsame z istnieniem bezpośrednich badań porównujących stężenia tych leków u palaczy i niepalących z DRE.</p>
 
 <table>
-<tbody><tr><th>Lek</th><th>Substrat CYP1A2?</th><th>Szlak wrażliwy na dym?</th><th>Wpływ palenia na stężenie</th></tr>
-<tr><td>Briwaracetam</td><td class="ok">NIE</td><td class="ok">NIE, amidaza + CYP2C19</td><td>Żaden lub minimalny</td></tr>
-<tr><td>Cenobamat</td><td class="ok">NIE</td><td class="ok">NIE, UGT2B7</td><td>Prawdopodobnie żaden</td></tr>
-<tr><td>Lakozamid</td><td class="ok">NIE</td><td class="ok">NIE, 40% nerki + CYP nie-1A2</td><td>Żaden</td></tr>
-<tr><td><em>Lamotrygina</em></td><td class="mid">NIE</td><td class="bad">TAK, UGT1A4</td><td><strong>~16% spadek</strong></td></tr>
+<tbody><tr><th>Lek</th><th>Substrat CYP1A2?</th><th>Szlak szczególnie wrażliwy na dym?</th><th>Najuczciwszy wniosek</th></tr>
+<tr><td>Briwaracetam</td><td class="ok">NIE</td><td class="ok">NIE, amidaza + CYP2C19</td><td>Istotny spadek stężenia z powodu palenia jest mało prawdopodobny</td></tr>
+<tr><td>Cenobamat</td><td class="ok">NIE</td><td class="ok">NIE, głównie UGT2B7 i CYP nie-1A2</td><td>Istotny spadek stężenia z powodu palenia jest mało prawdopodobny</td></tr>
+<tr><td>Lakozamid</td><td class="ok">NIE</td><td class="ok">NIE, częściowo wydalanie nerkowe + CYP nie-1A2</td><td>Istotny spadek stężenia z powodu palenia jest mało prawdopodobny</td></tr>
+<tr><td><em>Lamotrygina</em></td><td class="mid">To nie tędy biegnie główny argument</td><td class="bad">Efekt kliniczny wykazano</td><td>U palaczy stężenie bywa niższe, ale mechanizmu nie należy przedstawiać z nadmierną pewnością</td></tr>
 </tbody></table>
 
-<p>Pacjentka na BRV + CNB + LCM <strong>nie traci dawki leku z powodu palenia</strong>. W przeciwieństwie do lamotryginy, tu ten problem nie występuje. Palenie szkodzi tej pacjentce nie przez farmakokinetykę, ale przez mechanizmy neurologiczne i ogólnoustrojowe opisane niżej.</p>
-
+<p>Najważniejsza praktyczna korekta wobec zbyt mocnych wersji tego argumentu brzmi tak: dla BRV, CNB i LCM nie ma dobrego powodu, aby zakładać klasyczny, duży, dymozależny problem farmakokinetyczny. To nadal nie oznacza, że palenie jest obojętne, tylko że najbardziej prawdopodobny problem leży gdzie indziej.</p>
 
 <div class="ported-box">
 <span class="pb-label">Co to oznacza klinicznie</span>
-Gdyby pacjentka była na lamotryginie, palenie obniżałoby stężenie leku o ~16%, wymagając monitorowania i potencjalnej korekty dawki. Przy BRV/CNB/LCM ten problem <strong>nie występuje</strong>. Jednocześnie nikotyna z każdego źródła (papieros, e-papieros, plaster) może farmakodynamicznie osłabiać działanie leków; dane zwierzęce z pracy Czuczwar 2003 wskazują na zmniejszenie ochronnego działania 6 leków AED po subkonwulsyjnych dawkach nikotyny (<a href="https://pubmed.ncbi.nlm.nih.gov/14704477/">PMID 14704477</a>).
-</div>
-
+Jeżeli u osoby palącej kontrola napadów jest gorsza, bardziej prawdopodobne jest, że chodzi o <strong>efekt na chorobę</strong>, a nie o prostą utratę dawki BRV, CNB lub LCM przez indukcję enzymów. Jednocześnie warto pamiętać, że <a href="https://pubmed.ncbi.nlm.nih.gov/14704477/">Czuczwar 2003</a> w modelu zwierzęcym pokazało osłabienie działania 6 leków przeciwpadaczkowych po subkonwulsyjnych dawkach nikotyny. To dane przedkliniczne, ale ważne jako sygnał farmakodynamiczny.</div>
 
 <h2 id="epi"><span class="n">3.</span> Wpływ palenia na padaczkę, niezależnie od leków</h2>
 
 <div class="stat-row">
-<div class="stat-card"><div class="big">RR 2,60</div><div class="lbl">ryzyko napadu u aktualnie palących kobiet vs. niepalących</div><div class="src"><a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">Dworetzky 2010</a> · NHS II · n=116 363 · 16 lat</div></div>
-<div class="stat-card"><div class="big">OR 1,59</div><div class="lbl">aktywna padaczka + palenie (metaanaliza)</div><div class="src"><a href="https://doi.org/10.1186/s12916-024-03307-0">Kang 2024</a> · 17 badań · n=743 108</div></div>
-<div class="stat-card"><div class="big">OR ~4</div><div class="lbl">napad w ciągu roku u palących z ośrodka referencyjnego IV stopnia</div><div class="src"><a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a> · n=92 · 58% kobiet</div></div>
+<div class="stat-card"><div class="big">RR 2,60</div><div class="lbl">ryzyko napadu u aktualnie palących kobiet vs niepalących</div><div class="src"><a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">Dworetzky 2010</a> · NHS II · n=116 363 · 16 lat</div></div>
+<div class="stat-card"><div class="big">OR 1,14</div><div class="lbl">wynik ogólny meta-analizy, palacze vs niepalący, bez istotności statystycznej</div><div class="src"><a href="https://doi.org/10.1186/s12916-024-03307-0">Kang 2024</a> · 17 badań · n=743 108 · GRADE very low</div></div>
+<div class="stat-card"><div class="big">OR 3,61</div><div class="lbl">jakikolwiek napad w ciągu roku po korekcie na SES, ośrodek IV stopnia</div><div class="src"><a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a> · n=92 · badanie przekrojowe</div></div>
 </div>
 
-<p><strong>Dworetzky 2010 (NHS II)</strong> to jedyne duże prospektywne badanie wyłącznie u kobiet. Wśród ponad 116 tys. pielęgniarek obserwowanych 16 lat, aktualnie palące miały napady ~2,6× częściej niż nigdy niepalące, po korekcie na udar, BMI i nadciśnienie. U byłych palaczek RR wynosiło 1,46 (granicznie istotne), co sugeruje częściową odwracalność.</p>
+<p><strong><a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">Dworetzky 2010</a> (NHS II)</strong> to jedyne duże prospektywne badanie wyłącznie u kobiet. Wśród ponad 116 tys. uczestniczek obserwowanych przez 16 lat aktualne palenie wiązało się z około 2,6-krotnie wyższym ryzykiem napadu. U byłych palaczek RR wynosiło 1,46 i miało charakter graniczny, co jest zgodne z możliwością częściowej odwracalności efektu.</p>
 
+<p><strong><a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a></strong> wnosi coś innego: pokazuje sygnał właśnie w cięższej populacji klinicznej z ośrodka epileptologicznego IV stopnia referencyjności. Palenie było związane z większą szansą wystąpienia jakiegokolwiek napadu w ciągu roku, OR skorygowany 3,61, ale <strong>nie było niezależnie związane z samym statusem padaczki lekoopornej</strong>. To ważne rozróżnienie. Wynik sugeruje pogorszenie kontroli napadów wewnątrz ciężkiej padaczki, nie prostą zmianę statusu DRE.</p>
 
 <div class="ported-box">
 <span class="pb-label">Co to oznacza klinicznie</span>
-RR 2,60 oznacza, że aktualnie paląca kobieta ma ~2,6× wyższe ryzyko napadu niż niepaląca. To jedyne duże prospektywne badanie skoncentrowane na <strong>kobietach</strong>, więc jest najbliższe profilowi pacjentki. Prospektywny projekt badania zwiększa wiarygodność tego wniosku względem badań przekrojowych.
-</div>
+Warto zauważyć, że sygnał z <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a> był wyraźnie silniejszy niż w analizach ogólnopopulacyjnych. Nie oznacza to, że każdemu można przypisać OR 3,61, ale oznacza, że w populacji cięższej i bliższej klinicznie DRE związek palenia z występowaniem napadów wyglądał na mocniejszy niż w szerszych analizach obserwacyjnych.</div>
 
-<p><strong>Johnson 2019</strong> z ośrodka epileptologicznego IV stopnia referencyjności (n=92): palacze byli ~4× bardziej narażeni na jakikolwiek napad w ciągu roku (OR nieskorygowany ~4; po korekcie na SES: OR=3,61). To badanie przekrojowe na małej próbie, ale szczególnie istotne dla profilu pacjentki z ciężką padaczką.</p>
+<h3>Kang et al. 2024, co naprawdę mówi meta-analiza</h3>
+<p><a href="https://doi.org/10.1186/s12916-024-03307-0">Kang 2024</a> nie daje jednego prostego, bardzo mocnego „tak”. Jej <strong>wynik ogólny</strong> dla palaczy vs niepalących wyniósł OR 1,14 (0,96–1,36), czyli <strong>bez istotności statystycznej</strong>. Jednocześnie w analizach podgrup wyszło OR 1,46 dla aktualnie palących i OR 1,59 dla aktywnej padaczki. Najuczciwszy wniosek brzmi więc tak: sygnał jest wyraźniejszy u aktualnie palących i przy aktywnej padaczce, ale jakość całego materiału dowodowego była oceniona jako bardzo niska.</p>
 
+<h3>Huang et al. 2025, NHIS 2021–2022</h3>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/40401171/">Huang 2025</a>, analiza NHIS z lat 2021–2022, wykazała istotny związek palenia z samoopisywaną padaczką, OR 1,26 (95% CI 1,07–1,47; p=0,005). Badanie jest duże i świeże, ale przekrojowe i oparte na self-report, więc wzmacnia kierunek sygnału, a nie rozstrzyga kauzalności.</p>
 
-<div class="ported-box">
-<span class="pb-label">Istotne zastrzeżenie z Johnson 2019</span>
-Palenie <strong>nie było</strong> niezależnie związane ze statusem padaczki lekoopornej per se. Palacze mieli częstsze napady, ale nie mieli istotnie wyższego ryzyka bycia w kategorii „lekooporna". OR=3,61 dotyczy <strong>częstości napadów</strong>, nie samego DRE. Kliniczny wniosek jest ostrożny: rzucenie palenia prawdopodobnie nie zmieni statusu DRE pacjentki, ale <strong>może zmniejszyć częstość napadów</strong> w obrębie istniejącego DRE.
-</div>
+<h3>Zhong et al. 2022</h3>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">Zhong 2022</a> w grupie 524 osób z padaczką wykazało niezależny związek aktualnego palenia z większą częstością napadów oraz z objawami lękowymi. To również nie jest dowód przyczynowy, ale dobrze pasuje do hipotezy, że palenie może pogarszać kontrolę napadów zarówno biologicznie, jak i przez sprzężenie z lękiem i snem.</p>
 
-
-<h3>Huang et al. 2025, NHIS 2021–2022 (n=57 088)</h3>
-<p>Najnowsza krajowa analiza przekrojowa z USA (<a href="https://pubmed.ncbi.nlm.nih.gov/40401171/">PMID 40401171</a>, <a href="https://doi.org/10.3389/fnhum.2025.1508526">DOI</a>) wykazała istotny związek palenia z padaczką: <strong>OR 1,26 (95% CI 1,07–1,47, p=0,005)</strong>. Wyniki były spójne we wszystkich podgrupach płci i etniczności. Prewalencja padaczki wyniosła 1,76%; palacze stanowili 46% przypadków.</p>
-
-<div class="ported-box">
-<span class="pb-label">Co to oznacza klinicznie</span>
-NHIS 2025 potwierdza związek na świeżych danych (2021–2022), ale jako badanie przekrojowe nie dowodzi kauzalności. OR 1,26 jest umiarkowane, czyli odpowiada około 26% wyższemu prawdopodobieństwu padaczki u palaczy. To trzeci niezależny punkt danych, po NHS II i meta-analizie Kang, wskazujący w tym samym kierunku.
-</div>
-
-
-<h3>Shankar et al. 2024, kontekst DRE w UK (n=34 647)</h3>
-<p>Dane real-world z UK-CPRD 2011–2021 charakteryzujące populację DRE (<a href="https://pubmed.ncbi.nlm.nih.gov/38240828/">PMID 38240828</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11055725/">PMC</a>): prewalencja DRE wyniosła 26,6% wśród osób z padaczką. Śmiertelność ogólna: <strong>3 687–4 802 / 100 000</strong>, czyli około 4× wyższa niż w populacji ogólnej UK. Mediana czasu od rozpoznania padaczki do DRE wyniosła 6,7 lat.</p>
-
-<div class="ported-box">
-<span class="pb-label">Co to oznacza klinicznie</span>
-Dane Shankar dostarczają <strong>tła do interpretacji OR z Johnson 2019</strong>. W populacji DRE bazowe prawdopodobieństwo napadu jest bardzo wysokie, więc OR=3,61 nie przekłada się liniowo na „3,6× częściej" (patrz sekcja 4). Czterokrotnie wyższa śmiertelność DRE względem populacji ogólnej oznacza, że <strong>każdy modyfikowalny czynnik ryzyka</strong>, w tym palenie, zasługuje na aktywną interwencję.
-</div>
-
-
+<h3>Shankar et al. 2024, kontekst DRE w UK</h3>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/38240828/">Shankar 2024</a> nie pokazuje, że palenie powoduje DRE, ale daje bardzo ważne tło ciężkości populacji. W UK-CPRD prewalencja DRE wyniosła 26,6% wśród osób z padaczką, mediana czasu od rozpoznania do DRE 6,7 lat, a śmiertelność ogólna około 3 687–4 802 na 100 000, czyli około cztery razy więcej niż w populacji ogólnej. Przy takiej bazowej ciężkości każdy realnie odwracalny czynnik ryzyka zasługuje na uwagę.</p>
 
 <h2 id="or"><span class="n">4.</span> Jak poprawnie czytać OR i RR, co te liczby naprawdę mówią</h2>
 
-<div class="warn"><strong>Kluczowe zastrzeżenie:</strong> OR (odds ratio) i RR (relative risk) nie są prostymi mnożnikami częstości napadów. Przekładanie ich na „4× więcej napadów na miesiąc" jest błędem statystycznym. Poniżej, prawidłowa interpretacja.</div>
+<div class="warn"><strong>Kluczowe zastrzeżenie:</strong> OR i RR nie są prostymi mnożnikami liczby napadów. Przekładanie ich na komunikat typu „4× więcej napadów na miesiąc” jest błędem statystycznym, nawet jeśli sam sygnał kliniczny szkody pozostaje mocny.</div>
 
-<h3>Czym jest OR = 4?</h3>
-<p>OR = 4 oznacza, że <strong>szansa (odds) wystąpienia zdarzenia jest 4× większa</strong> w grupie eksponowanej. Szansa to P/(1−P), nie samo P. Przy niskim wyjściowym prawdopodobieństwie OR jest zbliżone do RR; przy wysokim OR <strong>zawyża</strong> rzeczywisty wzrost ryzyka.</p>
+<h3>Czym jest OR = 3,61?</h3>
+<p>Wynik z <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a> opisuje wzrost <strong>szansy</strong> wystąpienia jakiegokolwiek napadu w ciągu roku, a nie prosty wzrost miesięcznej liczby napadów. Gdy bazowe prawdopodobieństwo jest wysokie, jak w cięższej populacji z ośrodka referencyjnego, OR zaczyna coraz bardziej zawyżać intuicyjny obraz wzrostu ryzyka.</p>
 
 <h3>Konkretna arytmetyka z bazowym prawdopodobieństwem</h3>
-<p>Przyjmijmy prawdopodobieństwo napadu w ciągu roku (wynik binarny: tak/nie) u <strong>niepalących</strong> pacjentów z ośrodka referencyjnego IV stopnia:</p>
+<p>Jeżeli potraktować wynik jako binarny, czyli „czy wystąpił jakikolwiek napad w ciągu roku”, można zobaczyć, jak OR około 4 przekłada się na realne prawdopodobieństwo:</p>
 
 <table>
-<tbody><tr><th>Bazowe P₀ (niepalący)</th><th>OR=4 → Odds₁</th><th>→ P₁ (palący)</th><th>Rzeczywisty wzrost ryzyka</th></tr>
-<tr><td>30%</td><td>4 × (0,3/0,7) = 1,71</td><td>63%</td><td>×2,1 (nie ×4)</td></tr>
-<tr><td>50%</td><td>4 × (0,5/0,5) = 4,0</td><td>80%</td><td>×1,6 (nie ×4)</td></tr>
-<tr><td>60%</td><td>4 × (0,6/0,4) = 6,0</td><td>86%</td><td>×1,4 (nie ×4)</td></tr>
-<tr><td>5% <span class="ev">(pop. ogólna)</span></td><td>4 × (0,05/0,95) = 0,21</td><td>17%</td><td>×3,4 (bliżej ×4)</td></tr>
+<tbody><tr><th>Bazowe roczne prawdopodobieństwo napadu u niepalących</th><th>OR ≈ 4, przewidywane P u palących</th><th>Rzeczywisty wzrost ryzyka</th></tr>
+<tr><td>30%</td><td>około 63%</td><td>około ×2,1</td></tr>
+<tr><td>50%</td><td>około 80%</td><td>około ×1,6</td></tr>
+<tr><td>60%</td><td>około 86%</td><td>około ×1,4</td></tr>
 </tbody></table>
 
-<p><strong>Wniosek:</strong> W populacji z ośrodka referencyjnego IV stopnia, gdzie bazowy odsetek pacjentów z napadami jest wysoki (prawdopodobnie 50–70%), OR=4 przekłada się na realny wzrost ryzyka rzędu <strong>×1,4 do ×2,0</strong>, nie ×4. OR=4 zawyża efekt, bo bazowe prawdopodobieństwo jest dalekie od zera.</p>
+<p>To właśnie dlatego OR około 4 nie znaczy automatycznie „4× więcej napadów”. Oznacza natomiast wyraźnie wyższe prawdopodobieństwo, że w ogóle do napadu dojdzie, a w populacji cięższej jest to sygnał klinicznie istotny.</p>
 
-<p>Natomiast RR 2,60 z NHS II jest bardziej bezpośredni: oznacza, że <strong>częstość incydentów napadowych była 2,6× wyższa</strong> u palących kobiet, obliczona jako stosunek skumulowanej zachorowalności. Ale i tu dotyczy to ryzyka <em>wystąpienia</em> napadu (zdarzenie binarne), nie liniowego wzrostu ich liczby na miesiąc.</p>
+<p>Natomiast RR 2,60 z <a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">NHS II / Dworetzky 2010</a> jest bardziej bezpośrednim sygnałem ilościowym u kobiet: oznacza, że ryzyko wystąpienia napadu było około 2,6-krotnie wyższe u aktualnie palących niż u nigdy niepalących. Nadal dotyczy to jednak ryzyka wystąpienia zdarzenia, a nie liniowego wzrostu liczby napadów na miesiąc.</p>
 
-<div class="note"><em>Podsumowanie:</em> Palenie nie oznacza „4× więcej napadów na miesiąc". Prawidłowa interpretacja jest taka, że u pacjentów z ciężką padaczką w ośrodku specjalistycznym palacze mają <strong>istotnie wyższe prawdopodobieństwo wystąpienia jakiegokolwiek napadu w danym roku</strong> (OR~4) i prawdopodobnie mają je <strong>częściej</strong>, ale dokładny mnożnik częstości nie wynika wprost z OR. Najlepsza dostępna estymata to RR 2,60 z NHS II u kobiet, co sugeruje mniej więcej <strong>2–3-krotnie podwyższone ryzyko</strong>.</div>
-
+<div class="note"><em>Podsumowanie:</em> Palenie nie oznacza prostego „4× więcej napadów na miesiąc”. Prawidłowa interpretacja jest taka, że u pacjentów z ciężką padaczką w ośrodku specjalistycznym palacze mają istotnie wyższe prawdopodobieństwo wystąpienia jakiegokolwiek napadu w danym roku (OR około 4), a najlepszy dostępny sygnał populacyjny u kobiet, RR 2,60 z NHS II, sugeruje około 2–3-krotnie wyższe ryzyko napadu. To nie pozwala uczciwie wyliczyć dokładnego mnożnika miesięcznej częstości napadów, ale zdecydowanie nie wspiera traktowania palenia jako czynnika marginalnego.</div>
 
 <div class="ported-box">
-<span class="pb-label">Co to oznacza praktycznie dla pacjentki</span>
-Dla pacjentki z 1 napadem na miesiąc nie da się wiarygodnie przeliczyć OR na prosty mnożnik liczby napadów. Najostrożniejszy wniosek praktyczny jest taki, że palenie może sprzyjać częstszym napadom, ale skali tego wzrostu nie można rzetelnie wyliczyć z dostępnych danych. Dane Zhong 2022 (n=524, <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a>) wskazują na związek palenia z wyższą częstością napadów i objawami lękowymi.</div>
-
-
+<span class="pb-label">Co to oznacza praktycznie</span>
+Dla pojedynczej chorej nie da się uczciwie wyliczyć z tych danych prostego mnożnika liczby napadów na miesiąc. Jednocześnie wyniki <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">Johnson 2019</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">Dworetzky 2010</a> i <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">Zhong 2022</a> wspólnie wspierają wniosek, że palenie wiąże się z gorszą kontrolą napadów, a nie z efektem marginalnym.</div>
 
 <h2 id="mech"><span class="n">5.</span> Mechanizmy pogorszenia kontroli napadów</h2>
 
 <h3>5a. Kindling nikotynowy</h3>
-<p>Przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych kindling, czyli progresywne obniżanie progu drgawkowego (<a href="https://doi.org/10.1016/j.phrs.2023.106698">Becchetti 2023, Pharmacol Res</a>). Mutacje nAChR (CHRNA4, CHRNB2) powodują padaczkę ADSHE, co stanowi dowód koncepcyjny epileptogenności chronicznej aktywacji tych receptorów. Dane są przedkliniczne; przeniesienie ich na człowieka jest mechanistycznie prawdopodobne, ale niepewne klinicznie.</p>
-
+<p>Przewlekłe subkonwulsyjne dawki nikotyny wywołują w modelach zwierzęcych kindling, czyli progresywne obniżanie progu drgawkowego (<a href="https://doi.org/10.1016/j.phrs.2023.106698">Becchetti 2023</a>). Mutacje receptorów nikotynowych nAChR, zwłaszcza CHRNA4 i CHRNB2, powodują padaczkę ADSHE, co stanowi mocny dowód koncepcyjny, że przewlekła aktywacja tego układu nie jest epileptologicznie obojętna. Dane te są głównie przedkliniczne, ale jako overview mechanistyczny stanowią poważną przesłankę, by nie traktować ekspozycji nikotynowej neutralnie.</p>
 
 <div class="ported-box">
 <span class="pb-label">Dane dotyczące napadów po e-papierosach</span>
-Faulcon et al. 2020 (<a href="https://pubmed.ncbi.nlm.nih.gov/31866055/">PMID 31866055</a>): analiza 122 zgłoszeń napadów po e-papierosach z bazy FDA FAERS. Mediana wieku wyniosła 20 lat; 67% zgłoszeń dotyczyło grupy 14–24 lata. <strong>85% napadów wystąpiło w ciągu 24 h od użycia, a 62% w ciągu 30 min.</strong> Kauzalność nie została potwierdzona (możliwe czynniki zakłócające: THC, wcześniejsze zaburzenia napadowe), ale zależność czasowa jest klinicznie niepokojąca.</div>
+<a href="https://pubmed.ncbi.nlm.nih.gov/31866055/">Faulcon 2020</a> opisało 122 zgłoszenia napadów lub zdarzeń bliskich napadowym po e-papierosach z bazy FDA FAERS. Mediana wieku wyniosła 20 lat, a 67% zgłoszeń dotyczyło grupy 14–24 lata. <strong>85% zgłoszonych zdarzeń wystąpiło w ciągu 24 godzin od użycia, a 62% w ciągu 30 minut.</strong> To nie pozwala oszacować częstości ryzyka ani nie dowodzi kauzalności, ale jako sygnał bezpieczeństwa jest klinicznie niepokojące i nie powinno być ignorowane.</div>
 
 <h3>5b. Stres oksydacyjny</h3>
-<p><a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi 2018</a> to przegląd stresu oksydacyjnego w padaczce. W tym miejscu dokument odwołuje się do niego wyłącznie jako do tła mechanistycznego. Każde zaciągnięcie uwalnia ~10<sup>15</sup> wolnych rodników (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2672368/">Valavanidis 2009</a>), nakładając egzogenny stres oksydacyjny na podwyższony poziom endogenny w DRE.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">Geronzi 2018</a> omawia rolę stresu oksydacyjnego w padaczce, a <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2672368/">Valavanidis 2009</a> opisuje ogromne obciążenie wolnorodnikowe dymu tytoniowego, rzędu około 10<sup>15</sup> rodników na zaciągnięcie. To nie jest bezpośredni dowód, że właśnie ten jeden mechanizm odpowiada za wzrost napadów, ale jako warstwa biologiczna mocno wzmacnia hipotezę szkody wynikającej ze spalania tytoniu.</p>
 
 <h3>5c. Zaburzenia snu</h3>
-<p><a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">Sleep Heart Health Study</a> (n=6 400, PSG): palacze vs. niepalący mieli o 14 min krótszy całkowity czas snu, o 14% mniej snu wolnofalowego (N3) i o 24% więcej stadium 1. U byłych palaczy nie obserwowano tych różnic, co wzmacnia argument przyczynowy. Deprywacja snu jest najczęstszym wyzwalaczem napadów u dorosłych z padaczką.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">Sleep Heart Health Study</a> z polisomnografią u 6 400 osób wykazało, że aktualni palacze mieli około 14 minut krótszy całkowity czas snu, około 14% mniej snu wolnofalowego i około 24% więcej stadium 1. U byłych palaczy tych różnic nie obserwowano. Dla neurologii to nie jest detal stylu życia, bo deprywacja snu i gorsza jakość snu należą do najczęściej zgłaszanych wyzwalaczy napadów.</p>
 
 <h3>5d. Dysautonomia i SUDEP</h3>
-<p>Palenie obniża HRV o ~9% na każde 10 g tytoniu/dobę (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6456196/">Murgia 2019</a>). Łańcuch palenie → ↓HRV → pogłębienie dysfunkcji autonomicznej → potencjalnie ↑ryzyko SUDEP jest mechanistycznie spójny. Brakuje jednak bezpośredniego badania prospektywnego potwierdzającego ten związek.</p>
+<p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6456196/">Murgia 2019</a> wykazało zależne od dawki obniżenie wskaźników HRV u palaczy, między innymi około 9,8% dla SDNN i 8,9% dla RMSSD na każde 10 g tytoniu dziennie, z jeszcze większym spadkiem niektórych wskaźników widmowych. Łańcuch palenie → niższe HRV → większe obciążenie autonomiczne → potencjalnie większa podatność na ciężkie zdarzenia jest mechanistycznie spójny. To nie jest bezpośredni dowód na SUDEP, ale też nie jest sygnał, który można uczciwie uznać za błahy.</p>
 
-
-
-<h2 id="alt"><span class="n">6.</span> Porównanie, papieros / e-papieros / plaster</h2>
+<h2 id="alt"><span class="n">6.</span> Porównanie, papieros / e-papieros / plaster / wareniklina</h2>
 <table>
-<tbody><tr><th>Czynnik</th><th>Papieros</th><th>E-papieros</th><th>Plaster</th></tr>
-<tr><td>Indukcja CYP1A2/UGT1A4</td><td class="bad">TAK</td><td class="ok">NIE</td><td class="ok">NIE</td></tr>
-<tr><td>Wpływ na BRV/CNB/LCM</td><td>Minimalny</td><td>Minimalny</td><td>Minimalny</td></tr>
-<tr><td>Kindling/prokonwulsyjność</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">TAK (wolniej)</td></tr>
-<tr><td>CO → hipoksja mózgowa</td><td class="bad">TAK</td><td class="ok">NIE</td><td class="ok">NIE</td></tr>
-<tr><td>Stres oksydacyjny</td><td class="bad">Masywny</td><td class="mid">Umiarkowany</td><td class="ok">Minimalny</td></tr>
-<tr><td>Zaburzenia snu</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">Mniejsze</td></tr>
-<tr><td>↓HRV / ryzyko SUDEP</td><td class="bad">TAK</td><td class="bad">TAK</td><td class="mid">TAK (mniejsze)</td></tr>
-
-<tr class="ported-row"><td><strong>Ryzyko napadów: toksyczność nikotynowa</strong></td><td class="mid">UMIARKOWANE</td><td class="bad">WYŻSZE (szybkie piki)</td><td class="ok">NIŻSZE (stałe uwalnianie)</td></tr>
+<tbody><tr><th>Czynnik</th><th>Papieros</th><th>E-papieros</th><th>Plaster nikotynowy</th><th>Wareniklina</th></tr>
+<tr><td>Toksyny spalania, CO, PAH</td><td class="bad">TAK</td><td class="mid">Znacznie mniej niż papieros, ale nie zero ryzyk produktu</td><td class="ok">NIE</td><td class="ok">NIE</td></tr>
+<tr><td>Klasyczny problem CYP1A2 z dymu</td><td class="bad">TAK</td><td class="ok">NIE z samej nikotyny</td><td class="ok">NIE</td><td class="ok">Nie dotyczy</td></tr>
+<tr><td>Szybkie piki nikotyny</td><td class="mid">TAK</td><td class="bad">Często tak</td><td class="ok">NIE, ekspozycja bardziej płaska</td><td class="ok">To nie jest NRT</td></tr>
+<tr><td>Dobre dane napadowe specjalnie w DRE</td><td class="bad">Brak</td><td class="bad">Brak</td><td class="bad">Brak</td><td class="bad">Brak</td></tr>
+<tr class="ported-row"><td><strong>Najuczciwszy wniosek</strong></td><td>Prawdopodobnie najgorsza opcja z powodu spalania i ogólnego obciążenia</td><td>Usuwa dym, ale nie rozwiązuje problemu nikotyny i ma słabe dane napadowe</td><td>Logiczna opcja redukcji szkód od spalania, ale bez twardych danych bezpieczeństwa napadowego w DRE</td><td>Wymaga ostrożności; są ostrzeżenia o rzadkich napadach, ale duże badanie obserwacyjne nie wykazało istotnego wzrostu ryzyka</td></tr>
 </tbody></table>
 
-<p><strong>Hierarchia:</strong> Plaster (najlepszy) → E-papieros (pośredni) → Papieros (najgorszy). Plaster eliminuje CO, PAH i szczyty prokonwulsyjne.</p>
+<p><strong>Najuczciwsza hierarchia</strong>, jeśli celem jest redukcja szkód od spalania, brzmi: <strong>odejście od papierosów jest prawdopodobnie korzystne</strong>, ale wybór między plastrem, e-papierosem i warenikliną powinien być indywidualny. Dla samej epileptologii nie ma dobrych danych, które pozwalają z pełną pewnością ustawić prosty ranking bezpieczeństwa napadowego w DRE.</p>
 
-<div class="warn"><strong>Uwaga:</strong> Cenobamat indukuje CYP2B6 → AUC bupropionu ↓39% (<a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">DailyMed XCOPRI §12.3</a>). Bupropion jest przeciwwskazany w padaczce (<a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">FDA Label Wellbutrin §4</a>). Wareniklina nie ma wystarczających danych w DRE. Wspomaganie farmakologiczne rzucania palenia wymaga indywidualnej oceny.</div>
-
+<div class="warn"><strong>Uwaga:</strong> Cenobamat indukuje CYP2B6 i obniża ekspozycję na bupropion, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">DailyMed / Xcopri §12.3</a>. Bupropion jest przeciwwskazany w padaczce, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">FDA label / Wellbutrin §4</a>. To jest najbardziej jednoznaczny wniosek farmakoterapeutyczny w tej części.</div>
 
 <div class="ported-box">
-<span class="pb-label">Co to oznacza klinicznie</span>
-E-papierosy eliminują CO i PAH, ale szybkie szczyty nikotynowe w podach (&gt;50 mg/mL nikotyny w niektórych) mogą być <strong>gorsze niż papieros</strong> pod kątem ostrej toksyczności nikotynowej. Dane Faulcon 2020 wskazują, że 62% zgłoszonych napadów po e-papierosach wystąpiło w ciągu 30 min od użycia. Plaster eliminuje zarówno PAH i CO, jak i szczyty prokonwulsyjne, dlatego pozostaje najlepszą opcją zastępczą.</div>
+<span class="pb-label">Wareniklina, co naprawdę wiadomo</span>
+FDA i aktualna informacja produktowa ostrzegają o <strong>rzadkich napadach</strong> i zalecają ostrożność u osób z wywiadem napadów lub innymi czynnikami obniżającymi próg drgawkowy, <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-updates-label-stop-smoking-drug-chantix-varenicline-include">FDA safety communication</a>, <a href="https://labeling.pfizer.com/showlabeling.aspx?id=557">Pfizer CHANTIX PI</a>. Jednocześnie duże badanie obserwacyjne z lat 2009–2015 <a href="https://pubmed.ncbi.nlm.nih.gov/31252274/">Kim 2019</a> nie wykazało istotnego statystycznie wzrostu ryzyka presumptive seizure, OR 1,09 (0,88–1,36). To nie jest dowód bezpieczeństwa w DRE, ale uczciwiej mówić o danych mieszanych i niewystarczających niż o całkowitym braku danych.</div>
 
-
+<div class="ported-box">
+<span class="pb-label">Ważna uwaga o plastrze</span>
+W wybranych, rzadkich zespołach padaczkowych związanych z wariantami receptorów nikotynowych opisywano nawet korzyść z nikotyny przezskórnej, <a href="https://pubmed.ncbi.nlm.nih.gov/33284031/">Fox 2021</a>. Nie dotyczy to typowej DRE i nie powinno być mechanicznie ekstrapolowane, ale pokazuje, że biologia nikotyny nie sprowadza się do prostego hasła „każda nikotyna jest prokonwulsyjna”.</div>
 
 <h2 id="pewnosc"><span class="n">7.</span> Poziomy pewności dowodów</h2>
 
 <div class="conf-grid">
 <div class="conf-card conf-certain">
-<h4>✅ Pewne</h4>
+<h4>✅ Najmocniej podparte</h4>
 <ul>
-<li>Dym (PAH) indukuje CYP1A2 i UGT, co obniża stężenie lamotryginy</li>
-<li>NRT (plaster/guma) <strong>nie</strong> indukuje CYP1A2</li>
-<li>BRV/CNB/LCM nie są substratami CYP1A2</li>
-<li>Bupropion jest przeciwwskazany w padaczce</li>
-<li>Aktualni palacze mają gorszy przebieg kliniczny padaczki (meta-analiza + NHS II)</li>
+<li>Dym tytoniowy indukuje CYP1A2, a nikotyna sama nie wykazała takiego efektu u ludzi.</li>
+<li>Na podstawie znanych szlaków metabolicznych nie oczekuje się dużego, klasycznego spadku stężeń BRV, CNB i LCM z powodu indukcji CYP1A2.</li>
+<li>Bupropion jest przeciwwskazany przy zaburzeniu napadowym.</li>
+<li>W prospektywnej kohorcie kobiet aktualne palenie wiązało się z wyższym ryzykiem napadu.</li>
+<li>Aktualne palenie pogarsza architekturę snu, a cięższe bieżące palenie wiąże się ze spadkiem HRV.</li>
 </ul>
 </div>
 <div class="conf-card conf-probable">
 <h4>⚠️ Prawdopodobne</h4>
 <ul>
-<li>Palenie zwiększa częstość napadów niezależnie od efektu PK</li>
-<li>Nikotyna farmakodynamicznie osłabia działanie leków AED (dane zwierzęce)</li>
-<li>E-papierosy, przez szybkie piki nikotyny, mogą prowokować napady</li>
-<li>Rzucenie palenia może zmniejszyć częstość napadów, ale nie musi zmienić statusu DRE</li>
+<li>Palenie może pogarszać kontrolę napadów głównie przez wpływ na chorobę, sen i układ autonomiczny, a nie przez dużą utratę dawki BRV, CNB lub LCM.</li>
+<li>Rzucenie palenia może poprawić kontrolę napadów, choć nie musi zmienić statusu DRE.</li>
+<li>E-papierosy usuwają część szkód spalania, ale nie rozwiązują problemu nikotynowego i nie mają mocnych danych bezpieczeństwa w DRE.</li>
 </ul>
 </div>
 <div class="conf-card conf-unknown">
-<h4>❓ Nieznane</h4>
+<h4>❓ Nadal niepewne</h4>
 <ul>
-<li>Czy palenie <strong>powoduje</strong> padaczkę (kauzalność niepotwierdzona)</li>
-<li>Związek palenia z SUDEP (brak danych bezpośrednich)</li>
-<li>Zależność dawka-odpowiedź (paczkolata), nigdy nie została dobrze zmierzona</li>
-<li>Bezpieczeństwo warenikliny w padaczce lekoopornej</li>
+<li>Jaki jest dokładny efekt liczbowy w poszczególnych profilach klinicznych DRE leczonych BRV, CNB i LCM.</li>
+<li>Czy palenie bezpośrednio zwiększa ryzyko SUDEP.</li>
+<li>Która strategia rzucania palenia jest najlepsza specjalnie dla DRE.</li>
+<li>Bezpieczeństwo warenikliny właśnie w lekoopornej padaczce.</li>
 </ul>
 </div>
 </div>
 
 <div class="ported-box">
 <span class="pb-label">Co to oznacza klinicznie</span>
-Kolumna „Pewne” opiera się na wielokrotnie potwierdzonych mechanizmach farmakologicznych i większych badaniach obserwacyjnych. „Prawdopodobne” jest biologicznie uzasadnione, ale nadal wymaga mocniejszych danych u ludzi. „Nieznane” oznacza realne luki dowodowe; brak dowodów nie oznacza braku efektu.</div>
+Kolumna „najmocniej podparte” opiera się na informacjach produktowych i na większych badaniach obserwacyjnych. „Prawdopodobne” jest biologicznie uzasadnione, ale nadal wymaga mocniejszych danych u ludzi. „Nadal niepewne” oznacza realne luki dowodowe, nie brak znaczenia klinicznego.</div>
 
-
-
-<h2 id="rec"><span class="n">8.</span> Zalecenia kliniczne</h2>
+<h2 id="rec"><span class="n">8.</span> Wnioski praktyczne</h2>
 <ol class="rec">
-<li><strong>Farmakokinetyka pozostaje stabilna, ale kontrola napadów może się pogarszać.</strong> BRV/CNB/LCM nie tracą stężenia z powodu palenia. Problem ma przede wszystkim charakter neurologiczny i ogólnoustrojowy.</li>
-<li><strong>Palenie wiąże się z 2–3× wyższym ryzykiem napadów u kobiet</strong> (RR 2,60, NHS II) i z istotnie wyższą szansą napadu w ciągu roku w ciężkiej padaczce (OR~4, Johnson 2019). Efekt jest częściowo odwracalny po zaprzestaniu palenia.</li>
-<li><strong>Palenie zaburza sen</strong>, a u pacjentki z napadami nocnymi lub porannymi ten mechanizm jest bezpośrednio istotny.</li>
-<li><strong>Najbardziej racjonalna alternatywa to plaster, potem e-papieros, a na końcu papieros.</strong> Taka zmiana nie wymaga korekty dawkowania BRV/CNB/LCM.</li>
-<li><strong>Rzucanie palenia wymaga planowania neurologicznego.</strong> Odstawienie nikotyny nie jest uznanym bezpośrednim prowokatorem napadów (jak alkohol czy benzodiazepiny), ale ryzyka pośrednie są realne: zaburzenia snu, stres, lęk, rebound cholinergiczny. Zaplanowane i monitorowane rzucanie jest bezpieczniejsze niż nagłe. Farmakoterapia pozostaje ograniczona (bupropion p/w, wareniklina bez danych w DRE).</li>
-<li><strong>Status palenia powinien być stałym elementem oceny klinicznej</strong>, obok kontroli napadów, jakości snu i ryzyka SUDEP.</li>
+<li><strong>Nie ma dobrego powodu, by zakładać duży, dymozależny spadek stężeń BRV, CNB lub LCM.</strong> To nie wyklucza wszystkich wpływów PK, ale czyni je mniej prawdopodobnym wyjaśnieniem problemu niż wpływ palenia na samą chorobę.</li>
+<li><strong>Palenie ma wystarczająco wiarygodny sygnał szkody, aby traktować je jak istotny czynnik modyfikowalny.</strong> Najmocniejszy sygnał pochodzi z kohorty kobiet i z badań cięższych populacji epileptologicznych, ale dokładna skala efektu u pojedynczej osoby pozostaje nieznana.</li>
+<li><strong>Nie należy obiecywać zbyt wiele.</strong> Rzucenie palenia może pomóc w kontroli napadów, ale z obecnych danych nie wynika, że samo w sobie odwróci lekooporność.</li>
+<li><strong>Jeżeli celem jest poprawa bezpieczeństwa, papierosy nie powinny być traktowane jako neutralny detal stylu życia.</strong> Przy DRE to element, który zasługuje na rozmowę tak samo jak sen, adherence i interakcje lekowe.</li>
+<li><strong>Sen i stres w okresie odstawiania trzeba aktywnie zabezpieczyć.</strong> To właśnie te pośrednie czynniki mogą przejściowo destabilizować przebieg choroby.</li>
+<li><strong>Bupropion odpada.</strong> To najpewniejszy wniosek farmakoterapeutyczny w tej części.</li>
+<li><strong>Wareniklina nie jest „zakazana”, ale nie jest też prostą decyzją.</strong> Jest ostrzeżenie o rzadkich napadach i potrzeba ostrożności, lecz nie ma mocnego sygnału dużego wzrostu ryzyka w ogólnej populacji osób próbujących rzucić palenie. Decyzja powinna być indywidualna i najlepiej neurologicznie uzgodniona.</li>
+<li><strong>Jeżeli potrzebna jest opcja pomostowa bez spalania, plaster nikotynowy jest logiczny z punktu widzenia redukcji szkód od dymu,</strong> ale nie należy go przedstawiać jako rozwiązania z twardo udowodnionym bezpieczeństwem napadowym w DRE.</li>
 </ol>
-
-
 
 <div id="src" class="sources">
 <h2><span class="n">9.</span> Źródła</h2>
 <div class="si" data-n="1."><strong>Dworetzky BA et al.</strong> A prospective study of smoking, caffeine, and alcohol as risk factors for seizures or epilepsy in young adult women: Data from the Nurses' Health Study II. <span class="j">Epilepsia. 2010;51(2):198–206.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19694796/">PMID 19694796</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3090289/">PMC</a><br>→ RR=2,60 (95% CI: 1,53–4,42) dla napadów u aktualnych palaczek. Jedyne duże prospektywne badanie wyłącznie u kobiet.</div>
-<div class="si" data-n="2."><strong>Johnson AL et al.</strong> The role of cigarette smoking in epilepsy severity and epilepsy-related quality of life. <span class="j">Epilepsy Behav. 2019;93:38–42.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30831400/">PMID 30831400</a> · <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">DOI</a><br>→ OR~4 (OR skorygowany=3,61) za napad w ciągu roku u palących z ośrodka referencyjnego IV stopnia. n=92. Uwaga: palenie nie było niezależnie związane ze statusem DRE per se.</div>
-<div class="si" data-n="3."><strong>Kang Y et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis. <span class="j">BMC Medicine. 2024;22:91.</span> <a href="https://doi.org/10.1186/s12916-024-03307-0">DOI</a><br>→ OR=1,59 (1,42–1,78) dla aktywnej padaczki; OR=1,46 (1,13–1,89) dla aktualnie palących. 17 badań, 743 108 osób. GRADE: very low.</div>
-<div class="si" data-n="4."><strong>FDA Prescribing Information:</strong> <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">Xcopri 2024</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c">Briviact 2021</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">Vimpat 2023</a>, §12.3.</div>
-<div data-n="5." class="si"><strong>Hukkanen J et al.</strong> Effect of nicotine on CYP1A2 activity. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">PMID 21599724</a></div>
+<div class="si" data-n="2."><strong>Johnson AL et al.</strong> The role of cigarette smoking in epilepsy severity and epilepsy-related quality of life. <span class="j">Epilepsy Behav. 2019;93:38–42.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30831400/">PMID 30831400</a> · <a href="https://doi.org/10.1016/j.yebeh.2019.01.041">DOI</a><br>→ OR=3,61 po korekcie na SES za napad w ciągu roku u palących z ośrodka referencyjnego IV stopnia. Uwaga: palenie nie było niezależnie związane ze statusem DRE per se.</div>
+<div class="si" data-n="3."><strong>Kang Y et al.</strong> Exploring the Smoking-Epilepsy Nexus: a systematic review and meta-analysis of observational studies. <span class="j">BMC Medicine. 2024;22:91.</span> <a href="https://doi.org/10.1186/s12916-024-03307-0">DOI</a><br>→ OR ogólny 1,14 (0,96–1,36), nieistotny statystycznie; OR=1,59 dla aktywnej padaczki; OR=1,46 dla aktualnie palących. 17 badań, 743 108 osób. GRADE: very low.</div>
+<div class="si" data-n="4."><strong>FDA / DailyMed:</strong> <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072">Xcopri</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c">Briviact</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2">Vimpat</a>, §12.3.</div>
+<div class="si" data-n="5."><strong>Hukkanen J et al.</strong> Effect of nicotine on CYP1A2 activity. <span class="j">Br J Clin Pharmacol. 2011;72(5):836–838.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/21599724/">PMID 21599724</a></div>
 <div class="si" data-n="6."><strong>Becchetti A et al.</strong> Nicotinic acetylcholine receptors and epilepsy. <span class="j">Pharmacol Res. 2023;189:106698.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36796465/">PMID 36796465</a></div>
-<div data-n="7." class="si"><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy. <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a></div>
-<div data-n="8." class="si"><strong>Zhong R et al.</strong> Current cigarette smoking is associated with a high seizure frequency and anxiety symptoms in people with epilepsy. <span class="j">Front Neurol. 2022;13:834694.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a></div>
+<div class="si" data-n="7."><strong>Geronzi U et al.</strong> Oxidative stress in epilepsy. <span class="j">Expert Rev Neurother. 2018;18(5):427–434.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29651881/">PMID 29651881</a></div>
+<div class="si" data-n="8."><strong>Zhong R et al.</strong> Current cigarette smoking is associated with a high seizure frequency and anxiety symptoms in people with epilepsy. <span class="j">Front Neurol. 2022;13:834694.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35309587/">PMID 35309587</a></div>
 <div class="si" data-n="9."><strong>Rong L, Frontera AT, Benbadis SR.</strong> Tobacco smoking, epilepsy, and seizures. <span class="j">Epilepsy Behav. 2014;31:210–218.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/24441294/">PMID 24441294</a></div>
-<div data-n="10." class="si"><strong>Huang X, Liu Q, Zhao Q, Ji Q, Zhan Y.</strong> Smoking and epilepsy in national health interview survey: a cross-sectional study. <span class="j">Front Hum Neurosci. 2025;19:1508526.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40401171/">PMID 40401171</a> · <a href="https://doi.org/10.3389/fnhum.2025.1508526">DOI</a><br>→ OR=1,26 (1,07–1,47, p=0,005). NHIS 2021–2022, n=57 088.</div>
-<div class="si" data-n="11."><strong>Shankar R, Li Marston X, Danielson V, et al.</strong> Real-world evidence of epidemiology, patient characteristics, and mortality in people with drug-resistant epilepsy in the United Kingdom, 2011–2021. <span class="j">J Neurol. 2024;271(5):2473–2483.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38240828/">PMID 38240828</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11055725/">PMC</a><br>→ n=34 647 DRE, UK-CPRD. Śmiertelność ~4× wyższa niż populacja ogólna.</div>
-<div class="si" data-n="12."><strong>Faulcon LM, Rudy S, Limpert J, Wang B, Murphy I.</strong> Adverse experience reports of seizures in youth and young adult electronic nicotine delivery systems users. <span class="j">J Adolesc Health. 2020;66(1):15–17.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/31866055/">PMID 31866055</a><br>→ 122 zgłoszenia napadów po e-papierosach z FDA FAERS; 62% w ciągu 30 min od użycia.</div>
-<div class="si" data-n="13."><strong>Czuczwar SJ, Kołacz D, Miziak B, et al.</strong> Nicotine diminishes anticonvulsant activity of antiepileptic drugs in mice. <span class="j">Pol J Pharmacol. 2003;55(5):799–802.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/14704477/">PMID 14704477</a><br>→ Subkonwulsyjne dawki nikotyny zmniejszyły ochronne działanie 6 leków AED w modelu elektrowstrząsowym.</div>
-<div class="si" data-n="14."><strong>Reinsberger C, Dorn T, Krämer G.</strong> Smoking reduces serum levels of lamotrigine. <span class="j">Seizure. 2008;17(7):651–653.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">PMID 18583161</a></div>
-<div class="si" data-n="15."><strong>Valavanidis A, Vlachogianni T, Fiotakis K.</strong> Tobacco Smoke: Involvement of Reactive Oxygen Species and Stable Free Radicals in Mechanisms of Oxidative Damage, Carcinogenesis and Synergistic Effects with Other Respirable Particles. <span class="j">Int J Environ Res Public Health. 2009;6(2):445–462.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19440393/">PMID 19440393</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2672368/">PMC</a></div>
-<div class="si" data-n="16."><strong>Zhang L, Samet J, Caffo B, Punjabi NM.</strong> Cigarette Smoking and Nocturnal Sleep Architecture. <span class="j">Am J Epidemiol. 2006;164(6):529–537.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">PMID 16829553</a></div>
-<div class="si" data-n="17."><strong>Murgia F, Melotti R, Foco L, et al.</strong> Effects of smoking status, history and intensity on heart rate variability in the general population: The CHRIS study. <span class="j">PLoS One. 2019;14(4):e0215053.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30964923/">PMID 30964923</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6456196/">PMC</a></div>
+<div class="si" data-n="10."><strong>Huang X et al.</strong> Smoking and epilepsy in national health interview survey: a cross-sectional study. <span class="j">Front Hum Neurosci. 2025;19:1508526.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40401171/">PMID 40401171</a> · <a href="https://doi.org/10.3389/fnhum.2025.1508526">DOI</a><br>→ OR=1,26 (1,07–1,47, p=0,005). NHIS 2021–2022, n=57 088.</div>
+<div class="si" data-n="11."><strong>Shankar R et al.</strong> Real-world evidence of epidemiology, patient characteristics, and mortality in people with drug-resistant epilepsy in the United Kingdom, 2011–2021. <span class="j">J Neurol. 2024;271(5):2473–2483.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38240828/">PMID 38240828</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11055725/">PMC</a><br>→ n=34 647 DRE, UK-CPRD. Śmiertelność około 4× wyższa niż populacja ogólna.</div>
+<div class="si" data-n="12."><strong>Faulcon LM et al.</strong> Adverse experience reports of seizures in youth and young adult electronic nicotine delivery systems users. <span class="j">J Adolesc Health. 2020;66(1):15–17.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/31866055/">PMID 31866055</a><br>→ 122 zgłoszenia napadów po e-papierosach z FDA FAERS; 62% w ciągu 30 min od użycia.</div>
+<div class="si" data-n="13."><strong>Czuczwar SJ et al.</strong> Nicotine diminishes anticonvulsant activity of antiepileptic drugs in mice. <span class="j">Pol J Pharmacol. 2003;55(5):799–802.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/14704477/">PMID 14704477</a><br>→ Subkonwulsyjne dawki nikotyny zmniejszyły ochronne działanie 6 leków AED w modelu elektrowstrząsowym.</div>
+<div class="si" data-n="14."><strong>Reinsberger C et al.</strong> Smoking reduces serum levels of lamotrigine. <span class="j">Seizure. 2008;17(7):651–653.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/18583161/">PMID 18583161</a></div>
+<div class="si" data-n="15."><strong>Valavanidis A et al.</strong> Tobacco Smoke: Involvement of Reactive Oxygen Species and Stable Free Radicals in Mechanisms of Oxidative Damage, Carcinogenesis and Synergistic Effects with Other Respirable Particles. <span class="j">Int J Environ Res Public Health. 2009;6(2):445–462.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19440393/">PMID 19440393</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2672368/">PMC</a></div>
+<div class="si" data-n="16."><strong>Zhang L et al.</strong> Cigarette Smoking and Nocturnal Sleep Architecture. <span class="j">Am J Epidemiol. 2006;164(6):529–537.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/16829553/">PMID 16829553</a></div>
+<div class="si" data-n="17."><strong>Murgia F et al.</strong> Effects of smoking status, history and intensity on heart rate variability in the general population: The CHRIS study. <span class="j">PLoS One. 2019;14(4):e0215053.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30964923/">PMID 30964923</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6456196/">PMC</a></div>
+<div class="si" data-n="18."><strong>FDA Drug Safety Communication.</strong> Chantix label updated to include rare risk of seizures and potential alcohol interaction. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-updates-label-stop-smoking-drug-chantix-varenicline-include">link</a></div>
+<div class="si" data-n="19."><strong>Pfizer CHANTIX Prescribing Information.</strong> Current prescribing information. <a href="https://labeling.pfizer.com/showlabeling.aspx?id=557">link</a></div>
+<div class="si" data-n="20."><strong>Kim D et al.</strong> The risk of varenicline-induced seizure among those who have attempted to quit smoking using pharmacotherapy. <span class="j">Epilepsy Behav. 2019.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/31252274/">PMID 31252274</a></div>
+<div class="si" data-n="21."><strong>Fox CK et al.</strong> A targeted therapy for epilepsy due to nAChR gene variants. <span class="j">J Child Neurol. 2021.</span> <a href="https://pubmed.ncbi.nlm.nih.gov/33284031/">PMID 33284031</a></div>
+<div class="si" data-n="22."><strong>Wellbutrin XL Prescribing Information.</strong> Seizure disorder listed as a contraindication. <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/018644s052lbl.pdf">link</a></div>
 </div>
 
-<footer>Wygenerowano marzec 2026 · v4 · Wymaga weryfikacji neurologicznej · <a href="https://ggrabarz.github.io/cigarettes-nicotine-smoke-vs-epilepsy/?nocache=20260314031417#leki">↑ Powrót</a></footer>
+<footer>Wygenerowano marzec 2026 · v5 · Przeredagowano od nowa na bazie live v4 po cache-bust, z zachowaniem linków inline i gęstych danych źródłowych · <a href="https://ggrabarz.github.io/cigarettes-nicotine-smoke-vs-epilepsy/#leki">↑ Powrót</a></footer>
 </div>
 
 </body></html>
